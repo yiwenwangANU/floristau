@@ -10,10 +10,10 @@ import {
 
 export function Footer() {
   return (
-    <footer className="bg-muted mt-auto">
+    <footer className="bg-muted mt-auto w-full">
       <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
+        <div className="flex flex-row justify-between gap-8">
+          <div className="flex-1">
             <h3 className="text-lg font-semibold mb-4">About FloristAU</h3>
             <p className="text-sm text-muted-foreground mb-4">
               Your trusted Australian florist delivering fresh flowers and
@@ -41,7 +41,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div>
+          <div className="flex-1">
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
@@ -79,7 +79,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className="flex-1">
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <ul className="space-y-2">
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -92,7 +92,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4 mt-0.5" />
-                <span>Sydney, Melbourne, Brisbane, Perth, Adelaide</span>
+                <span>Sydney, Canberra</span>
               </li>
             </ul>
           </div>
@@ -109,20 +109,6 @@ export function Footer() {
               Terms of Service
             </Link>
           </p>
-          <div className="mt-4 flex justify-center gap-4">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/payment/visa.png" alt="Visa" className="h-8" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/payment/mastercard.png"
-              alt="Mastercard"
-              className="h-8"
-            />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/payment/paypal.png" alt="PayPal" className="h-8" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/payment/stripe.png" alt="Stripe" className="h-8" />
-          </div>
         </div>
       </div>
     </footer>
