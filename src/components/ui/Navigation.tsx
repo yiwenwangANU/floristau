@@ -7,44 +7,25 @@ import Link from "next/link";
 const Navigation = () => {
   return (
     <NavigationMenu.Root className="relative z-10 flex w-screen justify-center">
-      <NavigationMenu.List className="center m-0 flex list-none rounded-md bg-white p-1 shadow-[0_2px_10px] shadow-blackA4">
+      <NavigationMenu.List className="flex gap-10 rounded-md p-1">
         <NavigationMenu.Item>
-          <NavigationMenu.Trigger className="group flex select-none items-center justify-between gap-0.5 rounded px-3 py-2 text-[15px] font-medium leading-none text-violet11 outline-none hover:bg-violet3 focus:shadow-[0_0_0_2px] focus:shadow-violet7">
-            Learn{" "}
+          <NavigationMenu.Link
+            className="block select-none rounded px-3 py-2 text-[15px] font-medium leading-none no-underline outline-none focus:shadow-[0_0_0_2px]"
+            href="https://github.com/radix-ui"
+          >
+            Flowers
+          </NavigationMenu.Link>
+        </NavigationMenu.Item>
+        <NavigationMenu.Item>
+          <NavigationMenu.Trigger className="group flex select-none items-center justify-between gap-0.5 rounded px-3 py-2 text-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px]">
+            Occasions
             <CaretDownIcon
               className="relative top-px text-violet10 transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
               aria-hidden
             />
           </NavigationMenu.Trigger>
           <NavigationMenu.Content className="absolute left-0 top-0 w-full data-[motion=from-end]:animate-enterFromRight data-[motion=from-start]:animate-enterFromLeft data-[motion=to-end]:animate-exitToRight data-[motion=to-start]:animate-exitToLeft sm:w-auto">
-            <ul className="one m-0 grid list-none gap-x-2.5 p-[22px] sm:w-[500px] sm:grid-cols-[0.75fr_1fr]">
-              <li className="row-span-3 grid">
-                <NavigationMenu.Link asChild>
-                  <Link
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-purple9 to-indigo9 p-[25px] no-underline outline-none focus:shadow-[0_0_0_2px] focus:shadow-violet7"
-                    href="/"
-                  >
-                    <svg
-                      aria-hidden
-                      width="38"
-                      height="38"
-                      viewBox="0 0 25 25"
-                      fill="white"
-                    >
-                      <path d="M12 25C7.58173 25 4 21.4183 4 17C4 12.5817 7.58173 9 12 9V25Z"></path>
-                      <path d="M12 0H4V8H12V0Z"></path>
-                      <path d="M17 8C19.2091 8 21 6.20914 21 4C21 1.79086 19.2091 0 17 0C14.7909 0 13 1.79086 13 4C13 6.20914 14.7909 8 17 8Z"></path>
-                    </svg>
-                    <div className="mb-[7px] mt-4 text-[18px] font-medium leading-[1.2] text-white">
-                      Radix Primitives
-                    </div>
-                    <p className="text-[14px] leading-[1.3] text-mauve4">
-                      Unstyled, accessible components for React.
-                    </p>
-                  </Link>
-                </NavigationMenu.Link>
-              </li>
-
+            <ul className="one m-0 grid list-none gap-x-2.5 p-[22px] sm:w-[500px] sm:grid-cols-[0.75fr_1fr] bg-accent">
               <ListItem href="https://stitches.dev/" title="Stitches">
                 CSS-in-JS with best-in-class developer experience.
               </ListItem>
@@ -67,7 +48,7 @@ const Navigation = () => {
             />
           </NavigationMenu.Trigger>
           <NavigationMenu.Content className="absolute left-0 top-0 w-full sm:w-auto">
-            <ul className="m-0 grid list-none gap-x-2.5 p-[22px] sm:w-[600px] sm:grid-flow-col sm:grid-rows-3">
+            <ul className="m-0 grid list-none gap-x-2.5 p-[22px] sm:grid-flow-col sm:grid-rows-3 bg-accent">
               <ListItem
                 title="Introduction"
                 href="/primitives/docs/overview/introduction"

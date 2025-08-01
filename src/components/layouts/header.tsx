@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
-import Navigation from "../ui/NavigationMenu";
+import Navigation from "../ui/Navigation";
 
 const Header = () => {
   return (
