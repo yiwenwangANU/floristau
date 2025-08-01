@@ -12,7 +12,7 @@ export function Footer() {
   return (
     <footer className="bg-muted mt-auto">
       <div className="container pb-3 pt-10">
-        <div className="flex flex-row justify-between gap-8">
+        <div className="flex justify-between gap-8 flex-col items-start sm:flex-row sm:items-center">
           <div className="flex-1">
             <h3 className="text-lg font-semibold mb-4">About FloristAU</h3>
             <p className="text-sm text-muted-foreground mb-4">
