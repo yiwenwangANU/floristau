@@ -10,8 +10,8 @@ import {
 
 export function Footer() {
   return (
-    <footer className="bg-muted mt-auto w-full">
-      <div className="container py-12">
+    <footer className="bg-muted mt-auto">
+      <div className="container pb-3 pt-10">
         <div className="flex flex-row justify-between gap-8">
           <div className="flex-1">
             <h3 className="text-lg font-semibold mb-4">About FloristAU</h3>
@@ -43,7 +43,7 @@ export function Footer() {
 
           <div className="flex-1">
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               <li>
                 <Link
                   href="/about"
@@ -68,14 +68,6 @@ export function Footer() {
                   Flower Care Guide
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/corporate"
-                  className="text-sm text-muted-foreground hover:text-primary"
-                >
-                  Corporate Services
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -98,7 +90,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t text-center">
+        <div className="mt-8 pt-3 border-t text-center">
           <p className="text-sm text-muted-foreground">
             © 2025 FloristAU. All rights reserved. |
             <Link href="/privacy" className="ml-1 hover:text-primary">
