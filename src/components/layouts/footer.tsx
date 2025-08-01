@@ -8,7 +8,7 @@ import {
   MapPin,
 } from "lucide-react";
 
-export function Footer() {
+const Footer = () => {
   return (
     <footer className="bg-muted mt-auto">
       <div className="container pb-3 pt-10">
@@ -105,4 +105,6 @@ export function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;
