@@ -11,12 +11,17 @@ const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
     <li>
       <NavigationMenu.Link asChild>
         <a
-          className={classNames("ListItemLink", className)}
+          className={classNames(
+            "block select-none rounded-md p-3 text-[15px] leading-none no-underline outline-none transition-colors hover:bg-mauve3 focus:shadow-[0_0_0_2px] focus:shadow-violet7",
+            className
+          )}
           {...props}
           ref={forwardedRef}
         >
-          <div className="ListItemHeading">{title}</div>
-          <p className="ListItemText">{children}</p>
+          <div className="mb-[5px] font-medium leading-[1.2] text-violet12">
+            {title}
+          </div>
+          <p className="leading-[1.4] text-mauve11">{children}</p>
         </a>
       </NavigationMenu.Link>
     </li>
