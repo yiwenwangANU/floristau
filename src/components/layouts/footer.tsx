@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="container pb-3 pt-10">
         <div className="flex justify-between gap-8 flex-col items-start sm:flex-row sm:items-center">
           <div className="flex-1">
-            <h3 className="text-lg font-semibold mb-4">About FloristAU</h3>
+            <h3 className="text-lg font-medium mb-4">About FloristAU</h3>
             <p className="text-sm text-secondary-foreground mb-4">
               Your trusted Australian florist delivering fresh flowers and
               beautiful arrangements nationwide.
@@ -42,7 +42,7 @@ const Footer = () => {
           </div>
 
           <div className="flex-1">
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-medium mb-4">Quick Links</h3>
             <ul className="space-y-1">
               <li>
                 <Link
@@ -72,7 +72,7 @@ const Footer = () => {
           </div>
 
           <div className="flex-1">
-            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
+            <h3 className="text-lg font-medium mb-4">Contact Info</h3>
             <ul className="space-y-2">
               <li className="flex items-center gap-2 text-sm text-secondary-foreground">
                 <Phone className="h-4 w-4" />

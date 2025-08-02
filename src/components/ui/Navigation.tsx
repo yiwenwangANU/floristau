@@ -83,7 +83,7 @@ const Navigation = () => {
           <NavigationMenu.Content className="absolute left-0 top-0 w-full data-[motion=from-end]:animate-enterFromRight data-[motion=from-start]:animate-enterFromLeft data-[motion=to-end]:animate-exitToRight data-[motion=to-start]:animate-exitToLeft sm:w-auto">
             <ul className="one m-0 grid list-none gap-x-2.5 p-[22px] sm:w-[100vh] sm:grid-cols-[1fr_1fr_1fr] bg-secondary">
               <ListItem href="https://stitches.dev/" title="Red">
-                {}
+                Beautiful, thought-out palettes with auto dark mode.
               </ListItem>
               <ListItem href="/colors" title="Pink">
                 Beautiful, thought-out palettes with auto dark mode.
