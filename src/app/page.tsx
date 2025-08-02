@@ -1,5 +1,6 @@
 import Footer from "@/components/layouts/footer";
 import Header from "@/components/layouts/header";
+import Card from "@/components/ui/Card";
 import Image from "next/image";
 export default function Home() {
   return (
@@ -13,6 +14,12 @@ export default function Home() {
           height={400}
           className="w-full h-auto"
         />
+        <div className="flex flex-row gap-2">
+          <Card title="Red Flowers" price="$19.99" image="/1.jpg" />
+          <Card title="Red Flowers" price="$19.99" image="/1.jpg" />
+          <Card title="Red Flowers" price="$19.99" image="/1.jpg" />
+          <Card title="Red Flowers" price="$19.99" image="/1.jpg" />
+        </div>
       </main>
       <Footer />
     </div>
