@@ -10,31 +10,31 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-muted mt-auto">
+    <footer className="bg-secondary mt-auto">
       <div className="container pb-3 pt-10">
         <div className="flex justify-between gap-8 flex-col items-start sm:flex-row sm:items-center">
           <div className="flex-1">
             <h3 className="text-lg font-semibold mb-4">About FloristAU</h3>
-            <p className="text-sm text-muted-foreground mb-4">
+            <p className="text-sm text-secondary-foreground mb-4">
               Your trusted Australian florist delivering fresh flowers and
               beautiful arrangements nationwide.
             </p>
             <div className="flex gap-4">
               <Link
                 href="#"
-                className="text-muted-foreground hover:text-primary"
+                className="text-secondary-foreground hover:text-primary"
               >
                 <Facebook className="h-5 w-5" />
               </Link>
               <Link
                 href="#"
-                className="text-muted-foreground hover:text-primary"
+                className="text-secondary-foreground hover:text-primary"
               >
                 <Instagram className="h-5 w-5" />
               </Link>
               <Link
                 href="#"
-                className="text-muted-foreground hover:text-primary"
+                className="text-secondary-foreground hover:text-primary"
               >
                 <Twitter className="h-5 w-5" />
               </Link>
@@ -47,7 +47,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/about"
-                  className="text-sm text-muted-foreground hover:text-primary"
+                  className="text-sm text-secondary-foreground hover:text-primary"
                 >
                   About Us
                 </Link>
@@ -55,7 +55,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/delivery"
-                  className="text-sm text-muted-foreground hover:text-primary"
+                  className="text-sm text-secondary-foreground hover:text-primary"
                 >
                   Delivery Information
                 </Link>
@@ -63,7 +63,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/care-guide"
-                  className="text-sm text-muted-foreground hover:text-primary"
+                  className="text-sm text-secondary-foreground hover:text-primary"
                 >
                   Flower Care Guide
                 </Link>
@@ -74,15 +74,15 @@ const Footer = () => {
           <div className="flex-1">
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <ul className="space-y-2">
-              <li className="flex items-center gap-2 text-sm text-muted-foreground">
+              <li className="flex items-center gap-2 text-sm text-secondary-foreground">
                 <Phone className="h-4 w-4" />
                 <span>1300 FLOWERS</span>
               </li>
-              <li className="flex items-center gap-2 text-sm text-muted-foreground">
+              <li className="flex items-center gap-2 text-sm text-secondary-foreground">
                 <Mail className="h-4 w-4" />
                 <span>hello@floristau.com.au</span>
               </li>
-              <li className="flex items-start gap-2 text-sm text-muted-foreground">
+              <li className="flex items-start gap-2 text-sm text-secondary-foreground">
                 <MapPin className="h-4 w-4 mt-0.5" />
                 <span>Sydney, Canberra</span>
               </li>
@@ -91,7 +91,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 pt-3 border-t text-center">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-secondary-foreground">
             © 2025 FloristAU. All rights reserved. |
             <Link href="/privacy" className="ml-1 hover:text-primary">
               Privacy Policy

@@ -15,13 +15,14 @@
   --color-primary: hsl(142 57% 25%);
   --color-primary-foreground: hsl(0 0% 98%);
 
-  --color-secondary: hsl(0 14% 94%);
+  --color-secondary: hsl(0 14% 96.1%);
   --color-secondary-foreground: hsl(0 0% 45.1%);
+  --color-secondary-hover: hsl(0 14% 94.2%);
 
   --color-destructive: hsl(0 84.2% 60.2%);
   --color-destructive-foreground: hsl(0 0% 98%);
 
-  --color-muted: hsl(0 0% 96.1%);
+  --color-muted: hsl(0 0% 94%);
   --color-muted-foreground: hsl(0 0% 45.1%);
 
   --color-accent: hsl(47 85% 60%);

@@ -2,37 +2,70 @@ import * as React from "react";
 import { NavigationMenu } from "radix-ui";
 import { CaretDownIcon } from "@radix-ui/react-icons";
 import ListItem from "./ListItem";
-import Link from "next/link";
 
 const Navigation = () => {
   return (
     <NavigationMenu.Root className="relative z-10 flex w-screen justify-center">
-      <NavigationMenu.List className="flex gap-10 rounded-md p-1">
+      <NavigationMenu.List className="flex rounded-md p-1 gap-1">
         <NavigationMenu.Item>
           <NavigationMenu.Link
-            className="block select-none rounded px-3 py-2 text-[15px] font-medium leading-none no-underline outline-none focus:shadow-[0_0_0_2px]"
+            className="px-20 py-4 block select-none rounded text-[15px] font-medium leading-none text-violet11 no-underline outline-none hover:bg-secondary-hover focus:shadow-[0_0_0_2px] focus:shadow-violet7"
             href="https://github.com/radix-ui"
           >
             Flowers
           </NavigationMenu.Link>
         </NavigationMenu.Item>
+
         <NavigationMenu.Item>
-          <NavigationMenu.Trigger className="group flex select-none items-center justify-between gap-0.5 rounded px-3 py-2 text-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px]">
+          <NavigationMenu.Trigger className="px-20 py-4 group flex select-none items-center justify-between gap-0.5 rounded text-[15px] font-medium leading-none outline-none hover:bg-secondary-hover focus:shadow-[0_0_0_2px]">
             Occasions
             <CaretDownIcon
-              className="relative top-px text-violet10 transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
+              className="relative top-px transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
               aria-hidden
             />
           </NavigationMenu.Trigger>
           <NavigationMenu.Content className="absolute left-0 top-0 w-full data-[motion=from-end]:animate-enterFromRight data-[motion=from-start]:animate-enterFromLeft data-[motion=to-end]:animate-exitToRight data-[motion=to-start]:animate-exitToLeft sm:w-auto">
-            <ul className="one m-0 grid list-none gap-x-2.5 p-[22px] sm:w-[500px] sm:grid-cols-[0.75fr_1fr] bg-accent">
-              <ListItem href="https://stitches.dev/" title="Stitches">
+            <ul className="one m-0 grid list-none gap-x-2.5 p-[20px] sm:w-[100vh] sm:grid-cols-[1fr_1fr_1fr] bg-secondary ">
+              <ListItem
+                href="https://stitches.dev/"
+                title="Wedding"
+                className="hover:bg-secondary-hover"
+              >
                 CSS-in-JS with best-in-class developer experience.
               </ListItem>
-              <ListItem href="/colors" title="Colors">
+              <ListItem
+                href="/colors"
+                title="Birthday"
+                className="hover:bg-secondary-hover"
+              >
                 Beautiful, thought-out palettes with auto dark mode.
               </ListItem>
-              <ListItem href="https://icons.radix-ui.com/" title="Icons">
+              <ListItem
+                href="https://icons.radix-ui.com/"
+                title="Thank You"
+                className="hover:bg-secondary-hover"
+              >
+                A crisp set of 15x15 icons, balanced and consistent.
+              </ListItem>
+              <ListItem
+                href="https://icons.radix-ui.com/"
+                title="Get Well"
+                className="hover:bg-secondary-hover"
+              >
+                A crisp set of 15x15 icons, balanced and consistent.
+              </ListItem>
+              <ListItem
+                href="https://icons.radix-ui.com/"
+                title="Funeral"
+                className="hover:bg-secondary-hover"
+              >
+                A crisp set of 15x15 icons, balanced and consistent.
+              </ListItem>
+              <ListItem
+                href="https://icons.radix-ui.com/"
+                title="New Baby"
+                className="hover:bg-secondary-hover"
+              >
                 A crisp set of 15x15 icons, balanced and consistent.
               </ListItem>
             </ul>
@@ -40,48 +73,32 @@ const Navigation = () => {
         </NavigationMenu.Item>
 
         <NavigationMenu.Item>
-          <NavigationMenu.Trigger className="group flex select-none items-center justify-between gap-0.5 rounded px-3 py-2 text-[15px] font-medium leading-none text-violet11 outline-none hover:bg-violet3 focus:shadow-[0_0_0_2px] focus:shadow-violet7">
-            Overview{" "}
+          <NavigationMenu.Trigger className="px-20 py-4 group flex select-none items-center justify-between gap-0.5 rounded text-[15px] font-medium leading-none outline-none hover:bg-secondary-hover focus:shadow-[0_0_0_2px]">
+            Color
             <CaretDownIcon
-              className="relative top-px text-violet10 transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
+              className="relative top-px transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
               aria-hidden
             />
           </NavigationMenu.Trigger>
-          <NavigationMenu.Content className="absolute left-0 top-0 w-full sm:w-auto">
-            <ul className="m-0 grid list-none gap-x-2.5 p-[22px] sm:grid-flow-col sm:grid-rows-3 bg-accent">
-              <ListItem
-                title="Introduction"
-                href="/primitives/docs/overview/introduction"
-              >
-                Build high-quality, accessible design systems and web apps.
+          <NavigationMenu.Content className="absolute left-0 top-0 w-full data-[motion=from-end]:animate-enterFromRight data-[motion=from-start]:animate-enterFromLeft data-[motion=to-end]:animate-exitToRight data-[motion=to-start]:animate-exitToLeft sm:w-auto">
+            <ul className="one m-0 grid list-none gap-x-2.5 p-[22px] sm:w-[100vh] sm:grid-cols-[1fr_1fr_1fr] bg-secondary">
+              <ListItem href="https://stitches.dev/" title="Red">
+                {}
               </ListItem>
-              <ListItem
-                title="Getting started"
-                href="/primitives/docs/overview/getting-started"
-              >
-                A quick tutorial to get you up and running with Radix
-                Primitives.
+              <ListItem href="/colors" title="Pink">
+                Beautiful, thought-out palettes with auto dark mode.
               </ListItem>
-              <ListItem title="Styling" href="/primitives/docs/guides/styling">
-                Unstyled and compatible with any styling solution.
+              <ListItem href="https://icons.radix-ui.com/" title="Green">
+                A crisp set of 15x15 icons, balanced and consistent.
               </ListItem>
-              <ListItem
-                title="Animation"
-                href="/primitives/docs/guides/animation"
-              >
-                Use CSS keyframes or any animation library of your choice.
+              <ListItem href="https://icons.radix-ui.com/" title="White">
+                A crisp set of 15x15 icons, balanced and consistent.
               </ListItem>
-              <ListItem
-                title="Accessibility"
-                href="/primitives/docs/overview/accessibility"
-              >
-                Tested in a range of browsers and assistive technologies.
+              <ListItem href="https://icons.radix-ui.com/" title="Purple">
+                A crisp set of 15x15 icons, balanced and consistent.
               </ListItem>
-              <ListItem
-                title="Releases"
-                href="/primitives/docs/overview/releases"
-              >
-                Radix Primitives releases and their changelogs.
+              <ListItem href="https://icons.radix-ui.com/" title="Mixed Colors">
+                A crisp set of 15x15 icons, balanced and consistent.
               </ListItem>
             </ul>
           </NavigationMenu.Content>
@@ -89,10 +106,10 @@ const Navigation = () => {
 
         <NavigationMenu.Item>
           <NavigationMenu.Link
-            className="block select-none rounded px-3 py-2 text-[15px] font-medium leading-none text-violet11 no-underline outline-none hover:bg-violet3 focus:shadow-[0_0_0_2px] focus:shadow-violet7"
+            className="px-20 py-4 block select-none rounded text-[15px] font-medium leading-none text-violet11 no-underline outline-none hover:bg-secondary-hover focus:shadow-[0_0_0_2px] focus:shadow-violet7"
             href="https://github.com/radix-ui"
           >
-            Github
+            Plants
           </NavigationMenu.Link>
         </NavigationMenu.Item>
 
