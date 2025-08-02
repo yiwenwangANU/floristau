@@ -12,14 +12,14 @@ const Card = ({ title, price, image, discount }: CardProps) => {
   return (
     <div className="border rounded-md overflow-hidden">
       <Image src={image} alt={title} width={300} height={200} />
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between items-center">
         <div className="p-4">
           <h3 className="text-lg font-semibold">{title}</h3>
           <p className="text-gray-600">{price}</p>
           {discount && <p className="text-red-500">{discount}</p>}
         </div>
-        <Button variant="secondary" className="h-full">
-          Add to Cart
+        <Button variant="secondary" className="m-4">
+          Shop Now
         </Button>
       </div>
     </div>

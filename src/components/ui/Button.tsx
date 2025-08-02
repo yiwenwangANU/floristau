@@ -19,7 +19,7 @@ const Button: FC<ButtonProps> = ({
   className,
   ...props
 }) => {
-  const baseStyles = "px-4 py-3 font-semibold rounded-lg  cursor-pointer";
+  const baseStyles = "px-4 py-3 font-medium rounded-lg  cursor-pointer";
   let variantStyles;
   switch (variant) {
     case "primary":
@@ -27,8 +27,7 @@ const Button: FC<ButtonProps> = ({
         "py-3 bg-background text-foreground rounded hover:bg-yellow-600";
       break;
     case "secondary":
-      variantStyles =
-        "py-3 bg-secondary text-secondary-foreground rounded-full hover:bg-secondary-hover";
+      variantStyles = "py-3 bg-secondary rounded-full hover:bg-secondary-hover";
       break;
     case "login":
       variantStyles =
