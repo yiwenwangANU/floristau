@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "./Button";
 
 type CardWithWordsProps = {
@@ -34,7 +35,13 @@ const CardWithWords = ({
           </Button>
         </div>
       </div>
-      <img src={image} alt={title} />
+      <Image
+        src={image}
+        alt={title}
+        width={500}
+        height={500}
+        className="object-cover"
+      />
     </div>
   );
 };
