@@ -10,9 +10,15 @@ type CardProps = {
 
 const Card = ({ title, price, image, discount }: CardProps) => {
   return (
-    <div className="group border rounded-md overflow-hidden hover:cursor-pointer ">
+    <div className="group border rounded-md overflow-hidden hover:cursor-pointer lg:w-[23%] md:w-[30%] sm:w-[45%]">
       <div className="relative">
-        <Image src={image} alt={title} width={300} height={200} />
+        <Image
+          src={image}
+          alt={title}
+          width={500}
+          height={500}
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition duration-200"></div>
       </div>
       <div className="flex flex-row justify-between items-center">
@@ -21,7 +27,7 @@ const Card = ({ title, price, image, discount }: CardProps) => {
           <p className="text-gray-600">{price}</p>
           {discount && <p className="text-red-500">{discount}</p>}
         </div>
-        <Button variant="secondary" className="m-4">
+        <Button variant="secondary" className="m-4 hidden sm:block">
           Shop Now
         </Button>
       </div>

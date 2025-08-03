@@ -15,7 +15,7 @@ const colorMap: Record<string, string> = {
   green: "bg-green-800",
   yellow: "bg-yellow-800",
   purple: "bg-purple-800",
-  pink: "bg-pink-800",
+  pink: "bg-pink-700",
 };
 
 const CardWithWords = ({
@@ -25,7 +25,7 @@ const CardWithWords = ({
   color,
 }: CardWithWordsProps) => {
   return (
-    <div className="border rounded-md overflow-hidden grid grid-cols-[.75fr_1fr] w-full max-w-xl">
+    <div className="border rounded-md overflow-hidden grid grid-cols-[.75fr_1fr]  w-full max-w-xl">
       <div className={`${colorMap[color]} min-w-0`}>
         <div className="p-4 flex flex-col justify-between h-full">
           <h3 className={`pt-6 text-4xl font-semibold text-white`}>{title}</h3>
