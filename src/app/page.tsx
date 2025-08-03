@@ -21,29 +21,28 @@ export default function Home() {
           <Card title="Red Flowers" price="$19.99" image="/1.jpg" />
           <Card title="Red Flowers" price="$19.99" image="/1.jpg" />
         </div>
-        <div>Choose your Flowers by occasions</div>
+        <div className="text-4xl font-medium my-4">
+          Choose your Flowers by occasions
+        </div>
 
         <div className="flex flex-row gap-2">
           <CardWithWords
             title="Birthday"
             content="Striking patterns, vibrant hues, and unusual designs."
             image="/2.jpg"
-            color="blue"
-            textColor="white"
+            color="pink"
           />
           <CardWithWords
-            title="Birthday"
+            title="Sympathy"
             content="Striking patterns, vibrant hues, and unusual designs."
-            image="/2.jpg"
-            color="red"
-            textColor="white"
+            image="/3.jpg"
+            color="yellow"
           />
           <CardWithWords
-            title="Birthday"
+            title="Newborn"
             content="Striking patterns, vibrant hues, and unusual designs."
-            image="/2.jpg"
+            image="/4.jpg"
             color="green"
-            textColor="white"
           />
         </div>
       </main>
