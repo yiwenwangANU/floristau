@@ -2,6 +2,7 @@ import Footer from "@/components/layouts/footer";
 import Header from "@/components/layouts/header";
 import Card from "@/components/ui/Card";
 import CardWithWords from "@/components/ui/CardWithWords";
+import CardWithWordsSec from "@/components/ui/CardWithWordsSec";
 import Image from "next/image";
 export default function Home() {
   return (
@@ -29,7 +30,7 @@ export default function Home() {
           <CardWithWords
             title="Birthday"
             content="Striking patterns, vibrant hues, and unusual designs."
-            image="/2.jpg"
+            image="/5.jpg"
             color="pink"
           />
           <CardWithWords
@@ -44,6 +45,11 @@ export default function Home() {
             image="/4.jpg"
             color="green"
           />
+        </div>
+        <div className="flex flex-row gap-2">
+          <CardWithWordsSec title="Red" image="/2.jpg" color="red" />
+          <CardWithWordsSec title="Green" image="/3.jpg" color="green" />
+          <CardWithWordsSec title="White" image="/4.jpg" color="gray" />
         </div>
       </main>
       <Footer />
