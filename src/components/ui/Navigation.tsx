@@ -5,7 +5,7 @@ import ListItem from "./ListItem";
 
 const Navigation = () => {
   return (
-    <NavigationMenu.Root className="relative z-10 flex w-screen justify-center">
+    <NavigationMenu.Root className="relative z-[9999] flex w-screen justify-center">
       <NavigationMenu.List className="flex rounded-md p-1 gap-1">
         <NavigationMenu.Item>
           <NavigationMenu.Link

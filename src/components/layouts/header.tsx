@@ -5,7 +5,7 @@ import Navigation from "../ui/Navigation";
 
 const Header = () => {
   return (
-    <header className="fixed bg-secondary px-4 flex flex-row items-center justify-between">
+    <header className="fixed bg-secondary px-4 flex flex-row items-center justify-between z-50">
       <Link href="/">
         <Image src="/next.svg" alt="Logo" width={100} height={100} />
       </Link>
