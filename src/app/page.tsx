@@ -16,20 +16,20 @@ export default function Home() {
           height={500}
           className="w-full h-auto"
         />
-        <div className="text-4xl pt-20 pb-2 px-8 font-sans font-medium">
+        <div className="text-2xl sm:text-4xl pt-20 pb-2 px-1 sm:px-8 font-sans font-medium">
           Our Best Selling Flowers
         </div>
-        <div className="flex flex-row flex-wrap gap-8 py-5 px-8 items-center">
+        <div className="flex flex-row flex-wrap gap-8 py-5 px-1 sm:px-8 items-center">
           <Card title="Red Flowers" price="$19.99" image="/1.jpg" />
           <Card title="Red Flowers" price="$19.99" image="/1.jpg" />
           <Card title="Red Flowers" price="$19.99" image="/1.jpg" />
           <Card title="Red Flowers" price="$19.99" image="/1.jpg" />
         </div>
-        <div className="text-4xl font-medium my-4">
-          Choose your Flowers by occasions
+        <div className="text-2xl sm:text-4xl pt-20 pb-2 px-1 sm:px-8 font-sans font-medium">
+          Choose your Flowers by Occasions
         </div>
 
-        <div className="flex flex-row flex-wrap gap-2">
+        <div className="flex flex-row flex-wrap gap-2 py-5 px-1 sm:px-8 items-center">
           <CardWithWords
             title="Birthday"
             content="Striking patterns, vibrant hues, and unusual designs."
@@ -49,7 +49,7 @@ export default function Home() {
             color="green"
           />
         </div>
-        <div className="flex flex-row flex-wrap gap-2">
+        <div className="flex flex-row flex-wrap gap-2 px-1 sm:px-8">
           <CardWithWordsSec title="Red" image="/2.jpg" color="red" />
           <CardWithWordsSec title="Green" image="/3.jpg" color="green" />
           <CardWithWordsSec title="White" image="/4.jpg" color="gray" />
