@@ -10,7 +10,7 @@ const Navigation = () => {
         <NavigationMenu.Item>
           <NavigationMenu.Link
             className="px-20 py-4 block select-none rounded text-[15px] font-medium leading-none text-violet11 no-underline outline-none hover:bg-secondary-hover focus:shadow-[0_0_0_2px] focus:shadow-violet7"
-            href="https://github.com/radix-ui"
+            href="/flowers"
           >
             Flowers
           </NavigationMenu.Link>

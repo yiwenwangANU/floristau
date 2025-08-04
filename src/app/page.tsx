@@ -49,7 +49,10 @@ export default function Home() {
             color="green"
           />
         </div>
-        <div className="flex flex-row flex-wrap gap-2 px-1 sm:px-8">
+        <div className="text-2xl sm:text-4xl pt-20 pb-2 px-1 sm:px-8 font-sans font-medium">
+          Choose your Flowers by Color
+        </div>
+        <div className="flex flex-row flex-wrap gap-2 px-1 sm:px-8 py-7">
           <CardWithWordsSec title="Red" image="/2.jpg" color="red" />
           <CardWithWordsSec title="Green" image="/3.jpg" color="green" />
           <CardWithWordsSec title="White" image="/4.jpg" color="gray" />
