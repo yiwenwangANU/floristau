@@ -1,5 +1,5 @@
-import { Theme } from "@radix-ui/themes";
 import "./globals.css";
+import { Providers } from "@/components/Providers";
 
 export const metadata = {
   title: "Next.js",
@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Theme>{children}</Theme>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

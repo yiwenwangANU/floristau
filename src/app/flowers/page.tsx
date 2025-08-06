@@ -1,3 +1,4 @@
+"use client";
 import useFlowers from "@/hooks/useGetFlowers";
 
 const Flowers = () => {
