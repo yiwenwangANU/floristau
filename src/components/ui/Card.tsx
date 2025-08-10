@@ -11,7 +11,7 @@ type CardProps = {
 const Card = ({ title, price, image, discount }: CardProps) => {
   return (
     <div className="group border rounded-md overflow-hidden hover:cursor-pointer lg:w-[23%] md:w-[30%] sm:w-[45%]">
-      <div className="relative">
+      <div className="relative aspect-square">
         <Image
           src={image}
           alt={title}
