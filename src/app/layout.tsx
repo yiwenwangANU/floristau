@@ -1,5 +1,7 @@
+import Header from "@/components/layouts/header";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
+import Footer from "@/components/layouts/footer";
 
 export const metadata = {
   title: "Next.js",
@@ -14,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Header />
         <Providers>{children}</Providers>
+        <Footer />
       </body>
     </html>
   );

@@ -1,5 +1,3 @@
-import Footer from "@/components/layouts/footer";
-import Header from "@/components/layouts/header";
 import Card from "@/components/ui/Card";
 import CardWithWords from "@/components/ui/CardWithWords";
 import CardWithWordsSec from "@/components/ui/CardWithWordsSec";
@@ -7,7 +5,6 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen w-full">
-      <Header />
       <main>
         <Image
           src="/MRxTAB_banner_web_v1_8ab0ef35-a22d-4804-9914-29996babacd1_1920x.jpg"
@@ -58,7 +55,6 @@ export default function Home() {
           <CardWithWordsSec title="White" image="/4.jpg" color="gray" />
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
