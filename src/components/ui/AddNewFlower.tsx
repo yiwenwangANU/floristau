@@ -7,30 +7,12 @@ import { useState } from "react";
 import MultiSelect from "./MultiSelect";
 import Button from "./Button";
 import Image from "next/image";
-
-type Inputs = {
-  name: string;
-  description: string;
-  imageFile?: FileList;
-  price: number;
-  productType: string;
-  occasion: string;
-  color: string;
-  flowers: number[];
-  isPopular: boolean;
-  discount: number;
-};
+import { NewFlower } from "@/libs/types/flowers";
 
 const AddNewFlower = () => {
   const [open, setOpen] = useState(false);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
-  const {
-    register,
-    handleSubmit,
-    control,
-    watch,
-    formState: { errors },
-  } = useForm<Inputs>({
+  const { register, handleSubmit, control, watch } = useForm<NewFlower>({
     defaultValues: {
       productType: "",
       color: "",
@@ -57,7 +39,7 @@ const AddNewFlower = () => {
       setImagePreview(imageUrl);
     }
   };
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const onSubmit: SubmitHandler<NewFlower> = (data) => {
     console.log(data);
     setOpen(false);
   };
@@ -133,7 +115,7 @@ const AddNewFlower = () => {
                 type="file"
                 {...register("imageFile")}
                 className="flex-1 border border-gray-300 rounded-lg w-full 
-                  focus:outline-none focus:ring-2 focus:ring-blue-500
+                  focus:outline-none focus:ring-2 focus:ring-violet-500
                 file:border-r-gray-300 file:border-r file:mr-5 file:py-1 file:px-3
                 file:bg-primary file:text-white file:font-bold
                   hover:file:cursor-pointer hover:file:bg-white

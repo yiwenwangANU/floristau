@@ -1,3 +1,27 @@
+export type NewFlower = {
+  name: string;
+  description: string;
+  imageFile?: FileList;
+  price: number;
+  productType: string;
+  occasion: string;
+  color: string;
+  flowers: number[];
+  isPopular: boolean;
+  discount: number;
+};
+export type CreateFlowerResponse = {
+  name: string;
+  description: string;
+  imageUrl: string;
+  price: number;
+  productType: string;
+  occasion: string;
+  color: string;
+  flowers: number[];
+  isPopular: boolean;
+  discount: number;
+};
 export type GetFlowersResponse = {
   id: number;
   name: string;
