@@ -2,8 +2,10 @@
 import { Plus } from "lucide-react";
 import { Dialog } from "radix-ui";
 import { Cross2Icon } from "@radix-ui/react-icons";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { useState } from "react";
+import MultiSelect from "./MultiSelect";
+import Button from "./Button";
 
 type Inputs = {
   name: string;
@@ -13,7 +15,9 @@ type Inputs = {
   productType: string;
   occasion: string;
   color: string;
-  discount?: number;
+  flowers: number[];
+  isPopular: boolean;
+  discount: number;
 };
 
 const AddNewFlower = () => {
@@ -21,8 +25,22 @@ const AddNewFlower = () => {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<Inputs>({
+    defaultValues: {
+      flowers: [],
+      isPopular: false,
+    },
+  });
+  const flowerOptions = [
+    { label: "Rose", value: 1 },
+    { label: "Tulip", value: 2 },
+    { label: "Lily", value: 3 },
+    { label: "Sunflower", value: 4 },
+    { label: "Orchid", value: 5 },
+  ];
+
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data);
     setOpen(false);
@@ -36,9 +54,9 @@ const AddNewFlower = () => {
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition duration-200"></div>
           </div>
           <div className="flex flex-row justify-between items-center">
-            <h3 className="pb-5 pt-8 text-lg font-semibold mx-auto">
+            <div className="pb-5 pt-8 text-xl font-semibold mx-auto">
               Create new Flower
-            </h3>
+            </div>
           </div>
         </div>
       </Dialog.Trigger>
@@ -54,56 +72,61 @@ const AddNewFlower = () => {
           <Dialog.Description className="mb-5 mt-2.5 text-[15px] leading-normal text-mauve11">
             Create your new flower here. Click save when you are done.
           </Dialog.Description>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <fieldset className="mb-[15px] flex items-center gap-5">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col gap-1"
+          >
+            <fieldset className="mb-[15px] flex items-center gap-5 pt-2">
               <label
-                className="w-[90px] text-right text-[15px] text-violet11"
+                className="w-[90px] text-right text-[15px] font-semibold"
                 htmlFor="name"
               >
                 Name
               </label>
               <input
-                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 outline-none focus:shadow-[0_0_0_2px] focus:shadow-violet8"
+                className="block h-[35px] w-full flex-1 rounded px-2.5 text-[15px] leading-none 
+                            border border-gray-300 focus:border-2 focus:border-violet-600"
                 id="name"
                 {...register("name", { required: true })}
               />
             </fieldset>
             <fieldset className="mb-[15px] flex items-center gap-5">
               <label
-                className="w-[90px] text-right text-[15px] text-violet11"
+                className="w-[90px] text-right text-[15px] font-semibold"
                 htmlFor="description"
               >
                 Description
               </label>
               <textarea
-                className="inline-flex pt-2 h-[100px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 outline-none focus:shadow-[0_0_0_2px] focus:shadow-violet8"
+                className="flex-1 block w-full h-24 rounded-md bg-white p-2 text-[15px] leading-normal
+                            border border-gray-300 focus:border-2 focus:border-violet-600"
                 id="description"
                 {...register("description", { required: true })}
               />
             </fieldset>
             <fieldset className="mb-[15px] flex items-center gap-5">
               <label
-                className="w-[90px] text-right text-[15px] text-violet11"
+                className="w-[90px] text-right text-[15px] font-semibold"
                 htmlFor="image"
               >
                 Image
               </label>
               <input
-                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 outline-none focus:shadow-[0_0_0_2px] focus:shadow-violet8"
+                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none ring-gray-300 focus:ring-2 focus:ring-violet-600"
                 id="image"
                 {...register("imageUrl", { required: true })}
               />
             </fieldset>
             <fieldset className="mb-[15px] flex items-center gap-5">
               <label
-                className="w-[90px] text-right text-[15px] text-violet11"
+                className="w-[90px] text-right text-[15px] font-semibold"
                 htmlFor="productType"
               >
                 Product Type
               </label>
               <select
                 id="productType"
-                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 outline-none focus:shadow-[0_0_0_2px] focus:shadow-violet8"
+                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] border border-gray-300 focus:border-2 focus:border-violet-600"
                 {...register("productType", { required: true })}
                 defaultValue=""
               >
@@ -117,14 +140,14 @@ const AddNewFlower = () => {
             </fieldset>
             <fieldset className="mb-[15px] flex items-center gap-5">
               <label
-                className="w-[90px] text-right text-[15px] text-violet11"
+                className="w-[90px] text-right text-[15px] font-semibold"
                 htmlFor="color"
               >
                 Color
               </label>
               <select
                 id="color"
-                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 outline-none focus:shadow-[0_0_0_2px] focus:shadow-violet8"
+                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none border border-gray-300 focus:border-2 focus:border-violet-600"
                 {...register("color", { required: true })}
                 defaultValue=""
               >
@@ -138,14 +161,14 @@ const AddNewFlower = () => {
             </fieldset>
             <fieldset className="mb-[15px] flex items-center gap-5">
               <label
-                className="w-[90px] text-right text-[15px] text-violet11"
+                className="w-[90px] text-right text-[15px] font-semibold"
                 htmlFor="occasion"
               >
                 Occasion
               </label>
               <select
                 id="occasion"
-                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 outline-none focus:shadow-[0_0_0_2px] focus:shadow-violet8"
+                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none border border-gray-300 focus:border-2 focus:border-violet-600"
                 {...register("occasion", { required: true })}
                 defaultValue=""
               >
@@ -157,15 +180,38 @@ const AddNewFlower = () => {
                 <option value="Sympathy">Sympathy</option>
               </select>
             </fieldset>
+            <fieldset className="mb-[15px] flex items-start gap-5">
+              <label className="w-[90px] text-right text-[15px] font-semibold pt-1">
+                Flowers
+              </label>
+              <div className="flex-1">
+                <Controller
+                  name="flowers"
+                  control={control}
+                  rules={{
+                    validate: (v) =>
+                      (v?.length ?? 0) > 0 || "Pick at least one",
+                  }}
+                  render={({ field }) => (
+                    <MultiSelect
+                      options={flowerOptions}
+                      value={field.value}
+                      onChange={field.onChange}
+                      placeholder="Select flowers…"
+                    />
+                  )}
+                />
+              </div>
+            </fieldset>
             <fieldset className="mb-[15px] flex items-center gap-5">
               <label
-                className="w-[90px] text-right text-[15px] text-violet11"
+                className="w-[90px] text-right text-[15px] font-semibold"
                 htmlFor="discount"
               >
                 Discount
               </label>
               <input
-                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 outline-none focus:shadow-[0_0_0_2px] focus:shadow-violet8"
+                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none border border-gray-300 focus:border-2 focus:border-violet-600"
                 id="discount"
                 defaultValue={0}
                 {...register("discount")}
@@ -173,17 +219,18 @@ const AddNewFlower = () => {
             </fieldset>
 
             <div className="mt-[25px] flex justify-end">
-              <button
+              <Button
+                variant="create"
                 type="submit"
-                className="inline-flex h-[35px] items-center justify-center rounded bg-green4 px-[15px] font-medium leading-none text-green11 outline-none outline-offset-1 hover:bg-green5 focus-visible:outline-2 focus-visible:outline-green6 select-none"
+                className="font-semibold h-12 inline-flex items-center justify-center rounded px-[15px]"
               >
                 Create Flower
-              </button>
+              </Button>
             </div>
           </form>
           <Dialog.Close asChild>
             <button
-              className="absolute right-2.5 top-2.5 inline-flex size-[25px] appearance-none items-center justify-center rounded-full text-violet11 bg-gray3 hover:bg-violet4 focus:shadow-[0_0_0_2px] focus:shadow-violet7 focus:outline-none"
+              className="absolute right-2.5 top-2.5 inline-flex size-[25px] appearance-none items-center justify-center rounded-full"
               aria-label="Close"
             >
               <Cross2Icon />

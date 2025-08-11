@@ -6,7 +6,7 @@ type ButtonProps = {
     | "secondary"
     | "login"
     | "signup"
-    | "getStart"
+    | "create"
     | "subscribe"
     | "subscribeMonthly"
     | "mealplan";
@@ -37,9 +37,9 @@ const Button: FC<ButtonProps> = ({
     case "signup":
       variantStyles = "text-white bg-emerald-500 hover:bg-emerald-600";
       break;
-    case "getStart":
+    case "create":
       variantStyles =
-        "text-emerald-500 bg-white text-lg px-5 hover:bg-gray-100";
+        "text-white bg-primary text-lg px-5 hover:bg-primary-hover";
       break;
     case "subscribe":
       variantStyles =
