@@ -6,6 +6,7 @@ import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { useState } from "react";
 import MultiSelect from "./MultiSelect";
 import Button from "./Button";
+import Image from "next/image";
 
 type Inputs = {
   name: string;
@@ -50,7 +51,7 @@ const AddNewFlower = () => {
     { label: "Orchid", value: 5 },
   ];
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files![0];
+    const file = event.target.files?.[0];
     if (file) {
       const imageUrl = URL.createObjectURL(file);
       setImagePreview(imageUrl);
@@ -149,10 +150,12 @@ const AddNewFlower = () => {
                   Preview
                 </label>
                 <div className="mt-2">
-                  <img
+                  <Image
                     src={imagePreview}
                     alt="Preview"
-                    className="flex-1 mt-2 w-20 h-20 rounded-lg border border-gray-300"
+                    width={80} // equivalent to w-20
+                    height={80} // equivalent to h-20
+                    className="flex-1 mt-2 rounded-lg border border-gray-300 object-cover"
                   />
                 </div>
               </fieldset>
