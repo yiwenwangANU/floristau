@@ -10,6 +10,18 @@ export type NewFlower = {
   isPopular: boolean;
   discount: number;
 };
+export type CreateFlowerDto = {
+  name: string;
+  description: string;
+  imageUrl: string;
+  price: number;
+  productType: string;
+  occasion: string;
+  color: string;
+  flowers: number[];
+  isPopular: boolean;
+  discount: number;
+};
 export type CreateFlowerResponse = {
   name: string;
   description: string;
