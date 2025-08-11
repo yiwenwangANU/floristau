@@ -5,7 +5,27 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 const useCreateFlower = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (Flower: NewFlower) => flowersApi.createFlower(Flower),
+    mutationFn: async (flower: NewFlower) => {
+      let imageUrl = "";
+      const file = flower.imageFile?.[0];
+      if (file) {
+        const up = await flowersApi.uploadImage(file);
+        imageUrl = up;
+      }
+      const payload = {
+        name: flower.name,
+        description: flower.description,
+        imageUrl,
+        price: flower.price,
+        productType: flower.productType,
+        occasion: flower.occasion,
+        color: flower.color,
+        flowers: flower.flowers,
+        isPopular: flower.isPopular,
+        discount: flower.discount ?? 0,
+      };
+      return flowersApi.createFlower({ ...payload, imageUrl });
+    },
     onSuccess: () => {
       // Invalidate and refetch
       queryClient.invalidateQueries({ queryKey: ["getFlowers"] });

@@ -18,10 +18,10 @@ export const flowersApi = {
     );
     return response.data[0]; // Assuming the API returns an array with one flower
   },
-  uploadImage: async (image: FileList): Promise<string> => {
+  uploadImage: async (image: File): Promise<string> => {
     const formData = new FormData();
     if (image) {
-      formData.append("image", image[0]);
+      formData.append("image", image);
     }
     const response = await axiosPublic.post<string>(
       "/api/File/uploadImage",
