@@ -67,7 +67,7 @@ export default function MultiSelect({
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="w-full rounded bg-white px-3 py-2 text-left border-gray-300 outline-none focus:border-2 focus:border-violet-600 flex items-center justify-between gap-2"
+        className="w-full rounded bg-white pl-3 pr-1 py-2 text-left border border-gray-300 focus:border-2 focus:border-violet-600 flex items-center justify-between gap-2"
         aria-haspopup="listbox"
         aria-expanded={open}
       >

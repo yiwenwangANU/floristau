@@ -26,13 +26,22 @@ const AddNewFlower = () => {
     register,
     handleSubmit,
     control,
+    watch,
     formState: { errors },
   } = useForm<Inputs>({
     defaultValues: {
+      productType: "",
+      color: "",
+      occasion: "",
       flowers: [],
       isPopular: false,
     },
   });
+  const productType = watch("productType");
+  const color = watch("color");
+  const occasion = watch("occasion");
+
+  console.log({ productType, color, occasion });
   const flowerOptions = [
     { label: "Rose", value: 1 },
     { label: "Tulip", value: 2 },
@@ -126,11 +135,13 @@ const AddNewFlower = () => {
               </label>
               <select
                 id="productType"
-                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] border border-gray-300 focus:border-2 focus:border-violet-600"
+                className={`inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] border border-gray-300 focus:border-2 focus:border-violet-600 ${
+                  productType == "" ? "text-gray-500" : "text-gray-900"
+                }`}
                 {...register("productType", { required: true })}
                 defaultValue=""
               >
-                <option value="" disabled>
+                <option value="" disabled hidden>
                   Select a type
                 </option>
                 <option value="Flower">Flower</option>
@@ -147,11 +158,13 @@ const AddNewFlower = () => {
               </label>
               <select
                 id="color"
-                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none border border-gray-300 focus:border-2 focus:border-violet-600"
+                className={`inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none border border-gray-300 focus:border-2 focus:border-violet-600 ${
+                  color == "" ? "text-gray-500" : "text-gray-900"
+                }`}
                 {...register("color", { required: true })}
                 defaultValue=""
               >
-                <option value="" disabled>
+                <option value="" disabled hidden>
                   Select a color
                 </option>
                 <option value="Red">Red</option>
@@ -168,11 +181,13 @@ const AddNewFlower = () => {
               </label>
               <select
                 id="occasion"
-                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none border border-gray-300 focus:border-2 focus:border-violet-600"
+                className={`inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none border border-gray-300 focus:border-2 focus:border-violet-600 ${
+                  occasion == "" ? "text-gray-500" : "text-gray-900"
+                }`}
                 {...register("occasion", { required: true })}
                 defaultValue=""
               >
-                <option value="" disabled>
+                <option value="" disabled hidden>
                   Select an occasion
                 </option>
                 <option value="Birthday">Birthday</option>
@@ -180,7 +195,7 @@ const AddNewFlower = () => {
                 <option value="Sympathy">Sympathy</option>
               </select>
             </fieldset>
-            <fieldset className="mb-[15px] flex items-start gap-5">
+            <fieldset className="mb-[15px] flex items-center gap-5">
               <label className="w-[90px] text-right text-[15px] font-semibold pt-1">
                 Flowers
               </label>
