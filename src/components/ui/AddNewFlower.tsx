@@ -8,10 +8,12 @@ import MultiSelect from "./MultiSelect";
 import Button from "./Button";
 import Image from "next/image";
 import { NewFlower } from "@/libs/types/flowers";
+import useCreateFlower from "@/hooks/useCreateFlower";
 
 const AddNewFlower = () => {
   const [open, setOpen] = useState(false);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const { isPending, mutate } = useCreateFlower();
   const { register, handleSubmit, control, watch } = useForm<NewFlower>({
     defaultValues: {
       productType: "",
@@ -64,7 +66,7 @@ const AddNewFlower = () => {
           onInteractOutside={(event) => event.preventDefault()}
           className="fixed inset-x-2 top-2 bottom-2 w-auto rounded-md bg-white shadow overflow-y-auto p-[25px]
            sm:left-1/2 sm:top-1/2 sm:inset-x-auto sm:bottom-auto sm:w-[90vw] sm:max-w-[500px]
-           sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-md"
+           sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-md sm:max-h-[85vh]"
         >
           <Dialog.Title className="m-0 text-[17px] font-medium text-mauve12">
             Create new flower
@@ -233,6 +235,20 @@ const AddNewFlower = () => {
                   )}
                 />
               </div>
+            </fieldset>
+            <fieldset className="mb-[15px] flex items-center gap-5">
+              <label
+                className="w-[90px] text-right text-[15px] font-semibold"
+                htmlFor="price"
+              >
+                Price
+              </label>
+              <input
+                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none border border-gray-300 focus:border-2 focus:border-violet-600"
+                id="price"
+                defaultValue={0}
+                {...register("price")}
+              />
             </fieldset>
             <fieldset className="mb-[15px] flex items-center gap-5">
               <label

@@ -24,7 +24,8 @@ const useCreateFlower = () => {
         isPopular: flower.isPopular,
         discount: flower.discount ?? 0,
       };
-      return flowersApi.createFlower({ ...payload, imageUrl });
+      const response = await flowersApi.createFlower(payload);
+      return response;
     },
     onSuccess: () => {
       // Invalidate and refetch
