@@ -10,7 +10,7 @@ import Button from "./Button";
 type Inputs = {
   name: string;
   description: string;
-  imageUrl: string;
+  imageFile?: FileList;
   price: number;
   productType: string;
   occasion: string;
@@ -22,6 +22,7 @@ type Inputs = {
 
 const AddNewFlower = () => {
   const [open, setOpen] = useState(false);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -41,7 +42,6 @@ const AddNewFlower = () => {
   const color = watch("color");
   const occasion = watch("occasion");
 
-  console.log({ productType, color, occasion });
   const flowerOptions = [
     { label: "Rose", value: 1 },
     { label: "Tulip", value: 2 },
@@ -49,7 +49,13 @@ const AddNewFlower = () => {
     { label: "Sunflower", value: 4 },
     { label: "Orchid", value: 5 },
   ];
-
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files![0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setImagePreview(imageUrl);
+    }
+  };
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data);
     setOpen(false);
@@ -121,11 +127,34 @@ const AddNewFlower = () => {
                 Image
               </label>
               <input
-                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none ring-gray-300 focus:ring-2 focus:ring-violet-600"
-                id="image"
-                {...register("imageUrl", { required: true })}
+                type="file"
+                {...register("imageFile")}
+                className="flex-1 border border-gray-300 rounded-lg w-full 
+                  focus:outline-none focus:ring-2 focus:ring-blue-500
+                file:border-r-gray-300 file:border-r file:mr-5 file:py-1 file:px-3
+                file:bg-primary file:text-white file:font-bold
+                  hover:file:cursor-pointer hover:file:bg-white
+                hover:file:text-primary-hover"
+                onChange={handleImageChange}
               />
             </fieldset>
+            {imagePreview && (
+              <fieldset className="mb-[15px] flex items-center gap-5">
+                <label
+                  className="w-[90px] text-right text-[15px] font-semibold"
+                  htmlFor="image"
+                >
+                  Preview
+                </label>
+                <div className="mt-2">
+                  <img
+                    src={imagePreview}
+                    alt="Preview"
+                    className="flex-1 mt-2 w-20 h-20 rounded-lg border border-gray-300"
+                  />
+                </div>
+              </fieldset>
+            )}
             <fieldset className="mb-[15px] flex items-center gap-5">
               <label
                 className="w-[90px] text-right text-[15px] font-semibold"
