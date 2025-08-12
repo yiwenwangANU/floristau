@@ -28,11 +28,18 @@ const AddNewFlower = () => {
   const occasion = watch("occasion");
 
   const flowerOptions = [
-    { label: "Rose", value: 1 },
-    { label: "Tulip", value: 2 },
-    { label: "Lily", value: 3 },
-    { label: "Sunflower", value: 4 },
-    { label: "Orchid", value: 5 },
+    { label: "Roses", value: "roses" },
+    { label: "Chrysanthemums", value: "chrysanthemums" },
+    { label: "Carnations", value: "carnations" },
+    { label: "Natives", value: "natives" },
+    { label: "Gerberas", value: "gerberas" },
+    { label: "Orchids", value: "orchids" },
+    { label: "Lilies", value: "lilies" },
+    { label: "Tropicals", value: "tropicals" },
+    { label: "Sunflowers", value: "sunflowers" },
+    { label: "Irises", value: "irises" },
+    { label: "Tulips", value: "tulips" },
+    { label: "Other", value: "other" },
   ];
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -162,9 +169,16 @@ const AddNewFlower = () => {
                 <option value="" disabled hidden>
                   Select a type
                 </option>
-                <option value="Flower">Flower</option>
-                <option value="Bouquet">Bouquet</option>
-                <option value="Plant">Plant</option>
+                <option value="box">Box</option>
+                <option value="bouquet">Bouquet</option>
+                <option value="vase">Vase</option>
+                <option value="basket">Basket</option>
+                <option value="funeral">Funeral</option>
+                <option value="hamper">Hamper</option>
+                <option value="plant">Plant</option>
+                <option value="succulent">Succulent</option>
+                <option value="driedflower">Dried Flower</option>
+                <option value="other">Other</option>
               </select>
             </fieldset>
             <fieldset className="mb-[15px] flex items-center gap-5">
@@ -185,9 +199,14 @@ const AddNewFlower = () => {
                 <option value="" disabled hidden>
                   Select a color
                 </option>
-                <option value="Red">Red</option>
-                <option value="Blue">Blue</option>
-                <option value="Yellow">Yellow</option>
+                <option value="red">Red</option>
+                <option value="white">White</option>
+                <option value="yellow">Yellow</option>
+                <option value="pink">Pink</option>
+                <option value="green">Green</option>
+                <option value="orange">Orange</option>
+                <option value="purple">Purple</option>
+                <option value="mixed">Mixed</option>
               </select>
             </fieldset>
             <fieldset className="mb-[15px] flex items-center gap-5">
@@ -208,9 +227,14 @@ const AddNewFlower = () => {
                 <option value="" disabled hidden>
                   Select an occasion
                 </option>
-                <option value="Birthday">Birthday</option>
-                <option value="Anniversary">Anniversary</option>
-                <option value="Sympathy">Sympathy</option>
+                <option value="birthday">Birthday</option>
+                <option value="sympathy">Sympathy</option>
+                <option value="thankyou">Thank You</option>
+                <option value="getwell">Get Well</option>
+                <option value="funeral">Funeral</option>
+                <option value="newbaby">New Baby</option>
+                <option value="congratulations">Congratulations</option>
+                <option value="other">Other</option>
               </select>
             </fieldset>
             <fieldset className="mb-[15px] flex items-center gap-5">
