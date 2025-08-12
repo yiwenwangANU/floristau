@@ -1,6 +1,6 @@
 "use client";
 import { Plus } from "lucide-react";
-import { Dialog } from "radix-ui";
+import { Dialog, Switch } from "radix-ui";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { useState } from "react";
@@ -264,7 +264,37 @@ const AddNewFlower = () => {
                 {...register("discount")}
               />
             </fieldset>
+            <fieldset className="mb-[15px] flex items-center gap-5">
+              <label
+                className="w-[90px] text-right text-[15px] font-semibold"
+                htmlFor="isPopular"
+              >
+                Is Popular
+              </label>
 
+              <Controller
+                name="isPopular"
+                control={control}
+                defaultValue={false}
+                render={({ field }) => (
+                  <Switch.Root
+                    id="isPopular"
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                    className="relative h-[25px] w-[42px] cursor-default rounded-full bg-gray-600 
+                   shadow-[0_2px_10px] shadow-primary outline-none 
+                   focus:shadow-[0_0_0_2px] focus:shadow-primary 
+                   data-[state=checked]:bg-primary"
+                  >
+                    <Switch.Thumb
+                      className="block size-[21px] translate-x-0.5 rounded-full bg-white 
+                     shadow-[0_2px_2px] shadow-blackA4 transition-transform duration-100 
+                     will-change-transform data-[state=checked]:translate-x-[19px]"
+                    />
+                  </Switch.Root>
+                )}
+              />
+            </fieldset>
             <div className="mt-[25px] flex justify-end">
               <Button
                 variant="create"
