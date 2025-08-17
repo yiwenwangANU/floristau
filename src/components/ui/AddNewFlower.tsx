@@ -50,7 +50,8 @@ const AddNewFlower = () => {
   };
   const onSubmit: SubmitHandler<NewFlower> = (data) => {
     console.log(data);
-    setOpen(false);
+    mutate(data);
+    // setOpen(false);
   };
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>

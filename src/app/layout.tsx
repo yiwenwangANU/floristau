@@ -2,6 +2,7 @@ import Header from "@/components/layouts/header";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
 import Footer from "@/components/layouts/footer";
+import { ToastContainer } from "react-toastify";
 
 export const metadata = {
   title: "Next.js",
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
+        <ToastContainer />
         <Providers>{children}</Providers>
         <Footer />
       </body>

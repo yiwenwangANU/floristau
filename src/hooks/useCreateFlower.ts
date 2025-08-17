@@ -1,6 +1,7 @@
 import { flowersApi } from "@/libs/api/flowersApi";
 import { NewFlower } from "@/libs/types/flowers";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { toast } from "react-toastify";
 
 const useCreateFlower = () => {
   const queryClient = useQueryClient();
@@ -30,6 +31,16 @@ const useCreateFlower = () => {
     onSuccess: () => {
       // Invalidate and refetch
       queryClient.invalidateQueries({ queryKey: ["getFlowers"] });
+      toast.success("🦄 Wow so easy!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     },
   });
 };
