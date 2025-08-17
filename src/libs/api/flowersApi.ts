@@ -25,10 +25,7 @@ export const flowersApi = {
     }
     const response = await axiosPublic.post<string>(
       "/api/File/uploadImage",
-      formData,
-      {
-        headers: { "Content-Type": "multipart/form-data" },
-      }
+      formData
     );
     return response.data;
   },
