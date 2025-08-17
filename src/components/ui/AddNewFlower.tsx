@@ -28,18 +28,18 @@ const AddNewFlower = () => {
   const occasion = watch("occasion");
 
   const flowerOptions = [
-    { label: "Roses", value: "roses" },
-    { label: "Chrysanthemums", value: "chrysanthemums" },
-    { label: "Carnations", value: "carnations" },
-    { label: "Natives", value: "natives" },
-    { label: "Gerberas", value: "gerberas" },
-    { label: "Orchids", value: "orchids" },
-    { label: "Lilies", value: "lilies" },
-    { label: "Tropicals", value: "tropicals" },
-    { label: "Sunflowers", value: "sunflowers" },
-    { label: "Irises", value: "irises" },
-    { label: "Tulips", value: "tulips" },
-    { label: "Other", value: "other" },
+    { label: "Roses", value: 1 },
+    { label: "Chrysanthemums", value: 2 },
+    { label: "Carnations", value: 3 },
+    { label: "Natives", value: 4 },
+    { label: "Gerberas", value: 5 },
+    { label: "Orchids", value: 6 },
+    { label: "Lilies", value: 7 },
+    { label: "Tropicals", value: 8 },
+    { label: "Sunflowers", value: 9 },
+    { label: "Irises", value: 10 },
+    { label: "Tulips", value: 11 },
+    { label: "Other", value: 12 },
   ];
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -268,6 +268,7 @@ const AddNewFlower = () => {
                 Price
               </label>
               <input
+                type="number"
                 className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none border border-gray-300 focus:border-2 focus:border-violet-600"
                 id="price"
                 defaultValue={0}
@@ -282,6 +283,7 @@ const AddNewFlower = () => {
                 Discount
               </label>
               <input
+                type="number"
                 className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none border border-gray-300 focus:border-2 focus:border-violet-600"
                 id="discount"
                 defaultValue={0}
