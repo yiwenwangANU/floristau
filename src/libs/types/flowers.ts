@@ -34,6 +34,11 @@ export type CreateFlowerResponse = {
   isPopular: boolean;
   discount: number;
 };
+
+export type UploadImageResponse = {
+  url: string;
+};
+
 export type GetFlowersResponse = {
   id: number;
   name: string;

@@ -11,7 +11,7 @@ const useCreateFlower = () => {
       const file = flower.imageFile?.[0];
       if (file) {
         const up = await flowersApi.uploadImage(file);
-        imageUrl = up;
+        imageUrl = up.url;
       }
       const payload = {
         name: flower.name,
@@ -32,6 +32,19 @@ const useCreateFlower = () => {
       // Invalidate and refetch
       queryClient.invalidateQueries({ queryKey: ["getFlowers"] });
       toast.success("🦄 Wow so easy!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    },
+    onError: (error: any) => {
+      console.log(error);
+      toast.error(error.message, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,

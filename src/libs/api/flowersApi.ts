@@ -2,6 +2,7 @@ import {
   CreateFlowerDto,
   CreateFlowerResponse,
   GetFlowersResponse,
+  UploadImageResponse,
 } from "../types/flowers";
 import axiosPublic from "./axiosPublic";
 
@@ -18,12 +19,12 @@ export const flowersApi = {
     );
     return response.data[0]; // Assuming the API returns an array with one flower
   },
-  uploadImage: async (image: File): Promise<string> => {
+  uploadImage: async (image: File): Promise<UploadImageResponse> => {
     const formData = new FormData();
     if (image) {
-      formData.append("image", image);
+      formData.append("file", image);
     }
-    const response = await axiosPublic.post<string>(
+    const response = await axiosPublic.post<UploadImageResponse>(
       "/api/File/uploadImage",
       formData
     );
