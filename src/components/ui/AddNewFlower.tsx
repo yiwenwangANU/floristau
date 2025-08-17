@@ -19,7 +19,7 @@ const AddNewFlower = () => {
       productType: "",
       color: "",
       occasion: "",
-      flowers: [],
+      FlowerTypeIds: [],
       isPopular: false,
     },
   });
@@ -244,7 +244,7 @@ const AddNewFlower = () => {
               </label>
               <div className="flex-1">
                 <Controller
-                  name="flowers"
+                  name="FlowerTypeIds"
                   control={control}
                   rules={{
                     validate: (v) =>

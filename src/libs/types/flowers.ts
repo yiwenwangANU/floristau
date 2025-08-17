@@ -6,7 +6,7 @@ export type NewFlower = {
   productType: string;
   occasion: string;
   color: string;
-  flowers: number[];
+  FlowerTypeIds: number[];
   isPopular: boolean;
   discount: number;
 };
@@ -18,7 +18,7 @@ export type CreateFlowerDto = {
   productType: string;
   occasion: string;
   color: string;
-  flowers: number[];
+  FlowerTypeIds: number[];
   isPopular: boolean;
   discount: number;
 };
@@ -30,7 +30,7 @@ export type CreateFlowerResponse = {
   productType: string;
   occasion: string;
   color: string;
-  flowers: number[];
+  FlowerTypeIds: number[];
   isPopular: boolean;
   discount: number;
 };
