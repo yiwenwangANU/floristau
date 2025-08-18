@@ -67,7 +67,7 @@ const AddNewFlower = () => {
           </div>
           <div className="flex flex-row justify-between items-center">
             <div className="pb-5 pt-8 text-xl font-semibold mx-auto">
-              {isPending ? "Creating..." : "Create new Flower"}
+              Create new Flower
             </div>
           </div>
         </div>
@@ -312,10 +312,8 @@ const AddNewFlower = () => {
                     id="isPopular"
                     checked={field.value}
                     onCheckedChange={field.onChange}
-                    className="relative h-[25px] w-[42px] cursor-default rounded-full bg-gray-600 
-                   shadow-[0_2px_10px] shadow-primary outline-none 
-                   focus:shadow-[0_0_0_2px] focus:shadow-primary 
-                   data-[state=checked]:bg-primary"
+                    className="relative h-[25px] w-[42px] cursor-default rounded-full bg-gray-500 shadow-primary outline-none 
+                   focus:shadow-[0_0_0_2px] focus:shadow-primary data-[state=checked]:bg-primary"
                   >
                     <Switch.Thumb
                       className="block size-[21px] translate-x-0.5 rounded-full bg-white 
@@ -329,10 +327,11 @@ const AddNewFlower = () => {
             <div className="mt-[25px] flex justify-end">
               <Button
                 variant="create"
+                disabled={isPending}
                 type="submit"
                 className="font-semibold h-12 inline-flex items-center justify-center rounded px-[15px]"
               >
-                Create Flower
+                {isPending ? "Creating..." : "Create Flower"}
               </Button>
             </div>
           </form>
