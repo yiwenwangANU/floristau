@@ -10,37 +10,89 @@ import Image from "next/image";
 import { NewFlower } from "@/libs/types/flowers";
 import useCreateFlower from "@/hooks/useCreateFlower";
 
+/* ------------------------------ constants ------------------------------ */
+const FLOWER_OPTIONS: Array<{ label: string; value: number }> = [
+  { label: "Roses", value: 1 },
+  { label: "Chrysanthemums", value: 2 },
+  { label: "Carnations", value: 3 },
+  { label: "Natives", value: 4 },
+  { label: "Gerberas", value: 5 },
+  { label: "Orchids", value: 6 },
+  { label: "Lilies", value: 7 },
+  { label: "Tropicals", value: 8 },
+  { label: "Sunflowers", value: 9 },
+  { label: "Irises", value: 10 },
+  { label: "Tulips", value: 11 },
+  { label: "Other", value: 12 },
+] as const;
+
+const PRODUCT_TYPE_OPTIONS = [
+  { label: "Box", value: "box" },
+  { label: "Bouquet", value: "bouquet" },
+  { label: "Vase", value: "vase" },
+  { label: "Basket", value: "basket" },
+  { label: "Funeral", value: "funeral" },
+  { label: "Hamper", value: "hamper" },
+  { label: "Plant", value: "plant" },
+  { label: "Succulent", value: "succulent" },
+  { label: "Dried Flower", value: "driedflower" },
+  { label: "Other", value: "other" },
+] as const;
+
+const COLOR_OPTIONS = [
+  "red",
+  "white",
+  "yellow",
+  "pink",
+  "green",
+  "orange",
+  "purple",
+  "mixed",
+] as const;
+
+const OCCASION_OPTIONS = [
+  { label: "Birthday", value: "birthday" },
+  { label: "Sympathy", value: "sympathy" },
+  { label: "Thank You", value: "thankyou" },
+  { label: "Get Well", value: "getwell" },
+  { label: "Funeral", value: "funeral" },
+  { label: "New Baby", value: "newbaby" },
+  { label: "Congratulations", value: "congratulations" },
+  { label: "Other", value: "other" },
+] as const;
+
 const AddNewFlower = () => {
   const [open, setOpen] = useState(false);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const { isPending, mutate, isSuccess } = useCreateFlower();
-  const { register, handleSubmit, control, watch } = useForm<NewFlower>({
+
+  const {
+    register,
+    handleSubmit,
+    control,
+    reset,
+    watch,
+    formState: { errors },
+    setValue,
+  } = useForm<NewFlower>({
     defaultValues: {
+      name: "",
+      description: "",
+      imageFile: undefined,
       productType: "",
       color: "",
       occasion: "",
       FlowerTypeIds: [],
       isPopular: false,
+      price: 0,
+      discount: 0,
     },
   });
+
   const productType = watch("productType");
   const color = watch("color");
   const occasion = watch("occasion");
 
-  const flowerOptions = [
-    { label: "Roses", value: 1 },
-    { label: "Chrysanthemums", value: 2 },
-    { label: "Carnations", value: 3 },
-    { label: "Natives", value: 4 },
-    { label: "Gerberas", value: 5 },
-    { label: "Orchids", value: 6 },
-    { label: "Lilies", value: 7 },
-    { label: "Tropicals", value: 8 },
-    { label: "Sunflowers", value: 9 },
-    { label: "Irises", value: 10 },
-    { label: "Tulips", value: 11 },
-    { label: "Other", value: 12 },
-  ];
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -256,7 +308,7 @@ const AddNewFlower = () => {
                   }}
                   render={({ field }) => (
                     <MultiSelect
-                      options={flowerOptions}
+                      options={FLOWER_OPTIONS}
                       value={field.value}
                       onChange={field.onChange}
                       placeholder="Select flowers…"
