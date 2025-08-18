@@ -42,8 +42,7 @@ const useCreateFlower = () => {
         theme: "light",
       });
     },
-    onError: (error: any) => {
-      console.log(error);
+    onError: (error) => {
       toast.error(error.message, {
         position: "top-right",
         autoClose: 5000,

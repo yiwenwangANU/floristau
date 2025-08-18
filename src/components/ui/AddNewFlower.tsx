@@ -3,7 +3,7 @@ import { Plus } from "lucide-react";
 import { Dialog, Switch } from "radix-ui";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MultiSelect from "./MultiSelect";
 import Button from "./Button";
 import Image from "next/image";
@@ -13,7 +13,7 @@ import useCreateFlower from "@/hooks/useCreateFlower";
 const AddNewFlower = () => {
   const [open, setOpen] = useState(false);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
-  const { isPending, mutate } = useCreateFlower();
+  const { isPending, mutate, isSuccess } = useCreateFlower();
   const { register, handleSubmit, control, watch } = useForm<NewFlower>({
     defaultValues: {
       productType: "",
@@ -51,8 +51,12 @@ const AddNewFlower = () => {
   const onSubmit: SubmitHandler<NewFlower> = (data) => {
     console.log(data);
     mutate(data);
-    // setOpen(false);
   };
+  useEffect(() => {
+    if (isSuccess) {
+      setOpen(false);
+    }
+  }, [isSuccess, setOpen]);
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
@@ -63,7 +67,7 @@ const AddNewFlower = () => {
           </div>
           <div className="flex flex-row justify-between items-center">
             <div className="pb-5 pt-8 text-xl font-semibold mx-auto">
-              Create new Flower
+              {isPending ? "Creating..." : "Create new Flower"}
             </div>
           </div>
         </div>
