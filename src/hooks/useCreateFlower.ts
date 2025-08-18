@@ -21,7 +21,7 @@ const useCreateFlower = () => {
         productType: flower.productType,
         occasion: flower.occasion,
         color: flower.color,
-        flowers: flower.flowers,
+        FlowerTypeIds: flower.FlowerTypeIds,
         isPopular: flower.isPopular,
         discount: flower.discount ?? 0,
       };
