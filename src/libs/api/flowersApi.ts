@@ -4,39 +4,58 @@ import {
   GetFlowersResponse,
   UploadImageResponse,
 } from "../types/flowers";
+import { handleApiError } from "./api-error-handler";
 import axiosPublic from "./axiosPublic";
 
 export const flowersApi = {
   getFlowers: async (): Promise<GetFlowersResponse> => {
-    const response = await axiosPublic.get<GetFlowersResponse>(
-      "/api/Flower/getFlowers"
-    );
-    return response.data;
+    try {
+      const response = await axiosPublic.get<GetFlowersResponse>(
+        "/api/Flower/getFlowers"
+      );
+      return response.data;
+    } catch (error) {
+      handleApiError(error, "Failed to fetch flowers.");
+    }
   },
   getFlowerById: async (id: number): Promise<GetFlowersResponse[number]> => {
-    const response = await axiosPublic.get<GetFlowersResponse>(
-      `/api/Flower/getFlowerById/${id}`
-    );
-    return response.data[0]; // Assuming the API returns an array with one flower
-  },
-  uploadImage: async (image: File): Promise<UploadImageResponse> => {
-    const formData = new FormData();
-    if (image) {
-      formData.append("file", image);
+    try {
+      const response = await axiosPublic.get<GetFlowersResponse>(
+        `/api/Flower/getFlowerById/${id}`
+      );
+      return response.data[0]; // Assuming API returns array with one flower
+    } catch (error) {
+      handleApiError(error, `Failed to fetch flower with ID ${id}.`);
     }
-    const response = await axiosPublic.post<UploadImageResponse>(
-      "/api/File/uploadImage",
-      formData
-    );
-    return response.data;
   },
+
+  uploadImage: async (image: File): Promise<UploadImageResponse> => {
+    try {
+      const formData = new FormData();
+      if (image) {
+        formData.append("file", image);
+      }
+      const response = await axiosPublic.post<UploadImageResponse>(
+        "/api/File/uploadImage",
+        formData
+      );
+      return response.data;
+    } catch (error) {
+      handleApiError(error, "Failed to upload image.");
+    }
+  },
+
   createFlower: async (
     flower: CreateFlowerDto
   ): Promise<CreateFlowerResponse> => {
-    const response = await axiosPublic.post<CreateFlowerResponse>(
-      "/api/Flower/createFlower",
-      flower
-    );
-    return response.data;
+    try {
+      const response = await axiosPublic.post<CreateFlowerResponse>(
+        "/api/Flower/createFlower",
+        flower
+      );
+      return response.data;
+    } catch (error) {
+      handleApiError(error, "Failed to create flower.");
+    }
   },
 };
