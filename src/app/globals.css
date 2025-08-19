@@ -20,6 +20,8 @@
   --color-secondary-foreground: hsl(0 0% 45.1%);
   --color-secondary-hover: hsl(0 14% 94.2%);
 
+  --color-text-gray: hsl(0 0% 38.1%);
+
   --color-destructive: hsl(0 84.2% 60.2%);
   --color-destructive-foreground: hsl(0 0% 98%);
 
