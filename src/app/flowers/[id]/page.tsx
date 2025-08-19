@@ -4,6 +4,12 @@ import { use } from "react";
 import useGetFlowerById from "@/hooks/useGetFlowerById";
 import Image from "next/image";
 import { Jost, Roboto } from "next/font/google";
+import { Accordion } from "radix-ui";
+import {
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/AccordionComponent";
 
 const jost = Jost({
   weight: "500",
@@ -53,6 +59,34 @@ const FlowerPage = ({ params }: { params: Promise<{ id: string }> }) => {
         >
           {data?.description}
         </div>
+        <Accordion.Root
+          className="w-[300px] rounded-md bg-mauve6 shadow-[0_2px_10px] shadow-black/5"
+          type="single"
+          defaultValue="item-1"
+          collapsible
+        >
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Is it accessible?</AccordionTrigger>
+            <AccordionContent>
+              Yes. It adheres to the WAI-ARIA design pattern.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-2">
+            <AccordionTrigger>Is it unstyled?</AccordionTrigger>
+            <AccordionContent>
+              Yes. It`&apos;`s unstyled by default, giving you freedom over the
+              look and feel.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-3">
+            <AccordionTrigger>Can it be animated?</AccordionTrigger>
+            <AccordionContent>
+              Yes! You can animate the Accordion with CSS or JavaScript.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion.Root>
       </div>
     </div>
   );
