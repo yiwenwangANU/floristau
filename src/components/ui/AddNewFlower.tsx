@@ -133,10 +133,10 @@ const AddNewFlower = () => {
            sm:left-1/2 sm:top-1/2 sm:inset-x-auto sm:bottom-auto sm:w-[90vw] sm:max-w-[500px]
            sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-md sm:max-h-[85vh]"
         >
-          <Dialog.Title className="m-0 text-[17px] font-medium text-mauve12">
+          <Dialog.Title className="m-0 text-[20px] font-semibold">
             Create new flower
           </Dialog.Title>
-          <Dialog.Description className="mb-5 mt-2.5 text-[15px] leading-normal text-mauve11">
+          <Dialog.Description className="mb-5 mt-2.5 text-[15px] leading-normal">
             Create your new flower here. Click save when you are done.
           </Dialog.Description>
           <form
