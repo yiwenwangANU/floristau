@@ -1,10 +1,10 @@
 "use client";
 import AddNewFlower from "@/components/ui/AddNewFlower";
 import Card from "@/components/ui/Card";
-import useFlowers from "@/hooks/useGetFlowers";
+import useGetFlowers from "@/hooks/useGetFlowers";
 
 const Flowers = () => {
-  const { data, isLoading, error } = useFlowers();
+  const { data, isLoading, error } = useGetFlowers();
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
