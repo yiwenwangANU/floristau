@@ -17,7 +17,8 @@ const Flowers = () => {
         <AddNewFlower />
         {data?.map((flower) => (
           <Card
-            key={flower.name}
+            key={flower.id}
+            id={flower.id}
             title={flower.name}
             price={`$${flower.price}`}
             image={flower.imageUrl}

@@ -17,10 +17,10 @@ export default function Home() {
           Our Best Selling Flowers
         </div>
         <div className="flex flex-row flex-wrap gap-8 py-5 px-1 sm:px-8 items-center">
-          <Card title="Red Flowers" price="$19.99" image="/1.jpg" />
-          <Card title="Red Flowers" price="$19.99" image="/1.jpg" />
-          <Card title="Red Flowers" price="$19.99" image="/1.jpg" />
-          <Card title="Red Flowers" price="$19.99" image="/1.jpg" />
+          <Card id={1} title="Red Flowers" price="$19.99" image="/1.jpg" />
+          <Card id={2} title="Blue Flowers" price="$29.99" image="/2.jpg" />
+          <Card id={3} title="Yellow Flowers" price="$39.99" image="/3.jpg" />
+          <Card id={4} title="White Flowers" price="$49.99" image="/4.jpg" />
         </div>
         <div className="text-2xl sm:text-4xl pt-20 pb-2 px-1 sm:px-8 font-sans font-medium">
           Choose your Flowers by Occasions

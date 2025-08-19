@@ -11,7 +11,6 @@ import Button from "@/components/ui/Button";
 import { NewFlower } from "@/libs/types/flowers";
 import useCreateFlower from "@/hooks/useCreateFlower";
 
-/* ------------------------------ constants ------------------------------ */
 const FLOWER_OPTIONS: Array<{ label: string; value: number }> = [
   { label: "Roses", value: 1 },
   { label: "Chrysanthemums", value: 2 },

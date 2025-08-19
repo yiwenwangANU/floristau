@@ -1,16 +1,21 @@
 import Image from "next/image";
 import Button from "./Button";
+import Link from "next/link";
 
 type CardProps = {
+  id: number;
   title: string;
   price: string;
   image: string;
   discount?: string;
 };
 
-const Card = ({ title, price, image, discount }: CardProps) => {
+const Card = ({ id, title, price, image, discount }: CardProps) => {
   return (
-    <div className="group border rounded-md overflow-hidden hover:cursor-pointer lg:w-[23%] md:w-[30%] sm:w-[45%]">
+    <Link
+      href={`/flowers/${id}`}
+      className="group border rounded-md overflow-hidden hover:cursor-pointer lg:w-[23%] md:w-[30%] sm:w-[45%]"
+    >
       <div className="relative aspect-square">
         <Image
           src={image}
@@ -31,7 +36,7 @@ const Card = ({ title, price, image, discount }: CardProps) => {
           Shop Now
         </Button>
       </div>
-    </div>
+    </Link>
   );
 };
 
