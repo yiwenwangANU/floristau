@@ -67,15 +67,7 @@ const AddNewFlower = () => {
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const { isPending, mutate, isSuccess } = useCreateFlower();
 
-  const {
-    register,
-    handleSubmit,
-    control,
-    reset,
-    watch,
-    formState: { errors },
-    setValue,
-  } = useForm<NewFlower>({
+  const { register, handleSubmit, control, watch } = useForm<NewFlower>({
     defaultValues: {
       name: "",
       description: "",
@@ -180,7 +172,7 @@ const AddNewFlower = () => {
               </label>
               <input
                 type="file"
-                {...register("imageFile")}
+                {...register("imageFile", { required: true })}
                 className="flex-1 border border-gray-300 rounded-lg w-full 
                   focus:outline-none focus:ring-2 focus:ring-violet-500
                 file:border-r-gray-300 file:border-r file:mr-5 file:py-1 file:px-3
@@ -298,6 +290,7 @@ const AddNewFlower = () => {
                   }}
                   render={({ field }) => (
                     <MultiSelect
+                      ref={field.ref}
                       options={FLOWER_OPTIONS}
                       value={field.value}
                       onChange={field.onChange}
@@ -319,7 +312,7 @@ const AddNewFlower = () => {
                 className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none border border-gray-300 focus:border-2 focus:border-violet-600"
                 id="price"
                 defaultValue={0}
-                {...register("price")}
+                {...register("price", { required: true, min: 1 })}
               />
             </fieldset>
             <fieldset className="mb-[15px] flex items-center gap-5">
