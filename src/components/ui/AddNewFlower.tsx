@@ -1,12 +1,13 @@
 "use client";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Plus } from "lucide-react";
 import { Dialog, Switch } from "radix-ui";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
-import { useEffect, useState } from "react";
-import MultiSelect from "./MultiSelect";
-import Button from "./Button";
-import Image from "next/image";
+
+import MultiSelect from "@/components/ui/MultiSelect";
+import Button from "@/components/ui/Button";
 import { NewFlower } from "@/libs/types/flowers";
 import useCreateFlower from "@/hooks/useCreateFlower";
 
@@ -40,14 +41,14 @@ const PRODUCT_TYPE_OPTIONS = [
 ] as const;
 
 const COLOR_OPTIONS = [
-  "red",
-  "white",
-  "yellow",
-  "pink",
-  "green",
-  "orange",
-  "purple",
-  "mixed",
+  { label: "Red", value: "red" },
+  { label: "White", value: "white" },
+  { label: "Yellow", value: "yellow" },
+  { label: "Pink", value: "pink" },
+  { label: "Green", value: "green" },
+  { label: "Orange", value: "orange" },
+  { label: "Purple", value: "purple" },
+  { label: "Mixed", value: "mixed" },
 ] as const;
 
 const OCCASION_OPTIONS = [
@@ -226,16 +227,11 @@ const AddNewFlower = () => {
                 <option value="" disabled hidden>
                   Select a type
                 </option>
-                <option value="box">Box</option>
-                <option value="bouquet">Bouquet</option>
-                <option value="vase">Vase</option>
-                <option value="basket">Basket</option>
-                <option value="funeral">Funeral</option>
-                <option value="hamper">Hamper</option>
-                <option value="plant">Plant</option>
-                <option value="succulent">Succulent</option>
-                <option value="driedflower">Dried Flower</option>
-                <option value="other">Other</option>
+                {PRODUCT_TYPE_OPTIONS.map((o) => (
+                  <option key={o.value} value={o.value}>
+                    {o.label}
+                  </option>
+                ))}
               </select>
             </fieldset>
             <fieldset className="mb-[15px] flex items-center gap-5">
@@ -256,14 +252,11 @@ const AddNewFlower = () => {
                 <option value="" disabled hidden>
                   Select a color
                 </option>
-                <option value="red">Red</option>
-                <option value="white">White</option>
-                <option value="yellow">Yellow</option>
-                <option value="pink">Pink</option>
-                <option value="green">Green</option>
-                <option value="orange">Orange</option>
-                <option value="purple">Purple</option>
-                <option value="mixed">Mixed</option>
+                {COLOR_OPTIONS.map((o) => (
+                  <option key={o.value} value={o.value}>
+                    {o.label}
+                  </option>
+                ))}
               </select>
             </fieldset>
             <fieldset className="mb-[15px] flex items-center gap-5">
@@ -284,14 +277,11 @@ const AddNewFlower = () => {
                 <option value="" disabled hidden>
                   Select an occasion
                 </option>
-                <option value="birthday">Birthday</option>
-                <option value="sympathy">Sympathy</option>
-                <option value="thankyou">Thank You</option>
-                <option value="getwell">Get Well</option>
-                <option value="funeral">Funeral</option>
-                <option value="newbaby">New Baby</option>
-                <option value="congratulations">Congratulations</option>
-                <option value="other">Other</option>
+                {OCCASION_OPTIONS.map((o) => (
+                  <option key={o.value} value={o.value}>
+                    {o.label}
+                  </option>
+                ))}
               </select>
             </fieldset>
             <fieldset className="mb-[15px] flex items-center gap-5">
