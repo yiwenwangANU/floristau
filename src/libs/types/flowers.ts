@@ -48,3 +48,13 @@ export type GetFlowersResponse = {
   available: boolean;
   imageUrl: string;
 }[];
+
+export type GetFlowerResponse = {
+  id: number;
+  name: string;
+  price: number;
+  discount?: number;
+  description?: string;
+  available: boolean;
+  imageUrl: string;
+};

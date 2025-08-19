@@ -1,6 +1,7 @@
 import {
   CreateFlowerDto,
   CreateFlowerResponse,
+  GetFlowerResponse,
   GetFlowersResponse,
   UploadImageResponse,
 } from "../types/flowers";
@@ -18,12 +19,12 @@ export const flowersApi = {
       handleApiError(error, "Failed to fetch flowers.");
     }
   },
-  getFlowerById: async (id: number): Promise<GetFlowersResponse[number]> => {
+  getFlowerById: async (id: number): Promise<GetFlowerResponse> => {
     try {
-      const response = await axiosPublic.get<GetFlowersResponse>(
+      const response = await axiosPublic.get<GetFlowerResponse>(
         `/api/Flower/getFlowerById/${id}`
       );
-      return response.data[0]; // Assuming API returns array with one flower
+      return response.data; // Assuming API returns array with one flower
     } catch (error) {
       handleApiError(error, `Failed to fetch flower with ID ${id}.`);
     }
