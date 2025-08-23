@@ -12,14 +12,4 @@ export const wineApi = {
       handleApiError(error, "Failed to fetch wine.");
     }
   },
-  getWineById: async (id: number): Promise<GetGiftResponse> => {
-    try {
-      const response = await axiosPublic.get<GetGiftResponse>(
-        `/api/public/wine/${id}`
-      );
-      return response.data; // Assuming API returns array with one wine
-    } catch (error) {
-      handleApiError(error, `Failed to fetch wine with ID ${id}.`);
-    }
-  },
 };

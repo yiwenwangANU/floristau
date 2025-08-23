@@ -30,7 +30,7 @@ const GiftSelect = ({ wineData }: { wineData: GetGiftsResponse }) => {
       </AccordionItem>
 
       <AccordionItem value="item-2">
-        <AccordionTrigger>Is it unstyled?</AccordionTrigger>
+        <AccordionTrigger>Add Chocolate</AccordionTrigger>
         <AccordionContent>
           Yes. It&apos;s unstyled by default, giving you freedom over the look
           and feel.
@@ -38,7 +38,7 @@ const GiftSelect = ({ wineData }: { wineData: GetGiftsResponse }) => {
       </AccordionItem>
 
       <AccordionItem value="item-3">
-        <AccordionTrigger>Can it be animated?</AccordionTrigger>
+        <AccordionTrigger>Add Teddy Bear</AccordionTrigger>
         <AccordionContent>
           Yes! You can animate the Accordion with CSS or JavaScript.
         </AccordionContent>
