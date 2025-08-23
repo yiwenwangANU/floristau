@@ -1,7 +1,7 @@
 import { handleApiError } from "./api-error-handler";
 import axiosPublic from "./axiosPublic";
 import { GetGiftResponse, GetGiftsResponse } from "../types/gifts";
-export const flowersApi = {
+export const wineApi = {
   getWine: async (): Promise<GetGiftsResponse> => {
     try {
       const response = await axiosPublic.get<GetGiftsResponse>(
@@ -9,7 +9,7 @@ export const flowersApi = {
       );
       return response.data;
     } catch (error) {
-      handleApiError(error, "Failed to fetch flowers.");
+      handleApiError(error, "Failed to fetch wine.");
     }
   },
   getWineById: async (id: number): Promise<GetGiftResponse> => {
@@ -17,9 +17,9 @@ export const flowersApi = {
       const response = await axiosPublic.get<GetGiftResponse>(
         `/api/public/wine/${id}`
       );
-      return response.data; // Assuming API returns array with one flower
+      return response.data; // Assuming API returns array with one wine
     } catch (error) {
-      handleApiError(error, `Failed to fetch flower with ID ${id}.`);
+      handleApiError(error, `Failed to fetch wine with ID ${id}.`);
     }
   },
 };
