@@ -1,8 +1,6 @@
-export type GetGiftResponse = {
+export type GetGiftsResponse = {
   id: number;
   name: string;
   price: number;
   imageUrl: string;
-};
-
-export type GetGiftsResponse = GetGiftResponse[];
+}[];

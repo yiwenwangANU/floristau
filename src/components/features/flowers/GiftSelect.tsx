@@ -7,7 +7,15 @@ import * as Accordion from "@radix-ui/react-accordion";
 import { GetGiftsResponse } from "@/libs/types/gifts";
 import GiftCard from "@/components/gift/GiftCard";
 
-const GiftSelect = ({ wineData }: { wineData: GetGiftsResponse }) => {
+const GiftSelect = ({
+  wineData,
+  chocolateData,
+  teddyData,
+}: {
+  wineData: GetGiftsResponse;
+  chocolateData: GetGiftsResponse;
+  teddyData: GetGiftsResponse;
+}) => {
   return (
     <Accordion.Root
       className="rounded-md shadow-[0_2px_10px] shadow-black/5"
@@ -32,15 +40,28 @@ const GiftSelect = ({ wineData }: { wineData: GetGiftsResponse }) => {
       <AccordionItem value="item-2">
         <AccordionTrigger>Add Chocolate</AccordionTrigger>
         <AccordionContent>
-          Yes. It&apos;s unstyled by default, giving you freedom over the look
-          and feel.
+          {chocolateData.map((chocolate) => (
+            <GiftCard
+              key={chocolate.id}
+              name={chocolate.name}
+              imageUrl={chocolate.imageUrl}
+              price={chocolate.price}
+            />
+          ))}
         </AccordionContent>
       </AccordionItem>
 
       <AccordionItem value="item-3">
         <AccordionTrigger>Add Teddy Bear</AccordionTrigger>
         <AccordionContent>
-          Yes! You can animate the Accordion with CSS or JavaScript.
+          {teddyData.map((teddy) => (
+            <GiftCard
+              key={teddy.id}
+              name={teddy.name}
+              imageUrl={teddy.imageUrl}
+              price={teddy.price}
+            />
+          ))}
         </AccordionContent>
       </AccordionItem>
     </Accordion.Root>

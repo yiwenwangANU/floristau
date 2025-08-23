@@ -6,6 +6,8 @@ import ErrorPage from "@/app/error";
 
 import useGetFlowerById from "@/hooks/useGetFlowerById";
 import useGetWine from "@/hooks/useGetWine";
+import useGetChocolate from "@/hooks/useGetChocolate";
+import useGetTeddy from "@/hooks/useGetTeddys";
 
 import FlowerDetail from "@/components/features/flowers/FlowerDetail";
 import GiftSelect from "@/components/features/flowers/GiftSelect";
@@ -21,8 +23,28 @@ export default function FlowerPageClient({ id }: { id: string }) {
     isPending: wineIsPending,
     isError: wineIsError,
   } = useGetWine();
-  if (flowerIsPending || wineIsPending) return <Loading />;
-  if (flowerIsError || !flowerData || wineIsError || !wineData)
+  const {
+    data: chocolateData,
+    isPending: chocolateIsPending,
+    isError: chocolateError,
+  } = useGetChocolate();
+  const {
+    data: teddyData,
+    isPending: teddyIsPending,
+    isError: teddyError,
+  } = useGetTeddy();
+  if (flowerIsPending || wineIsPending || chocolateIsPending || teddyIsPending)
+    return <Loading />;
+  if (
+    flowerIsError ||
+    !flowerData ||
+    wineIsError ||
+    !wineData ||
+    !chocolateData ||
+    chocolateError ||
+    !teddyData ||
+    teddyError
+  )
     return <ErrorPage />;
 
   return (
@@ -43,7 +65,11 @@ export default function FlowerPageClient({ id }: { id: string }) {
           description={flowerData.description}
           price={flowerData.price}
         />
-        <GiftSelect wineData={wineData} />
+        <GiftSelect
+          wineData={wineData}
+          chocolateData={chocolateData}
+          teddyData={teddyData}
+        />
       </div>
     </div>
   );
