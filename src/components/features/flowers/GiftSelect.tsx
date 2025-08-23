@@ -4,8 +4,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/AccordionComponent";
 import * as Accordion from "@radix-ui/react-accordion";
+import { GetGiftsResponse } from "@/libs/types/gifts";
+import GiftCard from "@/components/gift/GiftCard";
 
-const GiftSelect = () => {
+const GiftSelect = ({ wineData }: { wineData: GetGiftsResponse }) => {
   return (
     <Accordion.Root
       className="rounded-md shadow-[0_2px_10px] shadow-black/5"
@@ -16,7 +18,14 @@ const GiftSelect = () => {
       <AccordionItem value="item-1">
         <AccordionTrigger className="text-2xl h-14">Add Wine</AccordionTrigger>
         <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
+          {wineData.map((wine) => (
+            <GiftCard
+              key={wine.id}
+              name={wine.name}
+              imageUrl={wine.imageUrl}
+              price={wine.price}
+            />
+          ))}
         </AccordionContent>
       </AccordionItem>
 
