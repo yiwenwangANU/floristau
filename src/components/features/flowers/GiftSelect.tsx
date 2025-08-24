@@ -4,17 +4,20 @@ import {
   AccordionTrigger,
 } from "@/components/ui/AccordionComponent";
 import * as Accordion from "@radix-ui/react-accordion";
-import { GetGiftsResponse } from "@/libs/types/gifts";
+import { GetGiftsResponse, GiftFormValues } from "@/libs/types/gifts";
 import GiftCard from "@/components/gift/GiftCard";
+import { Control } from "react-hook-form";
 
 const GiftSelect = ({
   wineData,
   chocolateData,
   teddyData,
+  control,
 }: {
   wineData: GetGiftsResponse;
   chocolateData: GetGiftsResponse;
   teddyData: GetGiftsResponse;
+  control: Control<GiftFormValues>;
 }) => {
   return (
     <Accordion.Root
@@ -32,6 +35,7 @@ const GiftSelect = ({
               name={wine.name}
               imageUrl={wine.imageUrl}
               price={wine.price}
+              control={control}
             />
           ))}
         </AccordionContent>
@@ -48,6 +52,7 @@ const GiftSelect = ({
               name={chocolate.name}
               imageUrl={chocolate.imageUrl}
               price={chocolate.price}
+              control={control}
             />
           ))}
         </AccordionContent>
@@ -64,6 +69,7 @@ const GiftSelect = ({
               name={teddy.name}
               imageUrl={teddy.imageUrl}
               price={teddy.price}
+              control={control}
             />
           ))}
         </AccordionContent>

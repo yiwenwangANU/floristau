@@ -11,6 +11,8 @@ import useGetTeddy from "@/hooks/useGetTeddys";
 
 import FlowerDetail from "@/components/features/flowers/FlowerDetail";
 import GiftSelect from "@/components/features/flowers/GiftSelect";
+import { useForm } from "react-hook-form";
+import { GiftFormValues } from "@/libs/types/gifts";
 
 export default function FlowerPageClient({ id }: { id: string }) {
   const {
@@ -33,6 +35,10 @@ export default function FlowerPageClient({ id }: { id: string }) {
     isPending: teddyIsPending,
     isError: teddyError,
   } = useGetTeddy();
+
+  const { control, handleSubmit } = useForm<GiftFormValues>();
+  const onSubmit = (data: GiftFormValues) => console.log(data);
+
   if (flowerIsPending || wineIsPending || chocolateIsPending || teddyIsPending)
     return <Loading />;
   if (
@@ -65,11 +71,14 @@ export default function FlowerPageClient({ id }: { id: string }) {
           description={flowerData.description}
           price={flowerData.price}
         />
-        <GiftSelect
-          wineData={wineData}
-          chocolateData={chocolateData}
-          teddyData={teddyData}
-        />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <GiftSelect
+            wineData={wineData}
+            chocolateData={chocolateData}
+            teddyData={teddyData}
+            control={control}
+          />
+        </form>
       </div>
     </div>
   );
