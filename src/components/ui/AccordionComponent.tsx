@@ -8,10 +8,7 @@ export const AccordionItem = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof Accordion.Item>
 >(({ children, className, ...props }, forwardedRef) => (
   <Accordion.Item
-    className={classNames(
-      "mt-px overflow-hidden first:mt-0 first:rounded-t last:rounded-b focus-within:relative focus-within:z-10 focus-within:shadow-[0_0_0_2px] focus-within:shadow-mauve12",
-      className
-    )}
+    className={classNames("mt-px overflow-hidden border-t ", className)}
     {...props}
     ref={forwardedRef}
   >
@@ -27,7 +24,7 @@ export const AccordionTrigger = React.forwardRef<
   <Accordion.Header className="flex">
     <Accordion.Trigger
       className={classNames(
-        "group flex flex-1 cursor-default items-center justify-between bg-mauve1 px-5 leading-none shadow-[0_1px_0] outline-none hover:bg-mauve2",
+        "group flex flex-1 cursor-default items-center justify-between",
         className
       )}
       {...props}
@@ -55,7 +52,7 @@ export const AccordionContent = React.forwardRef<
     {...props}
     ref={forwardedRef}
   >
-    <div className="px-5 py-[15px]">{children}</div>
+    <div className="py-[15px]">{children}</div>
   </Accordion.Content>
 ));
 AccordionContent.displayName = "AccordionContent";

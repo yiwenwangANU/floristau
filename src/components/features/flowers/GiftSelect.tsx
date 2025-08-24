@@ -18,13 +18,13 @@ const GiftSelect = ({
 }) => {
   return (
     <Accordion.Root
-      className="rounded-md shadow-[0_2px_10px] shadow-black/5"
+      className=""
       type="single"
       defaultValue="item-1"
       collapsible
     >
       <AccordionItem value="item-1">
-        <AccordionTrigger className="text-2xl h-14">Add Wine</AccordionTrigger>
+        <AccordionTrigger className="text-xl h-12">Add Wine</AccordionTrigger>
         <AccordionContent>
           {wineData.map((wine) => (
             <GiftCard
@@ -38,7 +38,9 @@ const GiftSelect = ({
       </AccordionItem>
 
       <AccordionItem value="item-2">
-        <AccordionTrigger>Add Chocolate</AccordionTrigger>
+        <AccordionTrigger className="text-xl h-12">
+          Add Chocolate
+        </AccordionTrigger>
         <AccordionContent>
           {chocolateData.map((chocolate) => (
             <GiftCard
@@ -52,7 +54,9 @@ const GiftSelect = ({
       </AccordionItem>
 
       <AccordionItem value="item-3">
-        <AccordionTrigger>Add Teddy Bear</AccordionTrigger>
+        <AccordionTrigger className="text-xl h-12">
+          Add Teddy Bear
+        </AccordionTrigger>
         <AccordionContent>
           {teddyData.map((teddy) => (
             <GiftCard

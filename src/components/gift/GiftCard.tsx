@@ -9,10 +9,11 @@ const GiftCard = ({
   price: number;
 }) => {
   return (
-    <div className="border p-4 rounded">
-      <h2 className="text-lg font-bold">{name}</h2>
+    <div className="border p-4 rounded flex flex-row justify-between items-center my-2">
       <Image src={imageUrl} alt={name} width={40} height={40} />
-      <p className="text-gray-600">Price: ${price}</p>
+      <h2 className="text-lg font-bold">{name}</h2>
+
+      <p className="text-lg font-bold">${price}</p>
     </div>
   );
 };
