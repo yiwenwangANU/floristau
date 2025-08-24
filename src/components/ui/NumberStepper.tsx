@@ -10,17 +10,17 @@ const NumberStepper = ({
       <span className="text-center p-2">{value}</span>
       <div className="flex flex-col">
         <button
-          className="cursor-pointer disabled:text-gray-400 font-semibold"
-          disabled={value <= 0}
-          onClick={() => onChange(value - 1)}
-        >
-          -
-        </button>
-        <button
-          className="cursor-pointer font-semibold"
+          className="cursor-pointer  font-semibold text-[9px]"
           onClick={() => onChange(value + 1)}
         >
-          +
+          ▲
+        </button>
+        <button
+          className="cursor-pointer font-semibold text-[9px] disabled:text-gray-400"
+          onClick={() => onChange(value - 1)}
+          disabled={value <= 0}
+        >
+          ▼
         </button>
       </div>
     </div>
