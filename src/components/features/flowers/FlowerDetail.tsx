@@ -1,15 +1,12 @@
-import { Jost, Roboto } from "next/font/google";
+import { Roboto } from "next/font/google";
 
-const jost = Jost({ weight: "500", subsets: ["latin"], style: "italic" });
 const roboto = Roboto({ weight: "400", subsets: ["latin"], style: "normal" });
 const FlowerDetail = ({
   name,
   description,
-  price,
 }: {
   name: string;
   description: string | undefined;
-  price: number;
 }) => {
   return (
     <>

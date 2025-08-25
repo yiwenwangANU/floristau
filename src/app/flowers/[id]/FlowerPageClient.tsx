@@ -15,6 +15,7 @@ import { useForm } from "react-hook-form";
 import { FlowerFormValues } from "@/libs/types/forms";
 import Button from "@/components/ui/Button";
 import SizeSelect from "@/components/form/SizeSelect";
+import DeliveryPost from "@/components/form/DeliveryPost";
 
 export default function FlowerPageClient({ id }: { id: string }) {
   const {
@@ -38,7 +39,15 @@ export default function FlowerPageClient({ id }: { id: string }) {
     isError: teddyError,
   } = useGetTeddy();
 
-  const { control, handleSubmit } = useForm<FlowerFormValues>();
+  const { control, handleSubmit } = useForm<FlowerFormValues>({
+    defaultValues: {
+      size: "standard",
+      giftQty: {},
+      message: "",
+      flowerId: 0,
+      postcode: "",
+    },
+  });
   const onSubmit = (data: FlowerFormValues) => console.log(data);
 
   if (flowerIsPending || wineIsPending || chocolateIsPending || teddyIsPending)
@@ -72,7 +81,6 @@ export default function FlowerPageClient({ id }: { id: string }) {
         <FlowerDetail
           name={flowerData.name}
           description={flowerData.description}
-          price={flowerData.price}
         />
         <form onSubmit={handleSubmit(onSubmit)}>
           <SizeSelect control={control} price={flowerData.price} />
@@ -82,6 +90,7 @@ export default function FlowerPageClient({ id }: { id: string }) {
             teddyData={teddyData}
             control={control}
           />
+          <DeliveryPost control={control} />
           <Button type="submit">Submit</Button>
         </form>
       </div>

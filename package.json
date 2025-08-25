@@ -23,6 +23,7 @@
     "react-hook-form": "^7.61.1",
     "react-toastify": "^11.0.5",
     "redux": "^5.0.1",
+    "use-places-autocomplete": "^4.0.1",
     "zod": "^4.0.14"
   },
   "devDependencies": {

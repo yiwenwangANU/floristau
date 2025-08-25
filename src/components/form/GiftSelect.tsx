@@ -28,7 +28,9 @@ const GiftSelect = ({
       collapsible
     >
       <AccordionItem value="item-1">
-        <AccordionTrigger className="text-xl h-12">Add Wine</AccordionTrigger>
+        <AccordionTrigger className="text-xl pt-5 pb-10">
+          Add Wine
+        </AccordionTrigger>
         <AccordionContent>
           {wineData.map((wine) => (
             <GiftCard
@@ -43,7 +45,7 @@ const GiftSelect = ({
       </AccordionItem>
 
       <AccordionItem value="item-2">
-        <AccordionTrigger className="text-xl h-12">
+        <AccordionTrigger className="text-xl pt-5 pb-10">
           Add Chocolate
         </AccordionTrigger>
         <AccordionContent>
@@ -60,7 +62,7 @@ const GiftSelect = ({
       </AccordionItem>
 
       <AccordionItem value="item-3">
-        <AccordionTrigger className="text-xl h-12">
+        <AccordionTrigger className="text-xl pt-5 pb-10">
           Add Teddy Bear
         </AccordionTrigger>
         <AccordionContent>
