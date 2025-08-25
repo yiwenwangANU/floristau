@@ -16,6 +16,7 @@ import { FlowerFormValues } from "@/libs/types/forms";
 import Button from "@/components/ui/Button";
 import SizeSelect from "@/components/form/SizeSelect";
 import DeliveryPost from "@/components/form/DeliveryPost";
+import DeliveryDate from "@/components/form/DeliveryDate";
 
 export default function FlowerPageClient({ id }: { id: string }) {
   const {
@@ -91,6 +92,7 @@ export default function FlowerPageClient({ id }: { id: string }) {
             control={control}
           />
           <DeliveryPost control={control} />
+          <DeliveryDate control={control} />
           <Button type="submit">Submit</Button>
         </form>
       </div>
