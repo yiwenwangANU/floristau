@@ -93,7 +93,9 @@ export default function FlowerPageClient({ id }: { id: string }) {
           />
           <DeliveryPost control={control} />
           <DeliveryDate control={control} />
-          <Button type="submit">Submit</Button>
+          <Button variant="addToCart" type="submit">
+            Add to Cart
+          </Button>
         </form>
       </div>
     </div>

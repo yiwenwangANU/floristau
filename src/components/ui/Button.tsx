@@ -9,7 +9,7 @@ type ButtonProps = {
     | "create"
     | "subscribe"
     | "subscribeMonthly"
-    | "mealplan";
+    | "addToCart";
   children: ReactNode;
 } & ComponentPropsWithoutRef<"button">;
 
@@ -19,7 +19,7 @@ const Button: FC<ButtonProps> = ({
   className,
   ...props
 }) => {
-  const baseStyles = "px-4 font-medium rounded-lg cursor-pointer";
+  const baseStyles = "px-4 font-medium cursor-pointer";
   let variantStyles;
   switch (variant) {
     case "primary":
@@ -49,8 +49,9 @@ const Button: FC<ButtonProps> = ({
       variantStyles =
         "py-3 bg-emerald-600 text-white rounded hover:bg-emerald-700";
       break;
-    case "mealplan":
-      variantStyles = "py-3 text-white rounded hover:bg-emerald-400";
+    case "addToCart":
+      variantStyles =
+        "w-full py-3 my-10 bg-stone-300 font-medium tracking-wide hover:bg-stone-400";
       break;
   }
 
