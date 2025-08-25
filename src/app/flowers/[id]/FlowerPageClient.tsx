@@ -44,8 +44,7 @@ export default function FlowerPageClient({ id }: { id: string }) {
     defaultValues: {
       size: "standard",
       giftQty: {},
-      message: "",
-      flowerId: 0,
+      flowerId: Number(id),
       postcode: "",
     },
   });
@@ -64,7 +63,6 @@ export default function FlowerPageClient({ id }: { id: string }) {
     teddyError
   )
     return <ErrorPage />;
-
   return (
     <div className="flex flex-row gap-12 min-h-screen pt-12 pb-2 px-2 sm:px-8">
       <div className="w-4/5 px-5 py-15">
@@ -76,6 +74,15 @@ export default function FlowerPageClient({ id }: { id: string }) {
           priority
           className="h-auto w-auto"
         />
+        <p className="p-2">The Image pictured is a Premium product.</p>
+        <p className="p-2 tracking-wide">
+          <strong>Disclaimer:</strong> Our arrangements are individually
+          handcrafted by skilled florists using the freshest seasonal flowers
+          available on the day. The images shown are examples only and are
+          intended to represent the overall colour palette and style. Actual
+          flower varieties, sizes, and exact shades may vary depending on daily
+          availability.
+        </p>
       </div>
 
       <div className="flex flex-col gap-5 w-4/5 px-5 py-15">

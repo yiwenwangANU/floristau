@@ -9,7 +9,8 @@ const DeliveryDate = ({ control }: { control: Control<FlowerFormValues> }) => {
     <Controller
       name="deliveryDate"
       control={control}
-      render={({ field }) => (
+      rules={{ required: "Delivery date is required" }}
+      render={({ field, fieldState }) => (
         <div className="flex flex-col relative">
           <label className="text-xl h-12">Delivery Date</label>
           <DatePicker
@@ -23,6 +24,11 @@ const DeliveryDate = ({ control }: { control: Control<FlowerFormValues> }) => {
             className="absolute right-7 top-20 -translate-y-1/2 text-gray-400 pointer-events-none"
             size={20}
           />
+          {fieldState.error && (
+            <p className="text-red-500 text-sm mt-1">
+              {fieldState.error.message}
+            </p>
+          )}
         </div>
       )}
     />
