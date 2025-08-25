@@ -4,7 +4,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/AccordionComponent";
 import * as Accordion from "@radix-ui/react-accordion";
-import { GetGiftsResponse, GiftFormValues } from "@/libs/types/gifts";
+import { FlowerFormValues } from "@/libs/types/forms";
+import { GetGiftsResponse } from "@/libs/types/gifts";
 import GiftCard from "@/components/gift/GiftCard";
 import { Control } from "react-hook-form";
 
@@ -17,7 +18,7 @@ const GiftSelect = ({
   wineData: GetGiftsResponse;
   chocolateData: GetGiftsResponse;
   teddyData: GetGiftsResponse;
-  control: Control<GiftFormValues>;
+  control: Control<FlowerFormValues>;
 }) => {
   return (
     <Accordion.Root
