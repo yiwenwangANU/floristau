@@ -6,7 +6,7 @@ import {
 import * as Accordion from "@radix-ui/react-accordion";
 import { FlowerFormValues } from "@/libs/types/forms";
 import { GetGiftsResponse } from "@/libs/types/gifts";
-import GiftCard from "@/components/gift/GiftCard";
+import GiftCard from "@/components/form/GiftCard";
 import { Control } from "react-hook-form";
 
 const GiftSelect = ({

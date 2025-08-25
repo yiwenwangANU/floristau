@@ -6,7 +6,7 @@ const NumberStepper = ({
   onChange: (value: number) => void;
 }) => {
   return (
-    <div className="flex items-center border border-gray-300 aspect-square w-10">
+    <div className="flex items-center border border-gray-300 aspect-square w-10 hover:border-black">
       <span className="text-center p-2">{value}</span>
       <div className="flex flex-col">
         <button

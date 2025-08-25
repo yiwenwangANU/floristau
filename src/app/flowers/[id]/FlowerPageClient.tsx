@@ -10,10 +10,11 @@ import useGetChocolate from "@/hooks/useGetChocolate";
 import useGetTeddy from "@/hooks/useGetTeddys";
 
 import FlowerDetail from "@/components/features/flowers/FlowerDetail";
-import GiftSelect from "@/components/features/flowers/GiftSelect";
+import GiftSelect from "@/components/form/GiftSelect";
 import { useForm } from "react-hook-form";
 import { FlowerFormValues } from "@/libs/types/forms";
 import Button from "@/components/ui/Button";
+import SizeSelect from "@/components/form/SizeSelect";
 
 export default function FlowerPageClient({ id }: { id: string }) {
   const {
@@ -74,6 +75,7 @@ export default function FlowerPageClient({ id }: { id: string }) {
           price={flowerData.price}
         />
         <form onSubmit={handleSubmit(onSubmit)}>
+          <SizeSelect control={control} price={flowerData.price} />
           <GiftSelect
             wineData={wineData}
             chocolateData={chocolateData}
