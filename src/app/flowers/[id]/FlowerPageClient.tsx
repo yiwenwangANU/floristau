@@ -76,12 +76,9 @@ export default function FlowerPageClient({ id }: { id: string }) {
         />
         <p className="p-2">The Image pictured is a Premium product.</p>
         <p className="p-2 tracking-wide">
-          <strong>Disclaimer:</strong> Our arrangements are individually
-          handcrafted by skilled florists using the freshest seasonal flowers
-          available on the day. The images shown are examples only and are
-          intended to represent the overall colour palette and style. Actual
-          flower varieties, sizes, and exact shades may vary depending on daily
-          availability.
+          <strong>Disclaimer:</strong> Each arrangement is handcrafted with the
+          freshest seasonal flowers. Images are examples only; colours and
+          varieties may vary based on availability.
         </p>
       </div>
 
