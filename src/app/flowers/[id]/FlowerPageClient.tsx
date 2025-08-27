@@ -21,6 +21,7 @@ import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 import { newItem, decrement, increment } from "@/redux/CartSlice";
 import { CartItem } from "@/libs/types/cart";
 import { nanoid } from "@reduxjs/toolkit";
+import { store } from "@/redux/store";
 
 export default function FlowerPageClient({ id }: { id: string }) {
   const dispatch = useAppDispatch();
@@ -70,7 +71,6 @@ export default function FlowerPageClient({ id }: { id: string }) {
   )
     return <ErrorPage />;
   const onSubmit = (data: FlowerFormValues) => {
-    console.log(data);
     const deliveryDateISO = data.deliveryDate
       ? data.deliveryDate.toISOString()
       : null;
@@ -88,6 +88,7 @@ export default function FlowerPageClient({ id }: { id: string }) {
       message: data.message,
     };
     dispatch(newItem(cartItem));
+    console.log("Store state: ", store.getState());
   };
   return (
     <div className="flex flex-row gap-12 min-h-screen pt-12 pb-2 px-2 sm:px-8">
