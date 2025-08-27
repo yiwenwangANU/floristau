@@ -20,24 +20,24 @@ export const cartSlice = createSlice({
         console.log("New item added to cart:", action.payload);
       }
     },
-    increment: (state, action: PayloadAction<string>) => {
+    increment: (state, action: PayloadAction<number>) => {
       const existing = state.cartState.items.find(
-        (item) => item.id === action.payload
+        (item) => item.flowerId === action.payload
       );
       if (existing) {
         existing.qty += 1;
       }
     },
-    decrement: (state, action: PayloadAction<string>) => {
+    decrement: (state, action: PayloadAction<number>) => {
       const existing = state.cartState.items.find(
-        (item) => item.id === action.payload
+        (item) => item.flowerId === action.payload
       );
       if (existing && existing.qty > 1) {
         existing.qty -= 1;
       }
       if (existing && existing.qty === 1) {
         state.cartState.items = state.cartState.items.filter(
-          (item) => item.id !== action.payload
+          (item) => item.flowerId !== action.payload
         );
       }
     },

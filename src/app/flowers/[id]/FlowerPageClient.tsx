@@ -52,6 +52,8 @@ export default function FlowerPageClient({ id }: { id: string }) {
       flowerId: Number(id),
       postcode: "",
     },
+    mode: "onTouched",
+    reValidateMode: "onChange",
   });
 
   if (flowerIsPending || wineIsPending || chocolateIsPending || teddyIsPending)
