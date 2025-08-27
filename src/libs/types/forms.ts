@@ -4,4 +4,5 @@ export type FlowerFormValues = {
   flowerId: number;
   postcode: string;
   deliveryDate: Date | null;
+  message: string | null;
 };

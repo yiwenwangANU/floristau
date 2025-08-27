@@ -17,8 +17,13 @@ import Button from "@/components/ui/Button";
 import SizeSelect from "@/components/form/SizeSelect";
 import DeliveryPost from "@/components/form/DeliveryPost";
 import DeliveryDate from "@/components/form/DeliveryDate";
+import { useAppSelector, useAppDispatch } from "@/redux/hooks";
+import { newItem, decrement, increment } from "@/redux/CartSlice";
+import { CartItem } from "@/libs/types/cart";
+import { nanoid } from "@reduxjs/toolkit";
 
 export default function FlowerPageClient({ id }: { id: string }) {
+  const dispatch = useAppDispatch();
   const {
     data: flowerData,
     isPending: flowerIsPending,
@@ -48,7 +53,6 @@ export default function FlowerPageClient({ id }: { id: string }) {
       postcode: "",
     },
   });
-  const onSubmit = (data: FlowerFormValues) => console.log(data);
 
   if (flowerIsPending || wineIsPending || chocolateIsPending || teddyIsPending)
     return <Loading />;
@@ -63,6 +67,26 @@ export default function FlowerPageClient({ id }: { id: string }) {
     teddyError
   )
     return <ErrorPage />;
+  const onSubmit = (data: FlowerFormValues) => {
+    console.log(data);
+    const deliveryDateISO = data.deliveryDate
+      ? data.deliveryDate.toISOString()
+      : null;
+    const cartItem: CartItem = {
+      id: nanoid(),
+      flowerId: flowerData.id,
+      name: flowerData.name,
+      price: flowerData.price,
+      qty: 1,
+      imageUrl: flowerData.imageUrl,
+      deliveryDateISO,
+      size: data.size,
+      giftQty: data.giftQty,
+      postcode: data.postcode,
+      message: data.message,
+    };
+    dispatch(newItem(cartItem));
+  };
   return (
     <div className="flex flex-row gap-12 min-h-screen pt-12 pb-2 px-2 sm:px-8">
       <div className="w-4/5 px-5 py-15">
