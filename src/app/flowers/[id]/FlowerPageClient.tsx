@@ -124,9 +124,14 @@ export default function FlowerPageClient({ id }: { id: string }) {
           />
           <DeliveryPost control={control} />
           <DeliveryDate control={control} />
-          <Button variant="addToCart" type="submit">
-            Add to Cart
-          </Button>
+          <div className="flex flex-row gap-6">
+            <Button variant="buyNow" type="button">
+              Buy Now
+            </Button>
+            <Button variant="addToCart" type="submit">
+              Add to Cart
+            </Button>
+          </div>
         </form>
       </div>
     </div>
