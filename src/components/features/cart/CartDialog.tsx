@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Dialog } from "radix-ui";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import CartCard from "./CartCard";
@@ -53,7 +52,7 @@ const CartDialog = ({
           <div className="mt-[25px] flex justify-end">
             <Dialog.Close asChild>
               <button className="inline-flex h-[35px] items-center justify-center rounded bg-green4 px-[15px] font-medium leading-none text-green11 outline-none outline-offset-1 hover:bg-green5 focus-visible:outline-2 focus-visible:outline-green6 select-none">
-                Save changes
+                Continue Shopping
               </button>
             </Dialog.Close>
           </div>

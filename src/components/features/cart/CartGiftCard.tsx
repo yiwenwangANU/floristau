@@ -9,9 +9,9 @@ const CartGiftCard = ({ giftQty }: { giftQty: GiftQty }) => {
           {giftQty.map((item) => (
             <div
               key={item.name}
-              className="text-sm flex flex-row items-center justify-between w-full"
+              className="text-sm flex flex-row items-center justify-between w-full pb-2"
             >
-              <div className="flex flex-col">
+              <div className="flex flex-col py-2">
                 <span className="text-lg font-semibold">{item.name}</span>
                 <span className="underline cursor-pointer">Remove</span>
               </div>
