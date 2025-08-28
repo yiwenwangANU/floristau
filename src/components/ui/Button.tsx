@@ -9,6 +9,7 @@ type ButtonProps = {
     | "create"
     | "subscribe"
     | "subscribeMonthly"
+    | "manageGifts"
     | "buyNow"
     | "addToCart";
   children: ReactNode;
@@ -57,6 +58,10 @@ const Button: FC<ButtonProps> = ({
     case "addToCart":
       variantStyles =
         "w-full py-3 my-10 bg-stone-300 font-medium tracking-wide hover:bg-stone-400";
+      break;
+    case "manageGifts":
+      variantStyles =
+        "font-semibold border-1 border-black h-10 w-full hover:text-white hover:bg-black duration-300";
       break;
   }
 

@@ -4,11 +4,13 @@ import NumberStepper from "@/components/form/NumberStepper";
 import { FlowerFormValues } from "@/libs/types/forms";
 
 const GiftCard = ({
+  index,
   name,
   imageUrl,
   price,
   control,
 }: {
+  index: number;
   name: string;
   imageUrl: string;
   price: number;
@@ -20,7 +22,7 @@ const GiftCard = ({
       <h2 className="text-lg font-bold">{name}</h2>
       <div className="flex flex-row items-center gap-4">
         <p className="text-lg font-bold">${price}</p>
-        <NumberStepper control={control} giftKey={`giftQty.${name}`} />
+        <NumberStepper control={control} index={index} />
       </div>
     </div>
   );

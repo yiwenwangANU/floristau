@@ -1,3 +1,5 @@
+import { GiftQty } from "./gifts";
+
 export type CartItem = {
   id: string;
   flowerId: number;
@@ -6,7 +8,7 @@ export type CartItem = {
   qty: number;
   imageUrl: string;
   size: "standard" | "premium";
-  giftQty: Record<string, number>;
+  giftQty: GiftQty;
   postcode: string;
   deliveryDateISO: string | null;
   message: string | null;

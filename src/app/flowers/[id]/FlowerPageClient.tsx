@@ -10,25 +10,9 @@ import useGetChocolate from "@/hooks/useGetChocolate";
 import useGetTeddy from "@/hooks/useGetTeddys";
 
 import FlowerDetail from "@/components/features/flowers/FlowerDetail";
-import GiftSelect from "@/components/form/GiftSelect";
-import { useForm } from "react-hook-form";
-import { FlowerFormValues } from "@/libs/types/forms";
-import Button from "@/components/ui/Button";
-import SizeSelect from "@/components/form/SizeSelect";
-import DeliveryPost from "@/components/form/DeliveryPost";
-import DeliveryDate from "@/components/form/DeliveryDate";
-import { useAppSelector, useAppDispatch } from "@/redux/hooks";
-import { newItem, decrement, increment } from "@/redux/CartSlice";
-import { CartItem } from "@/libs/types/cart";
-import { nanoid } from "@reduxjs/toolkit";
-import { store } from "@/redux/store";
-import CartDialog from "@/components/features/cart/CartDialog";
-import { useState } from "react";
-import { set } from "date-fns";
+import FlowerForm from "@/components/form/FlowerForm";
 
 export default function FlowerPageClient({ id }: { id: string }) {
-  const [cartOpen, setCartOpen] = useState(false);
-  const dispatch = useAppDispatch();
   const {
     data: flowerData,
     isPending: flowerIsPending,
@@ -50,21 +34,6 @@ export default function FlowerPageClient({ id }: { id: string }) {
     isError: teddyError,
   } = useGetTeddy();
 
-  const {
-    control,
-    handleSubmit,
-    formState: { isSubmitting },
-  } = useForm<FlowerFormValues>({
-    defaultValues: {
-      size: "standard",
-      giftQty: {},
-      flowerId: Number(id),
-      postcode: "",
-    },
-    mode: "onTouched",
-    reValidateMode: "onChange",
-  });
-
   if (flowerIsPending || wineIsPending || chocolateIsPending || teddyIsPending)
     return <Loading />;
   if (
@@ -78,40 +47,7 @@ export default function FlowerPageClient({ id }: { id: string }) {
     teddyError
   )
     return <ErrorPage />;
-  const onSubmit = (data: FlowerFormValues) => {
-    const deliveryDateISO = data.deliveryDate
-      ? data.deliveryDate.toISOString()
-      : null;
-    const cartItem: CartItem = {
-      id: nanoid(),
-      flowerId: flowerData.id,
-      name: flowerData.name,
-      price: flowerData.price,
-      qty: 1,
-      imageUrl: flowerData.imageUrl,
-      deliveryDateISO,
-      size: data.size,
-      giftQty: Object.fromEntries(
-        Object.entries(data.giftQty).filter((item) => item[1] > 0)
-      ),
-      postcode: data.postcode,
-      message: data.message,
-    };
-    dispatch(newItem(cartItem));
-    console.log("Store state: ", store.getState());
-  };
-  const onBuyNow = (data: FlowerFormValues) => {
-    onSubmit(data);
-    console.log("Buying now:", data);
-  };
-  const onAddToCart = (data: FlowerFormValues) => {
-    onSubmit(data);
-    console.log("Adding to cart:", data);
-    setCartOpen(true);
-  };
-  const onAddToCartInvalid = () => {
-    setCartOpen(false);
-  };
+
   return (
     <div className="flex flex-row gap-12 min-h-screen pt-12 pb-2 px-2 sm:px-8">
       <div className="w-4/5 px-5 py-15">
@@ -136,34 +72,13 @@ export default function FlowerPageClient({ id }: { id: string }) {
           name={flowerData.name}
           description={flowerData.description}
         />
-        <form>
-          <SizeSelect control={control} price={flowerData.price} />
-          <GiftSelect
-            wineData={wineData}
-            chocolateData={chocolateData}
-            teddyData={teddyData}
-            control={control}
-          />
-          <DeliveryPost control={control} />
-          <DeliveryDate control={control} />
-          <div className="flex flex-row gap-6">
-            <Button
-              variant="buyNow"
-              name="buyNow"
-              type="submit"
-              disabled={isSubmitting}
-              onClick={handleSubmit(onBuyNow)}
-            >
-              Buy Now
-            </Button>
-            <CartDialog
-              open={cartOpen}
-              onOpenChange={setCartOpen}
-              title="Add to Cart"
-              onClick={handleSubmit(onAddToCart, onAddToCartInvalid)}
-            />
-          </div>
-        </form>
+        <FlowerForm
+          id={id}
+          flowerData={flowerData}
+          wineData={wineData}
+          chocolateData={chocolateData}
+          teddyData={teddyData}
+        />
       </div>
     </div>
   );

@@ -32,9 +32,10 @@ const GiftSelect = ({
           Add Wine
         </AccordionTrigger>
         <AccordionContent>
-          {wineData.map((wine) => (
+          {wineData.map((wine, i) => (
             <GiftCard
               key={wine.id}
+              index={i}
               name={wine.name}
               imageUrl={wine.imageUrl}
               price={wine.price}
@@ -49,9 +50,10 @@ const GiftSelect = ({
           Add Chocolate
         </AccordionTrigger>
         <AccordionContent>
-          {chocolateData.map((chocolate) => (
+          {chocolateData.map((chocolate, i) => (
             <GiftCard
               key={chocolate.id}
+              index={i}
               name={chocolate.name}
               imageUrl={chocolate.imageUrl}
               price={chocolate.price}
@@ -66,9 +68,10 @@ const GiftSelect = ({
           Add Teddy Bear
         </AccordionTrigger>
         <AccordionContent>
-          {teddyData.map((teddy) => (
+          {teddyData.map((teddy, i) => (
             <GiftCard
               key={teddy.id}
+              index={i}
               name={teddy.name}
               imageUrl={teddy.imageUrl}
               price={teddy.price}

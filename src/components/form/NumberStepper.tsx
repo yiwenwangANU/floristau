@@ -3,14 +3,14 @@ import { Control, Controller } from "react-hook-form";
 
 const NumberStepper = ({
   control,
-  giftKey,
+  index,
 }: {
   control: Control<FlowerFormValues>;
-  giftKey: `giftQty.${string}`;
+  index: number;
 }) => {
   return (
     <Controller
-      name={giftKey}
+      name={`giftQty.${index}.qty`}
       control={control}
       defaultValue={0}
       render={({ field }) => (

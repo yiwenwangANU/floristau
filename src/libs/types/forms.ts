@@ -1,6 +1,8 @@
+import { GiftQty } from "./gifts";
+
 export type FlowerFormValues = {
   size: "standard" | "premium";
-  giftQty: Record<string, number>;
+  giftQty: GiftQty;
   flowerId: number;
   postcode: string;
   deliveryDate: Date | null;
