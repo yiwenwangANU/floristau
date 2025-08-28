@@ -22,6 +22,7 @@ import { newItem, decrement, increment } from "@/redux/CartSlice";
 import { CartItem } from "@/libs/types/cart";
 import { nanoid } from "@reduxjs/toolkit";
 import { store } from "@/redux/store";
+import CartDialog from "@/components/features/cart/CartDialog";
 
 export default function FlowerPageClient({ id }: { id: string }) {
   const dispatch = useAppDispatch();
@@ -46,7 +47,11 @@ export default function FlowerPageClient({ id }: { id: string }) {
     isError: teddyError,
   } = useGetTeddy();
 
-  const { control, handleSubmit } = useForm<FlowerFormValues>({
+  const {
+    control,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm<FlowerFormValues>({
     defaultValues: {
       size: "standard",
       giftQty: {},
@@ -90,6 +95,14 @@ export default function FlowerPageClient({ id }: { id: string }) {
     dispatch(newItem(cartItem));
     console.log("Store state: ", store.getState());
   };
+  const onBuyNow = (data: FlowerFormValues) => {
+    onSubmit(data);
+    console.log("Buying now:", data);
+  };
+  const onAddToCart = (data: FlowerFormValues) => {
+    onSubmit(data);
+    console.log("Adding to cart:", data);
+  };
   return (
     <div className="flex flex-row gap-12 min-h-screen pt-12 pb-2 px-2 sm:px-8">
       <div className="w-4/5 px-5 py-15">
@@ -114,7 +127,7 @@ export default function FlowerPageClient({ id }: { id: string }) {
           name={flowerData.name}
           description={flowerData.description}
         />
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form>
           <SizeSelect control={control} price={flowerData.price} />
           <GiftSelect
             wineData={wineData}
@@ -125,12 +138,16 @@ export default function FlowerPageClient({ id }: { id: string }) {
           <DeliveryPost control={control} />
           <DeliveryDate control={control} />
           <div className="flex flex-row gap-6">
-            <Button variant="buyNow" type="button">
+            <Button
+              variant="buyNow"
+              name="buyNow"
+              type="submit"
+              disabled={isSubmitting}
+              onClick={handleSubmit(onBuyNow)}
+            >
               Buy Now
             </Button>
-            <Button variant="addToCart" type="submit">
-              Add to Cart
-            </Button>
+            <CartDialog title="Add to Cart" />
           </div>
         </form>
       </div>
