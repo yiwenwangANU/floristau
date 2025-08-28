@@ -23,8 +23,11 @@ import { CartItem } from "@/libs/types/cart";
 import { nanoid } from "@reduxjs/toolkit";
 import { store } from "@/redux/store";
 import CartDialog from "@/components/features/cart/CartDialog";
+import { useState } from "react";
+import { set } from "date-fns";
 
 export default function FlowerPageClient({ id }: { id: string }) {
+  const [cartOpen, setCartOpen] = useState(false);
   const dispatch = useAppDispatch();
   const {
     data: flowerData,
@@ -104,6 +107,10 @@ export default function FlowerPageClient({ id }: { id: string }) {
   const onAddToCart = (data: FlowerFormValues) => {
     onSubmit(data);
     console.log("Adding to cart:", data);
+    setCartOpen(true);
+  };
+  const onAddToCartInvalid = () => {
+    setCartOpen(false);
   };
   return (
     <div className="flex flex-row gap-12 min-h-screen pt-12 pb-2 px-2 sm:px-8">
@@ -150,8 +157,10 @@ export default function FlowerPageClient({ id }: { id: string }) {
               Buy Now
             </Button>
             <CartDialog
+              open={cartOpen}
+              onOpenChange={setCartOpen}
               title="Add to Cart"
-              onClick={() => handleSubmit(onAddToCart)()}
+              onClick={handleSubmit(onAddToCart, onAddToCartInvalid)}
             />
           </div>
         </form>

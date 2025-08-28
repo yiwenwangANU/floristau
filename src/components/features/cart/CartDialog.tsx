@@ -5,24 +5,30 @@ import CartCard from "./CartCard";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 const CartDialog = ({
+  open,
+  onOpenChange,
   title,
   onClick,
 }: {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
   title: string;
   onClick: () => void;
 }) => {
   const items = useSelector((state: RootState) => state.cart.cartState.items);
   console.log(items);
   return (
-    <Dialog.Root>
-      <Dialog.Trigger asChild>
-        <button
-          onClick={onClick}
-          className="px-4 cursor-pointer w-full py-3 my-10 overflow-hidden bg-stone-300 font-medium tracking-wide hover:bg-stone-400"
-        >
-          {title}
-        </button>
-      </Dialog.Trigger>
+    <Dialog.Root open={open} onOpenChange={onOpenChange}>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          onClick();
+        }}
+        className="px-4 cursor-pointer w-full py-3 my-10 overflow-hidden bg-stone-300 font-medium tracking-wide hover:bg-stone-400"
+      >
+        {title}
+      </button>
+
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50" />
         <Dialog.Content className="fixed bg-white left-1/2 top-1/2 max-w-1/3 max-h-3/4 -translate-x-1/2 -translate-y-1/2 rounded-md p-[25px] overflow-y-auto">
