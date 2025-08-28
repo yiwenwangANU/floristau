@@ -1,6 +1,17 @@
 import { GiftQty } from "@/libs/types/gifts";
 import Button from "@/components/ui/Button";
-const CartGiftCard = ({ giftQty }: { giftQty: GiftQty }) => {
+import NumberStepper from "@/components/form/NumberStepper";
+import { useDispatch } from "react-redux";
+import { updateGiftQty } from "@/redux/CartSlice";
+
+const CartGiftCard = ({
+  cartId,
+  giftQty,
+}: {
+  cartId: string;
+  giftQty: GiftQty;
+}) => {
+  const dispatch = useDispatch();
   return (
     <div className="flex flex-col items-start">
       {giftQty.length > 0 && (
@@ -15,9 +26,20 @@ const CartGiftCard = ({ giftQty }: { giftQty: GiftQty }) => {
                 <span className="text-lg font-semibold">{item.name}</span>
                 <span className="underline cursor-pointer">Remove</span>
               </div>
-              <div className="flex flex-row gap-5">
-                <span className="font-bold">* {item.qty}</span>
-                <span className="text-lg font-semibold">
+              <div className="flex flex-row items-center gap-6 px-2">
+                <NumberStepper
+                  value={item.qty}
+                  onChange={(qty) =>
+                    dispatch(
+                      updateGiftQty({
+                        id: cartId,
+                        giftName: item.name,
+                        giftQty: qty,
+                      })
+                    )
+                  }
+                />
+                <span className="text-lg font-semibold w-10">
                   ${item.price.toFixed(2)}
                 </span>
               </div>

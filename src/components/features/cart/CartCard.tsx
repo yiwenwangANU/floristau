@@ -26,7 +26,7 @@ const CartCard = ({
         price={price}
         imageUrl={imageUrl}
       />
-      <CartGiftCard giftQty={giftQty} />
+      <CartGiftCard cartId={id} giftQty={giftQty} />
     </div>
   );
 };
