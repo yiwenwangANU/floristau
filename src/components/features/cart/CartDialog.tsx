@@ -4,13 +4,22 @@ import { Cross2Icon } from "@radix-ui/react-icons";
 import CartCard from "./CartCard";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
-const CartDialog = ({ title }: { title: string }) => {
+const CartDialog = ({
+  title,
+  onClick,
+}: {
+  title: string;
+  onClick: () => void;
+}) => {
   const items = useSelector((state: RootState) => state.cart.cartState.items);
   console.log(items);
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button className="px-4 cursor-pointer w-full py-3 my-10 overflow-hidden bg-stone-300 font-medium tracking-wide hover:bg-stone-400">
+        <button
+          onClick={onClick}
+          className="px-4 cursor-pointer w-full py-3 my-10 overflow-hidden bg-stone-300 font-medium tracking-wide hover:bg-stone-400"
+        >
           {title}
         </button>
       </Dialog.Trigger>

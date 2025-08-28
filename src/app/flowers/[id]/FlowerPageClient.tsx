@@ -149,7 +149,10 @@ export default function FlowerPageClient({ id }: { id: string }) {
             >
               Buy Now
             </Button>
-            <CartDialog title="Add to Cart" />
+            <CartDialog
+              title="Add to Cart"
+              onClick={() => handleSubmit(onAddToCart)()}
+            />
           </div>
         </form>
       </div>
