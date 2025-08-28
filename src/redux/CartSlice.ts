@@ -46,6 +46,20 @@ export const cartSlice = createSlice({
         (item) => item.id !== action.payload
       );
     },
+    updateGiftQty: (
+      state,
+      action: PayloadAction<{ id: string; giftName: string; giftQty: number }>
+    ) => {
+      const item = state.cartState.items.find(
+        (item) => item.id === action.payload.id
+      );
+      if (!item) return;
+      const gift = item.giftQty.find(
+        (gift) => gift.name === action.payload.giftName
+      );
+      if (!gift) return;
+      gift.qty = Math.max(0, action.payload.giftQty);
+    },
     clearCart: (state) => {
       state.cartState.items = [];
     },
