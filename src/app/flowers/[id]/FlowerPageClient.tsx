@@ -88,7 +88,9 @@ export default function FlowerPageClient({ id }: { id: string }) {
       imageUrl: flowerData.imageUrl,
       deliveryDateISO,
       size: data.size,
-      giftQty: data.giftQty,
+      giftQty: Object.fromEntries(
+        Object.entries(data.giftQty).filter((item) => item[1] > 0)
+      ),
       postcode: data.postcode,
       message: data.message,
     };
