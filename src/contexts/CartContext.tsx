@@ -1,4 +1,12 @@
-import { createContext, useState, Dispatch, SetStateAction } from "react";
+"use client";
+
+import {
+  createContext,
+  useState,
+  Dispatch,
+  SetStateAction,
+  useContext,
+} from "react";
 
 type CartContextType = {
   gift: boolean;
@@ -7,9 +15,7 @@ type CartContextType = {
   handleGiftClose: () => void;
 };
 
-export const CartContext = createContext<CartContextType | undefined>(
-  undefined
-);
+export const CartContext = createContext<CartContextType | null>(null);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [gift, setGift] = useState(false);
@@ -22,4 +28,12 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
       {children}
     </CartContext.Provider>
   );
+};
+
+export const useCartContext = (): CartContextType => {
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error("useCartContext must be used within a CartProvider");
+  }
+  return context;
 };

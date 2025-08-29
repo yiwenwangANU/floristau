@@ -3,6 +3,7 @@ import Button from "@/components/ui/Button";
 import NumberStepper from "@/components/form/NumberStepper";
 import { useDispatch } from "react-redux";
 import { updateGiftQty, removeGift } from "@/redux/CartSlice";
+import { useCartContext } from "@/contexts/CartContext";
 
 const CartGiftCard = ({
   cartId,
@@ -12,6 +13,7 @@ const CartGiftCard = ({
   giftQty: GiftQty;
 }) => {
   const dispatch = useDispatch();
+  const { handleGiftOpen } = useCartContext();
   const giftFlat = [...giftQty.wine, ...giftQty.chocolate, ...giftQty.teddy];
   const onRemoveGift = (type: "wine" | "chocolate" | "teddy", name: string) => {
     dispatch(
@@ -64,7 +66,9 @@ const CartGiftCard = ({
         ))}
       </div>
 
-      <Button variant="manageGifts">Manage Gifts</Button>
+      <Button variant="manageGifts" onClick={() => handleGiftOpen()}>
+        Manage Gifts
+      </Button>
     </div>
   );
 };

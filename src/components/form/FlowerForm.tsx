@@ -15,6 +15,7 @@ import { store } from "@/redux/store";
 import { useState } from "react";
 import { FlowerFormValues } from "@/libs/types/forms";
 import { GetFlowerResponse } from "@/libs/types/flowers";
+import { useCartContext } from "@/contexts/CartContext";
 
 const FlowerForm = ({
   id,
@@ -30,6 +31,7 @@ const FlowerForm = ({
   teddyData: GetGiftsResponse;
 }) => {
   const [cartOpen, setCartOpen] = useState(false);
+  const { handleGiftClose } = useCartContext();
   const dispatch = useAppDispatch();
   const giftDefaults: GiftQty = {
     wine: wineData.map((w) => ({
@@ -99,6 +101,7 @@ const FlowerForm = ({
   const onAddToCart = (data: FlowerFormValues) => {
     onSubmit(data);
     console.log("Adding to cart:", data);
+    handleGiftClose();
     setCartOpen(true);
   };
   const onAddToCartInvalid = () => {

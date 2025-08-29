@@ -2,6 +2,8 @@ import { Dialog } from "radix-ui";
 import { Cross2Icon } from "@radix-ui/react-icons";
 
 import CartContent from "./CartContent";
+import { useCartContext } from "@/contexts/CartContext";
+import CartManageGift from "./CartManageGift";
 const CartDialog = ({
   open,
   onOpenChange,
@@ -13,6 +15,7 @@ const CartDialog = ({
   title: string;
   onClick: () => void;
 }) => {
+  const { gift } = useCartContext();
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <button
@@ -27,7 +30,7 @@ const CartDialog = ({
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50" />
         <Dialog.Content className="fixed bg-white left-1/2 top-1/2 max-w-1/3 max-h-3/4 -translate-x-1/2 -translate-y-1/2 rounded-md p-[25px] overflow-y-auto">
-          <CartContent />
+          {gift ? <CartManageGift /> : <CartContent />}
           <div className="mt-[25px] flex justify-end">
             <Dialog.Close asChild>
               <button className="inline-flex h-[35px] items-center justify-center rounded bg-green4 px-[15px] font-medium leading-none text-green11 outline-none outline-offset-1 hover:bg-green5 focus-visible:outline-2 focus-visible:outline-green6 select-none">
