@@ -1,8 +1,7 @@
 import { Dialog } from "radix-ui";
 import { Cross2Icon } from "@radix-ui/react-icons";
-import CartCard from "./CartCard";
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
+
+import CartContent from "./CartContent";
 const CartDialog = ({
   open,
   onOpenChange,
@@ -14,8 +13,6 @@ const CartDialog = ({
   title: string;
   onClick: () => void;
 }) => {
-  const items = useSelector((state: RootState) => state.cart.cartState.items);
-  console.log(items);
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <button
@@ -27,28 +24,10 @@ const CartDialog = ({
       >
         {title}
       </button>
-
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50" />
         <Dialog.Content className="fixed bg-white left-1/2 top-1/2 max-w-1/3 max-h-3/4 -translate-x-1/2 -translate-y-1/2 rounded-md p-[25px] overflow-y-auto">
-          <Dialog.Title className="m-0 text-2xl font-semibold">
-            Your Cart
-          </Dialog.Title>
-
-          <div className="mt-[25px] flex flex-col gap-4">
-            {items.length === 0 && <p>Your cart is empty.</p>}
-            {items.map((item) => (
-              <CartCard
-                key={item.id}
-                id={item.id}
-                name={item.name}
-                size={item.size}
-                price={item.price}
-                imageUrl={item.imageUrl}
-                giftQty={item.giftQty}
-              />
-            ))}
-          </div>
+          <CartContent />
           <div className="mt-[25px] flex justify-end">
             <Dialog.Close asChild>
               <button className="inline-flex h-[35px] items-center justify-center rounded bg-green4 px-[15px] font-medium leading-none text-green11 outline-none outline-offset-1 hover:bg-green5 focus-visible:outline-2 focus-visible:outline-green6 select-none">
