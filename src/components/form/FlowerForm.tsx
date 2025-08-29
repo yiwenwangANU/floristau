@@ -32,13 +32,24 @@ const FlowerForm = ({
   const [cartOpen, setCartOpen] = useState(false);
   const dispatch = useAppDispatch();
   const giftDefaults: GiftQty = {
-    wine: wineData.map((w) => ({ name: w.name, price: w.price, qty: 0 })),
+    wine: wineData.map((w) => ({
+      name: w.name,
+      price: w.price,
+      qty: 0,
+      type: "wine",
+    })),
     chocolate: chocolateData.map((c) => ({
       name: c.name,
       price: c.price,
       qty: 0,
+      type: "chocolate",
     })),
-    teddy: teddyData.map((t) => ({ name: t.name, price: t.price, qty: 0 })),
+    teddy: teddyData.map((t) => ({
+      name: t.name,
+      price: t.price,
+      qty: 0,
+      type: "teddy",
+    })),
   };
   const filterGiftQty = (giftQty: GiftQty) => {
     return {

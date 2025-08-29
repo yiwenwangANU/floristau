@@ -48,13 +48,18 @@ export const cartSlice = createSlice({
     },
     updateGiftQty: (
       state,
-      action: PayloadAction<{ id: string; giftName: string; giftQty: number }>
+      action: PayloadAction<{
+        id: string;
+        type: "wine" | "chocolate" | "teddy";
+        giftName: string;
+        giftQty: number;
+      }>
     ) => {
       const item = state.cartState.items.find(
         (item) => item.id === action.payload.id
       );
       if (!item) return;
-      const gift = item.giftQty.find(
+      const gift = item.giftQty[action.payload.type].find(
         (gift) => gift.name === action.payload.giftName
       );
       if (!gift) return;

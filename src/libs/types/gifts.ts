@@ -5,7 +5,12 @@ export type GetGiftsResponse = {
   imageUrl: string;
 }[];
 
-export type GiftQtyItem = { name: string; qty: number; price: number };
+export type GiftQtyItem = {
+  name: string;
+  qty: number;
+  price: number;
+  type: "wine" | "chocolate" | "teddy";
+};
 export type GiftQty = {
   wine: GiftQtyItem[];
   chocolate: GiftQtyItem[];

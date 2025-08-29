@@ -12,41 +12,44 @@ const CartGiftCard = ({
   giftQty: GiftQty;
 }) => {
   const dispatch = useDispatch();
+  const giftFlat = [...giftQty.wine, ...giftQty.chocolate, ...giftQty.teddy];
   return (
     <div className="flex flex-col items-start">
-      {giftQty.length > 0 && (
-        <div className="flex flex-col gap-2 w-full">
+      <div className="flex flex-col gap-2 w-full">
+        {giftFlat.length > 0 && (
           <span className="text-2xl font-semibold">Gifts</span>
-          {giftQty.map((item) => (
-            <div
-              key={item.name}
-              className="text-sm flex flex-row items-center justify-between w-full pb-2"
-            >
-              <div className="flex flex-col py-2">
-                <span className="text-lg font-semibold">{item.name}</span>
-                <span className="underline cursor-pointer">Remove</span>
-              </div>
-              <div className="flex flex-row items-center gap-6 px-2">
-                <NumberStepper
-                  value={item.qty}
-                  onChange={(qty) =>
-                    dispatch(
-                      updateGiftQty({
-                        id: cartId,
-                        giftName: item.name,
-                        giftQty: qty,
-                      })
-                    )
-                  }
-                />
-                <span className="text-lg font-semibold w-10">
-                  ${item.price.toFixed(2)}
-                </span>
-              </div>
+        )}
+        {giftFlat.map((item) => (
+          <div
+            key={item.name}
+            className="text-sm flex flex-row items-center justify-between w-full pb-2"
+          >
+            <div className="flex flex-col py-2">
+              <span className="text-lg font-semibold">{item.name}</span>
+              <span className="underline cursor-pointer">Remove</span>
             </div>
-          ))}
-        </div>
-      )}
+            <div className="flex flex-row items-center gap-6 px-2">
+              <NumberStepper
+                value={item.qty}
+                onChange={(qty) =>
+                  dispatch(
+                    updateGiftQty({
+                      id: cartId,
+                      type: item.type,
+                      giftName: item.name,
+                      giftQty: qty,
+                    })
+                  )
+                }
+              />
+              <span className="text-lg font-semibold w-10">
+                ${item.price.toFixed(2)}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
       <Button variant="manageGifts">Manage Gifts</Button>
     </div>
   );
