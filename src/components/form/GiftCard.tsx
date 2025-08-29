@@ -4,12 +4,14 @@ import NumberStepper from "@/components/form/NumberStepper";
 import { FlowerFormValues } from "@/libs/types/forms";
 
 const GiftCard = ({
+  type,
   index,
   name,
   imageUrl,
   price,
   control,
 }: {
+  type: "wine" | "chocolate" | "teddy";
   index: number;
   name: string;
   imageUrl: string;
@@ -24,7 +26,7 @@ const GiftCard = ({
         <p className="text-lg font-bold">${price}</p>
         <Controller
           control={control}
-          name={`giftQty.${index}.qty`}
+          name={`giftQty.${type}.${index}.qty`}
           render={({ field }) => (
             <NumberStepper value={field.value} onChange={field.onChange} />
           )}

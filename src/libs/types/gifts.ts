@@ -6,4 +6,8 @@ export type GetGiftsResponse = {
 }[];
 
 export type GiftQtyItem = { name: string; qty: number; price: number };
-export type GiftQty = GiftQtyItem[];
+export type GiftQty = {
+  wine: GiftQtyItem[];
+  chocolate: GiftQtyItem[];
+  teddy: GiftQtyItem[];
+};

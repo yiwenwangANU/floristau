@@ -36,6 +36,7 @@ const GiftSelect = ({
             <GiftCard
               key={wine.id}
               index={i}
+              type="wine"
               name={wine.name}
               imageUrl={wine.imageUrl}
               price={wine.price}
@@ -54,6 +55,7 @@ const GiftSelect = ({
             <GiftCard
               key={chocolate.id}
               index={i}
+              type="chocolate"
               name={chocolate.name}
               imageUrl={chocolate.imageUrl}
               price={chocolate.price}
@@ -72,6 +74,7 @@ const GiftSelect = ({
             <GiftCard
               key={teddy.id}
               index={i}
+              type="teddy"
               name={teddy.name}
               imageUrl={teddy.imageUrl}
               price={teddy.price}

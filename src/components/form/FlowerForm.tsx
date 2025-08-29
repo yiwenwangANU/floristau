@@ -31,11 +31,22 @@ const FlowerForm = ({
 }) => {
   const [cartOpen, setCartOpen] = useState(false);
   const dispatch = useAppDispatch();
-  const giftDefaults: GiftQty = [
-    ...wineData.map((w) => ({ name: w.name, price: w.price, qty: 0 })),
-    ...chocolateData.map((c) => ({ name: c.name, price: c.price, qty: 0 })),
-    ...teddyData.map((t) => ({ name: t.name, price: t.price, qty: 0 })),
-  ];
+  const giftDefaults: GiftQty = {
+    wine: wineData.map((w) => ({ name: w.name, price: w.price, qty: 0 })),
+    chocolate: chocolateData.map((c) => ({
+      name: c.name,
+      price: c.price,
+      qty: 0,
+    })),
+    teddy: teddyData.map((t) => ({ name: t.name, price: t.price, qty: 0 })),
+  };
+  const filterGiftQty = (giftQty: GiftQty) => {
+    return {
+      wine: giftQty.wine.filter((item) => item.qty > 0),
+      chocolate: giftQty.chocolate.filter((item) => item.qty > 0),
+      teddy: giftQty.teddy.filter((item) => item.qty > 0),
+    };
+  };
   const {
     control,
     handleSubmit,
@@ -63,7 +74,7 @@ const FlowerForm = ({
       imageUrl: flowerData.imageUrl,
       deliveryDateISO,
       size: data.size,
-      giftQty: data.giftQty.filter((item) => item.qty > 0),
+      giftQty: filterGiftQty(data.giftQty),
       postcode: data.postcode,
       message: data.message,
     };
