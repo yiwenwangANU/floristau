@@ -129,6 +129,9 @@ const FlowerForm = ({
           Buy Now
         </Button>
         <CartDialog
+          wineData={wineData}
+          chocolateData={chocolateData}
+          teddyData={teddyData}
           open={cartOpen}
           onOpenChange={setCartOpen}
           title="Add to Cart"

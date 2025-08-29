@@ -54,6 +54,7 @@ const CartGiftCard = ({
                       type: item.type,
                       giftName: item.name,
                       giftQty: qty,
+                      giftPrice: item.price,
                     })
                   )
                 }
@@ -66,7 +67,10 @@ const CartGiftCard = ({
         ))}
       </div>
 
-      <Button variant="manageGifts" onClick={() => handleGiftOpen()}>
+      <Button
+        variant="manageGifts"
+        onClick={() => handleGiftOpen({ id: cartId })}
+      >
         Manage Gifts
       </Button>
     </div>

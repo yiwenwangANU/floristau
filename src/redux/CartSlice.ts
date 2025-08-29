@@ -53,17 +53,30 @@ export const cartSlice = createSlice({
         type: "wine" | "chocolate" | "teddy";
         giftName: string;
         giftQty: number;
+        giftPrice: number;
       }>
     ) => {
       const item = state.cartState.items.find(
         (item) => item.id === action.payload.id
       );
       if (!item) return;
-      const gift = item.giftQty[action.payload.type].find(
+      item.giftQty[action.payload.type] ??= [];
+      const list = item.giftQty[action.payload.type];
+      const giftIndex = list.findIndex(
         (gift) => gift.name === action.payload.giftName
       );
-      if (!gift) return;
-      gift.qty = Math.max(0, action.payload.giftQty);
+      if (giftIndex >= 0) {
+        list[giftIndex].qty = Math.max(0, action.payload.giftQty);
+      } else {
+        if (action.payload.giftQty > 0) {
+          list.push({
+            name: action.payload.giftName,
+            qty: Math.max(0, action.payload.giftQty),
+            price: action.payload.giftPrice,
+            type: action.payload.type,
+          });
+        }
+      }
     },
     removeGift: (
       state,

@@ -1,50 +1,34 @@
-import useGetChocolate from "@/hooks/useGetChocolate";
-import useGetTeddy from "@/hooks/useGetTeddys";
-import useGetWine from "@/hooks/useGetWine";
-import { GetGiftsResponse } from "@/libs/types/gifts";
-import Loading from "@/app/loading";
-import ErrorPage from "@/app/error";
-import {
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@radix-ui/react-accordion";
-import { Accordion } from "radix-ui";
+"use client";
+
 import Image from "next/image";
+import * as Accordion from "@radix-ui/react-accordion";
 import NumberStepper from "@/components/form/NumberStepper";
-import { useDispatch } from "react-redux";
+
+import { useDispatch, useSelector } from "react-redux";
 import { updateGiftQty } from "@/redux/CartSlice";
+import { RootState } from "@/redux/store";
+import { GetGiftsResponse } from "@/libs/types/gifts";
+import ErrorPage from "@/app/error";
+import { useCartContext } from "@/contexts/CartContext";
 
-const CartManageGift = ({cartId}: {cartId: string}) => {
-    const {
-    data: wineData,
-    isPending: wineIsPending,
-    isError: wineIsError,
-  } = useGetWine();
-  const {
-    data: chocolateData,
-    isPending: chocolateIsPending,
-    isError: chocolateError,
-  } = useGetChocolate();
-  const {
-    data: teddyData,
-    isPending: teddyIsPending,
-    isError: teddyError,
-  } = useGetTeddy();
+type GiftType = "wine" | "chocolate" | "teddy";
 
-  if ( wineIsPending || chocolateIsPending || teddyIsPending)
-    return <Loading />;
-  if (
-    wineIsError ||
-    !wineData ||
-    !chocolateData ||
-    chocolateError ||
-    !teddyData ||
-    teddyError
-  )
-    return <ErrorPage />;
-
-  type GiftType = "wine" | "chocolate" | "teddy";
+export default function CartManageGift({
+  wineData,
+  chocolateData,
+  teddyData,
+}: {
+  wineData: GetGiftsResponse;
+  chocolateData: GetGiftsResponse;
+  teddyData: GetGiftsResponse;
+}) {
+  const dispatch = useDispatch();
+  const items = useSelector((s: RootState) => s.cart.cartState.items);
+  const { cartId } = useCartContext();
+  const cartItem = items.find((i) => i.id === cartId);
+  if (!cartItem || !cartId) return <ErrorPage />;
+  console.log("Cart id:", cartId);
+  console.log("Cart item:", cartItem);
   const categories: {
     type: GiftType;
     label: string;
@@ -54,48 +38,65 @@ const CartManageGift = ({cartId}: {cartId: string}) => {
     { type: "chocolate", label: "Add Chocolate", data: chocolateData },
     { type: "teddy", label: "Add Teddy Bear", data: teddyData },
   ];
-  const dispatch = useDispatch();
+
+  // helper: get current qty from Redux for a given gift name within a category
+  const getCurrentQty = (type: GiftType, name: string) => {
+    const arr = cartItem.giftQty[type] ?? [];
+    const found = arr.find((g) => g.name === name);
+    return found?.qty ?? 0;
+  };
+
   return (
-    <Accordion.Root
-      className=""
-      type="single"
-      defaultValue="item-1"
-      collapsible
-    >
+    <Accordion.Root type="single" defaultValue="item-wine" collapsible>
       {categories.map(({ label, type, data }) => (
-        <AccordionItem key={type} value={`item-${type}`}>
-          <AccordionTrigger className="text-xl pt-5 pb-10 capitalize">
+        <Accordion.Item key={type} value={`item-${type}`}>
+          <Accordion.Trigger className="text-xl pt-5 pb-6 capitalize">
             {label}
-          </AccordionTrigger>
-          <AccordionContent>
-            {data.map((item, i) => (
-              <div className="border p-4 rounded flex flex-row justify-between items-center my-2">
-                <Image src={item.imageUrl} alt={item.name} width={40} height={40} />
-                <h2 className="text-lg font-bold">{name}</h2>
-                <div className="flex flex-row items-center gap-4">
-                  <p className="text-lg font-bold">${item.price}</p>
-                  
-                      <NumberStepper
-                value={item.qty}
-                onChange={(qty) =>
-                  dispatch(
-                    updateGiftQty({
-                      id: cartId,
-                      type: item.type,
-                      giftName: item.name,
-                      giftQty: qty,
-                    })
-                  )
-                }
-              />
-                  />
+          </Accordion.Trigger>
+          <Accordion.Content>
+            {data.map((g) => {
+              const qty = getCurrentQty(type, g.name);
+              return (
+                <div
+                  key={`${type}-${g.id}`}
+                  className="border p-4 rounded flex flex-row justify-between items-center my-2"
+                >
+                  <div className="flex items-center gap-3">
+                    <Image
+                      src={g.imageUrl}
+                      alt={g.name}
+                      width={48}
+                      height={48}
+                    />
+                    <h2 className="text-lg font-bold">{g.name}</h2>
+                  </div>
+
+                  <div className="flex flex-row items-center gap-6">
+                    <span className="text-lg font-semibold">
+                      ${g.price.toFixed(2)}
+                    </span>
+
+                    <NumberStepper
+                      value={qty}
+                      onChange={(nextQty) =>
+                        dispatch(
+                          updateGiftQty({
+                            id: cartId,
+                            type: type,
+                            giftName: g.name,
+                            giftQty: nextQty,
+                            giftPrice: g.price,
+                          })
+                        )
+                      }
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
-          </AccordionContent>
-        </AccordionItem>
+              );
+            })}
+          </Accordion.Content>
+        </Accordion.Item>
       ))}
     </Accordion.Root>
   );
-};
-export default CartManageGift;
+}
