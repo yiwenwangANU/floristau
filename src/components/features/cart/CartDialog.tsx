@@ -29,7 +29,7 @@ const CartDialog = ({
       </button>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50" />
-        <Dialog.Content className="fixed bg-white left-1/2 top-1/2 max-w-1/3 max-h-3/4 -translate-x-1/2 -translate-y-1/2 rounded-md p-[25px] overflow-y-auto">
+        <Dialog.Content className="fixed bg-white left-1/2 top-1/2 w-1/3 max-h-3/4 -translate-x-1/2 -translate-y-1/2 rounded-md p-[25px] overflow-y-auto">
           {gift ? <CartManageGift /> : <CartContent />}
           <div className="mt-[25px] flex justify-end">
             <Dialog.Close asChild>

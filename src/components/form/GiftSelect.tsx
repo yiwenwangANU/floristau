@@ -20,6 +20,16 @@ const GiftSelect = ({
   teddyData: GetGiftsResponse;
   control: Control<FlowerFormValues>;
 }) => {
+  type GiftType = "wine" | "chocolate" | "teddy";
+  const categories: {
+    type: GiftType;
+    label: string;
+    data: GetGiftsResponse;
+  }[] = [
+    { type: "wine", label: "Add Wine", data: wineData },
+    { type: "chocolate", label: "Add Chocolate", data: chocolateData },
+    { type: "teddy", label: "Add Teddy Bear", data: teddyData },
+  ];
   return (
     <Accordion.Root
       className=""
@@ -27,62 +37,26 @@ const GiftSelect = ({
       defaultValue="item-1"
       collapsible
     >
-      <AccordionItem value="item-1">
-        <AccordionTrigger className="text-xl pt-5 pb-10">
-          Add Wine
-        </AccordionTrigger>
-        <AccordionContent>
-          {wineData.map((wine, i) => (
-            <GiftCard
-              key={wine.id}
-              index={i}
-              type="wine"
-              name={wine.name}
-              imageUrl={wine.imageUrl}
-              price={wine.price}
-              control={control}
-            />
-          ))}
-        </AccordionContent>
-      </AccordionItem>
-
-      <AccordionItem value="item-2">
-        <AccordionTrigger className="text-xl pt-5 pb-10">
-          Add Chocolate
-        </AccordionTrigger>
-        <AccordionContent>
-          {chocolateData.map((chocolate, i) => (
-            <GiftCard
-              key={chocolate.id}
-              index={i}
-              type="chocolate"
-              name={chocolate.name}
-              imageUrl={chocolate.imageUrl}
-              price={chocolate.price}
-              control={control}
-            />
-          ))}
-        </AccordionContent>
-      </AccordionItem>
-
-      <AccordionItem value="item-3">
-        <AccordionTrigger className="text-xl pt-5 pb-10">
-          Add Teddy Bear
-        </AccordionTrigger>
-        <AccordionContent>
-          {teddyData.map((teddy, i) => (
-            <GiftCard
-              key={teddy.id}
-              index={i}
-              type="teddy"
-              name={teddy.name}
-              imageUrl={teddy.imageUrl}
-              price={teddy.price}
-              control={control}
-            />
-          ))}
-        </AccordionContent>
-      </AccordionItem>
+      {categories.map(({ label, type, data }) => (
+        <AccordionItem key={type} value={`item-${type}`}>
+          <AccordionTrigger className="text-xl pt-5 pb-10 capitalize">
+            {label}
+          </AccordionTrigger>
+          <AccordionContent>
+            {data.map((item, i) => (
+              <GiftCard
+                key={item.id}
+                index={i}
+                type={type}
+                name={item.name}
+                imageUrl={item.imageUrl}
+                price={item.price}
+                control={control}
+              />
+            ))}
+          </AccordionContent>
+        </AccordionItem>
+      ))}
     </Accordion.Root>
   );
 };
