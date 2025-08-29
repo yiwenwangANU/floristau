@@ -60,24 +60,35 @@ export const cartSlice = createSlice({
         (item) => item.id === action.payload.id
       );
       if (!item) return;
+
       item.giftQty[action.payload.type] ??= [];
       const list = item.giftQty[action.payload.type];
+
       const giftIndex = list.findIndex(
         (gift) => gift.name === action.payload.giftName
       );
+
       if (giftIndex >= 0) {
-        list[giftIndex].qty = Math.max(0, action.payload.giftQty);
+        if (action.payload.giftQty <= 0) {
+          // ✅ remove gift when qty goes to 0
+          list.splice(giftIndex, 1);
+        } else {
+          // ✅ update qty if still > 0
+          list[giftIndex].qty = action.payload.giftQty;
+        }
       } else {
         if (action.payload.giftQty > 0) {
+          // ✅ add new gift if not in list yet
           list.push({
             name: action.payload.giftName,
-            qty: Math.max(0, action.payload.giftQty),
+            qty: action.payload.giftQty,
             price: action.payload.giftPrice,
             type: action.payload.type,
           });
         }
       }
     },
+
     removeGift: (
       state,
       action: PayloadAction<{
