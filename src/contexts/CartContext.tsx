@@ -1,17 +1,11 @@
 "use client";
 
-import {
-  createContext,
-  useState,
-  Dispatch,
-  SetStateAction,
-  useContext,
-} from "react";
+import { createContext, useState, useContext } from "react";
 
 type CartContextType = {
   gift: boolean;
-  setGift: Dispatch<SetStateAction<boolean>>;
-  handleGiftOpen: () => void;
+  cartId: string | null;
+  handleGiftOpen: ({ id }: { id: string }) => void;
   handleGiftClose: () => void;
 };
 
@@ -19,11 +13,18 @@ export const CartContext = createContext<CartContextType | null>(null);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [gift, setGift] = useState(false);
-  const handleGiftOpen = () => setGift(true);
-  const handleGiftClose = () => setGift(false);
+  const [cartId, setCartId] = useState<string | null>(null);
+  const handleGiftOpen = ({ id }: { id: string }) => {
+    setCartId(id);
+    setGift(true);
+  };
+  const handleGiftClose = () => {
+    setCartId(null);
+    setGift(false);
+  };
   return (
     <CartContext.Provider
-      value={{ gift, setGift, handleGiftOpen, handleGiftClose }}
+      value={{ gift, cartId, handleGiftOpen, handleGiftClose }}
     >
       {children}
     </CartContext.Provider>
