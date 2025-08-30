@@ -12,8 +12,10 @@ import useGetChocolate from "@/hooks/useGetChocolate";
 import useGetTeddy from "@/hooks/useGetTeddys";
 import Button from "@/components/ui/Button";
 import CartSubtotal from "./CartSubtotal";
+import Link from "next/link";
 const CartDialog = () => {
-  const { cartOpen, cartGiftPage, handleOpenChange } = useCartContext();
+  const { cartOpen, cartGiftPage, handleOpenChange, handleCartClose } =
+    useCartContext();
   const {
     data: wineData,
     isPending: wineIsPending,
@@ -57,9 +59,15 @@ const CartDialog = () => {
               <CartContent />
 
               <CartSubtotal />
-              <Button variant="confirmGifts" className="mx-auto">
-                Check Out
-              </Button>
+              <Link href={"/checkout"}>
+                <Button
+                  variant="confirmGifts"
+                  className="mx-auto"
+                  onClick={handleCartClose}
+                >
+                  Check Out
+                </Button>
+              </Link>
             </>
           )}
 
