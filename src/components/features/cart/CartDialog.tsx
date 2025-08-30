@@ -10,6 +10,8 @@ import Loading from "@/app/loading";
 import useGetWine from "@/hooks/useGetWine";
 import useGetChocolate from "@/hooks/useGetChocolate";
 import useGetTeddy from "@/hooks/useGetTeddys";
+import Button from "@/components/ui/Button";
+import CartSubtotal from "./CartSubtotal";
 const CartDialog = () => {
   const { cartOpen, cartGiftPage, handleOpenChange } = useCartContext();
   const {
@@ -53,9 +55,13 @@ const CartDialog = () => {
           ) : (
             <CartContent />
           )}
+          <CartSubtotal />
+          <Button variant="confirmGifts" className="mx-auto">
+            Check Out
+          </Button>
           <div className="mt-[25px] flex justify-end">
             <Dialog.Close asChild>
-              <button className="inline-flex h-[35px] items-center justify-center rounded bg-green4 px-[15px] font-medium leading-none text-green11 outline-none outline-offset-1 hover:bg-green5 focus-visible:outline-2 focus-visible:outline-green6 select-none">
+              <button className="h-[20px] px-[15px] underline font-medium cursor-pointer text-gray-700 hover:text-black">
                 Continue Shopping
               </button>
             </Dialog.Close>
