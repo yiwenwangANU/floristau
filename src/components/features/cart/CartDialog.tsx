@@ -5,24 +5,49 @@ import CartContent from "./CartContent";
 import { useCartContext } from "@/contexts/CartContext";
 import CartManageGift from "./CartManageGift";
 import { GetGiftsResponse } from "@/libs/types/gifts";
+import ErrorPage from "@/app/error";
+import Loading from "@/app/loading";
+import useGetWine from "@/hooks/useGetWine";
+import useGetChocolate from "@/hooks/useGetChocolate";
+import useGetTeddy from "@/hooks/useGetTeddys";
 const CartDialog = ({
-  wineData,
-  chocolateData,
-  teddyData,
   open,
   onOpenChange,
   title,
   onClick,
 }: {
-  wineData: GetGiftsResponse;
-  chocolateData: GetGiftsResponse;
-  teddyData: GetGiftsResponse;
   open: boolean;
   onOpenChange: (open: boolean) => void;
   title: string;
   onClick: () => void;
 }) => {
   const { cartGiftPage } = useCartContext();
+  const {
+    data: wineData,
+    isPending: wineIsPending,
+    isError: wineIsError,
+  } = useGetWine();
+  const {
+    data: chocolateData,
+    isPending: chocolateIsPending,
+    isError: chocolateError,
+  } = useGetChocolate();
+  const {
+    data: teddyData,
+    isPending: teddyIsPending,
+    isError: teddyError,
+  } = useGetTeddy();
+
+  if (wineIsPending || chocolateIsPending || teddyIsPending) return <Loading />;
+  if (
+    wineIsError ||
+    !wineData ||
+    !chocolateData ||
+    chocolateError ||
+    !teddyData ||
+    teddyError
+  )
+    return <ErrorPage />;
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <button

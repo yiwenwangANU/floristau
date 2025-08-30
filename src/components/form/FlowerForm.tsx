@@ -11,8 +11,6 @@ import { newItem, decrement, increment } from "@/redux/CartSlice";
 import { CartItem } from "@/libs/types/cart";
 import { nanoid } from "@reduxjs/toolkit";
 import { store } from "@/redux/store";
-
-import { useState } from "react";
 import { FlowerFormValues } from "@/libs/types/forms";
 import { GetFlowerResponse } from "@/libs/types/flowers";
 import { useCartContext } from "@/contexts/CartContext";
@@ -134,9 +132,6 @@ const FlowerForm = ({
           Buy Now
         </Button>
         <CartDialog
-          wineData={wineData}
-          chocolateData={chocolateData}
-          teddyData={teddyData}
           open={cartOpen}
           onOpenChange={handleOpenChange}
           title="Add to Cart"
