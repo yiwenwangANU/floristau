@@ -53,12 +53,16 @@ const CartDialog = () => {
               teddyData={teddyData}
             />
           ) : (
-            <CartContent />
+            <>
+              <CartContent />
+
+              <CartSubtotal />
+              <Button variant="confirmGifts" className="mx-auto">
+                Check Out
+              </Button>
+            </>
           )}
-          <CartSubtotal />
-          <Button variant="confirmGifts" className="mx-auto">
-            Check Out
-          </Button>
+
           <div className="mt-[25px] flex justify-end">
             <Dialog.Close asChild>
               <button className="h-[20px] px-[15px] underline font-medium cursor-pointer text-gray-700 hover:text-black">

@@ -11,7 +11,9 @@ const CartContent = () => {
         Your Cart
       </Dialog.Title>
       <div className="mt-[25px] flex flex-col gap-4">
-        {items.length === 0 && <p>Your cart is empty.</p>}
+        {items.length === 0 && (
+          <p className="pb-4 text-lg">Your cart is empty</p>
+        )}
         {items.map((item) => (
           <CartCard
             key={item.id}

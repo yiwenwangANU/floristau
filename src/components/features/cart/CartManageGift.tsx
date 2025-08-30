@@ -97,10 +97,10 @@ export default function CartManageGift({
             </Accordion.Content>
           </Accordion.Item>
         ))}
+        <Button variant="confirmGifts" onClick={handleGiftClose}>
+          Confirm
+        </Button>
       </Accordion.Root>
-      <Button variant="confirmGifts" onClick={handleGiftClose}>
-        Confirm
-      </Button>
     </>
   );
 }
