@@ -3,10 +3,9 @@ import SizeSelect from "@/components/form/SizeSelect";
 import DeliveryPost from "@/components/form/DeliveryPost";
 import DeliveryDate from "@/components/form/DeliveryDate";
 import GiftSelect from "@/components/form/GiftSelect";
-import CartDialog from "@/components/features/cart/CartDialog";
 import { useForm } from "react-hook-form";
 import { GetGiftsResponse, GiftQty } from "@/libs/types/gifts";
-import { useAppSelector, useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch } from "@/redux/hooks";
 import { newItem, decrement, increment } from "@/redux/CartSlice";
 import { CartItem } from "@/libs/types/cart";
 import { nanoid } from "@reduxjs/toolkit";
@@ -28,13 +27,7 @@ const FlowerForm = ({
   chocolateData: GetGiftsResponse;
   teddyData: GetGiftsResponse;
 }) => {
-  const {
-    cartOpen,
-    handleCartOpen,
-    handleCartClose,
-    handleOpenChange,
-    handleGiftClose,
-  } = useCartContext();
+  const { handleCartOpen, handleCartClose, handleGiftClose } = useCartContext();
   const dispatch = useAppDispatch();
   const giftDefaults: GiftQty = {
     wine: wineData.map((w) => ({
