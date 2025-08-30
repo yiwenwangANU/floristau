@@ -131,12 +131,16 @@ const FlowerForm = ({
         >
           Buy Now
         </Button>
-        <CartDialog
-          open={cartOpen}
-          onOpenChange={handleOpenChange}
-          title="Add to Cart"
+        <Button
+          variant="addToCart"
+          name="addToCart"
+          type="button"
+          disabled={isSubmitting}
           onClick={handleSubmit(onAddToCart, onAddToCartInvalid)}
-        />
+          className="px-4 cursor-pointer w-full py-3 my-10 overflow-hidden bg-stone-300 font-medium tracking-wide hover:bg-stone-400"
+        >
+          Add to Cart
+        </Button>
       </div>
     </form>
   );

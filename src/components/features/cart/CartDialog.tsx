@@ -1,27 +1,17 @@
+"use client";
 import { Dialog } from "radix-ui";
 import { Cross2Icon } from "@radix-ui/react-icons";
 
 import CartContent from "./CartContent";
 import { useCartContext } from "@/contexts/CartContext";
 import CartManageGift from "./CartManageGift";
-import { GetGiftsResponse } from "@/libs/types/gifts";
 import ErrorPage from "@/app/error";
 import Loading from "@/app/loading";
 import useGetWine from "@/hooks/useGetWine";
 import useGetChocolate from "@/hooks/useGetChocolate";
 import useGetTeddy from "@/hooks/useGetTeddys";
-const CartDialog = ({
-  open,
-  onOpenChange,
-  title,
-  onClick,
-}: {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-  title: string;
-  onClick: () => void;
-}) => {
-  const { cartGiftPage } = useCartContext();
+const CartDialog = () => {
+  const { cartOpen, cartGiftPage, handleOpenChange } = useCartContext();
   const {
     data: wineData,
     isPending: wineIsPending,
@@ -48,17 +38,9 @@ const CartDialog = ({
     teddyError
   )
     return <ErrorPage />;
+
   return (
-    <Dialog.Root open={open} onOpenChange={onOpenChange}>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          onClick();
-        }}
-        className="px-4 cursor-pointer w-full py-3 my-10 overflow-hidden bg-stone-300 font-medium tracking-wide hover:bg-stone-400"
-      >
-        {title}
-      </button>
+    <Dialog.Root open={cartOpen} onOpenChange={handleOpenChange}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50" />
         <Dialog.Content className="fixed bg-white left-1/2 top-1/2 w-1/3 max-h-3/4 -translate-x-1/2 -translate-y-1/2 rounded-md p-[25px] overflow-y-auto">

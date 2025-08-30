@@ -3,6 +3,7 @@ import "./globals.css";
 import { Providers } from "@/components/Providers";
 import Footer from "@/components/layouts/footer";
 import { ToastContainer } from "react-toastify";
+import CartDialog from "@/components/features/cart/CartDialog";
 
 export const metadata = {
   title: "Next.js",
@@ -17,10 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        <ToastContainer />
-        <Providers>{children}</Providers>
-        <Footer />
+        <Providers>
+          <Header />
+          <ToastContainer />
+          <CartDialog />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
