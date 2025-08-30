@@ -23,7 +23,9 @@ const CartFlowerCard = ({
         <div className="flex flex-col gap-2">
           <span className="text-lg font-semibold">{name}</span>
           <span className="text-gray-500">{size}</span>
-          <span className="text-lg font-semibold">${price.toFixed(2)}</span>
+          <span className="text-lg font-semibold">
+            ${size == "premium" ? (price + 20).toFixed(2) : price.toFixed(2)}
+          </span>
         </div>
         <span
           className="underline cursor-pointer"

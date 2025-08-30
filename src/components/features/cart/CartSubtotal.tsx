@@ -6,7 +6,8 @@ const CartSubtotal = () => {
     useAppSelector((s) => {
       const items = s.cart.cartState.items;
       const flowersTotal = items.reduce(
-        (acc, curr) => acc + curr.price * curr.qty,
+        (acc, curr) =>
+          acc + curr.price * curr.qty + (curr.size === "premium" ? 20 : 0),
         0
       );
       const sumGifts = (giftQtyItem: { qty: number; price: number }[]) => {
