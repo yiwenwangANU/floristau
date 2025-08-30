@@ -8,6 +8,7 @@ type CartContextType = {
   cartId: string | null;
   handleCartOpen: () => void;
   handleCartClose: () => void;
+  handleOpenChange: (open: boolean) => void;
   handleGiftOpen: ({ id }: { id: string }) => void;
   handleGiftClose: () => void;
 };
@@ -23,6 +24,9 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   };
   const handleCartClose = () => {
     setCartOpen(false);
+  };
+  const handleOpenChange = (open: boolean) => {
+    setCartOpen(open);
   };
   const handleGiftOpen = ({ id }: { id: string }) => {
     setCartId(id);
@@ -40,6 +44,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         cartId,
         handleCartOpen,
         handleCartClose,
+        handleOpenChange,
         handleGiftOpen,
         handleGiftClose,
       }}

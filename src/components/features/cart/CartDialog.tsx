@@ -22,7 +22,7 @@ const CartDialog = ({
   title: string;
   onClick: () => void;
 }) => {
-  const { gift } = useCartContext();
+  const { cartGiftPage } = useCartContext();
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <button
@@ -37,7 +37,7 @@ const CartDialog = ({
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50" />
         <Dialog.Content className="fixed bg-white left-1/2 top-1/2 w-1/3 max-h-3/4 -translate-x-1/2 -translate-y-1/2 rounded-md p-[25px] overflow-y-auto">
-          {gift ? (
+          {cartGiftPage ? (
             <CartManageGift
               wineData={wineData}
               chocolateData={chocolateData}

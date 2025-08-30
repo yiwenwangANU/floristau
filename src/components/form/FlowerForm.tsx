@@ -30,8 +30,13 @@ const FlowerForm = ({
   chocolateData: GetGiftsResponse;
   teddyData: GetGiftsResponse;
 }) => {
-  const [cartOpen, setCartOpen] = useState(false);
-  const { handleGiftClose } = useCartContext();
+  const {
+    cartOpen,
+    handleCartOpen,
+    handleCartClose,
+    handleOpenChange,
+    handleGiftClose,
+  } = useCartContext();
   const dispatch = useAppDispatch();
   const giftDefaults: GiftQty = {
     wine: wineData.map((w) => ({
@@ -102,10 +107,10 @@ const FlowerForm = ({
     onSubmit(data);
     console.log("Adding to cart:", data);
     handleGiftClose();
-    setCartOpen(true);
+    handleCartOpen();
   };
   const onAddToCartInvalid = () => {
-    setCartOpen(false);
+    handleCartClose();
   };
   return (
     <form>
@@ -133,7 +138,7 @@ const FlowerForm = ({
           chocolateData={chocolateData}
           teddyData={teddyData}
           open={cartOpen}
-          onOpenChange={setCartOpen}
+          onOpenChange={handleOpenChange}
           title="Add to Cart"
           onClick={handleSubmit(onAddToCart, onAddToCartInvalid)}
         />
