@@ -70,15 +70,15 @@ export const cartSlice = createSlice({
 
       if (giftIndex >= 0) {
         if (action.payload.giftQty <= 0) {
-          // ✅ remove gift when qty goes to 0
+          // remove gift when qty goes to 0
           list.splice(giftIndex, 1);
         } else {
-          // ✅ update qty if still > 0
+          // update qty if still > 0
           list[giftIndex].qty = action.payload.giftQty;
         }
       } else {
         if (action.payload.giftQty > 0) {
-          // ✅ add new gift if not in list yet
+          // add new gift if not in list yet
           list.push({
             name: action.payload.giftName,
             qty: action.payload.giftQty,

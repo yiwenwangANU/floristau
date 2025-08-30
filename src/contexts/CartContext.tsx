@@ -3,8 +3,11 @@
 import { createContext, useState, useContext } from "react";
 
 type CartContextType = {
-  gift: boolean;
+  cartOpen: boolean;
+  cartGiftPage: boolean;
   cartId: string | null;
+  handleCartOpen: () => void;
+  handleCartClose: () => void;
   handleGiftOpen: ({ id }: { id: string }) => void;
   handleGiftClose: () => void;
 };
@@ -12,19 +15,34 @@ type CartContextType = {
 export const CartContext = createContext<CartContextType | null>(null);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  const [gift, setGift] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [cartGiftPage, setCartGiftPage] = useState(false);
   const [cartId, setCartId] = useState<string | null>(null);
+  const handleCartOpen = () => {
+    setCartOpen(true);
+  };
+  const handleCartClose = () => {
+    setCartOpen(false);
+  };
   const handleGiftOpen = ({ id }: { id: string }) => {
     setCartId(id);
-    setGift(true);
+    setCartGiftPage(true);
   };
   const handleGiftClose = () => {
     setCartId(null);
-    setGift(false);
+    setCartGiftPage(false);
   };
   return (
     <CartContext.Provider
-      value={{ gift, cartId, handleGiftOpen, handleGiftClose }}
+      value={{
+        cartOpen,
+        cartGiftPage,
+        cartId,
+        handleCartOpen,
+        handleCartClose,
+        handleGiftOpen,
+        handleGiftClose,
+      }}
     >
       {children}
     </CartContext.Provider>
