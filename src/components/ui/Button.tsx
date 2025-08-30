@@ -9,6 +9,7 @@ type ButtonProps = {
     | "create"
     | "subscribe"
     | "subscribeMonthly"
+    | "confirmGifts"
     | "manageGifts"
     | "buyNow"
     | "addToCart";
@@ -62,6 +63,10 @@ const Button: FC<ButtonProps> = ({
     case "manageGifts":
       variantStyles =
         "font-semibold border-1 border-black h-10 w-full hover:text-white hover:bg-black duration-300";
+      break;
+    case "confirmGifts":
+      variantStyles =
+        "font-semibold border-1 border-black h-10 w-full text-white bg-black hover:text-black hover:bg-white duration-300";
       break;
   }
 

@@ -10,6 +10,7 @@ import { RootState } from "@/redux/store";
 import { GetGiftsResponse } from "@/libs/types/gifts";
 import ErrorPage from "@/app/error";
 import { useCartContext } from "@/contexts/CartContext";
+import Button from "@/components/ui/Button";
 
 type GiftType = "wine" | "chocolate" | "teddy";
 
@@ -24,11 +25,9 @@ export default function CartManageGift({
 }) {
   const dispatch = useDispatch();
   const items = useSelector((s: RootState) => s.cart.cartState.items);
-  const { cartId } = useCartContext();
+  const { cartId, handleGiftClose } = useCartContext();
   const cartItem = items.find((i) => i.id === cartId);
   if (!cartItem || !cartId) return <ErrorPage />;
-  console.log("Cart id:", cartId);
-  console.log("Cart item:", cartItem);
   const categories: {
     type: GiftType;
     label: string;
@@ -47,56 +46,61 @@ export default function CartManageGift({
   };
 
   return (
-    <Accordion.Root type="single" defaultValue="item-wine" collapsible>
-      {categories.map(({ label, type, data }) => (
-        <Accordion.Item key={type} value={`item-${type}`}>
-          <Accordion.Trigger className="text-xl pt-5 pb-6 capitalize">
-            {label}
-          </Accordion.Trigger>
-          <Accordion.Content>
-            {data.map((g) => {
-              const qty = getCurrentQty(type, g.name);
-              return (
-                <div
-                  key={`${type}-${g.id}`}
-                  className="border p-4 rounded flex flex-row justify-between items-center my-2"
-                >
-                  <div className="flex items-center gap-3">
-                    <Image
-                      src={g.imageUrl}
-                      alt={g.name}
-                      width={48}
-                      height={48}
-                    />
-                    <h2 className="text-lg font-bold">{g.name}</h2>
-                  </div>
+    <>
+      <Accordion.Root type="single" defaultValue="item-wine" collapsible>
+        {categories.map(({ label, type, data }) => (
+          <Accordion.Item key={type} value={`item-${type}`}>
+            <Accordion.Trigger className="text-xl pt-5 pb-6 capitalize font-semibold">
+              {label}
+            </Accordion.Trigger>
+            <Accordion.Content>
+              {data.map((g) => {
+                const qty = getCurrentQty(type, g.name);
+                return (
+                  <div
+                    key={`${type}-${g.id}`}
+                    className="border p-4 rounded flex flex-row justify-between items-center my-2"
+                  >
+                    <div className="flex items-center gap-3">
+                      <Image
+                        src={g.imageUrl}
+                        alt={g.name}
+                        width={48}
+                        height={48}
+                      />
+                      <h2 className="text-lg font-bold">{g.name}</h2>
+                    </div>
 
-                  <div className="flex flex-row items-center gap-6">
-                    <span className="text-lg font-semibold">
-                      ${g.price.toFixed(2)}
-                    </span>
+                    <div className="flex flex-row items-center gap-6">
+                      <span className="text-lg font-semibold">
+                        ${g.price.toFixed(2)}
+                      </span>
 
-                    <NumberStepper
-                      value={qty}
-                      onChange={(nextQty) =>
-                        dispatch(
-                          updateGiftQty({
-                            id: cartId,
-                            type: type,
-                            giftName: g.name,
-                            giftQty: nextQty,
-                            giftPrice: g.price,
-                          })
-                        )
-                      }
-                    />
+                      <NumberStepper
+                        value={qty}
+                        onChange={(nextQty) =>
+                          dispatch(
+                            updateGiftQty({
+                              id: cartId,
+                              type: type,
+                              giftName: g.name,
+                              giftQty: nextQty,
+                              giftPrice: g.price,
+                            })
+                          )
+                        }
+                      />
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-          </Accordion.Content>
-        </Accordion.Item>
-      ))}
-    </Accordion.Root>
+                );
+              })}
+            </Accordion.Content>
+          </Accordion.Item>
+        ))}
+      </Accordion.Root>
+      <Button variant="confirmGifts" onClick={handleGiftClose}>
+        Confirm
+      </Button>
+    </>
   );
 }
