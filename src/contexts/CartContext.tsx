@@ -23,9 +23,11 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     setCartOpen(true);
   };
   const handleCartClose = () => {
+    setCartGiftPage(false);
     setCartOpen(false);
   };
   const handleOpenChange = (open: boolean) => {
+    setCartGiftPage(false);
     setCartOpen(open);
   };
   const handleGiftOpen = ({ id }: { id: string }) => {
