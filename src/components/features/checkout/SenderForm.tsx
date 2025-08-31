@@ -1,5 +1,7 @@
 import Button from "@/components/ui/Button";
+import { updateSender, setSenderMode } from "@/redux/SenderSlice";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useDispatch } from "react-redux";
 
 type Inputs = {
   firstName: string;
@@ -8,12 +10,17 @@ type Inputs = {
   email: string;
 };
 const SenderForm = () => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    console.log(data);
+    dispatch(setSenderMode("info"));
+    dispatch(updateSender(data));
+  };
   return (
     <div className="w-4/5">
       <span className="flex flex-row gap-5 items-center">
