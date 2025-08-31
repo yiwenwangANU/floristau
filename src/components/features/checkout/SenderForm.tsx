@@ -1,4 +1,5 @@
 import Button from "@/components/ui/Button";
+import { useAppSelector } from "@/redux/hooks";
 import { updateSender, setSenderMode } from "@/redux/SenderSlice";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -10,6 +11,9 @@ type Inputs = {
   email: string;
 };
 const SenderForm = () => {
+  const { firstName, lastName, phone, email } = useAppSelector((s) => {
+    return s.sender;
+  });
   const dispatch = useDispatch();
   const {
     register,
@@ -36,6 +40,7 @@ const SenderForm = () => {
             type="text"
             {...register("firstName", { required: "This field is required" })}
             placeholder="Enter your first name"
+            defaultValue={firstName}
             className="w-full p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
           />
           {errors.firstName && (
@@ -48,6 +53,7 @@ const SenderForm = () => {
             type="text"
             {...register("lastName", { required: "This field is required" })}
             placeholder="Enter your last name"
+            defaultValue={lastName}
             className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
           />
           {errors.lastName && (
@@ -66,6 +72,7 @@ const SenderForm = () => {
               },
             })}
             placeholder="Enter your phone number"
+            defaultValue={phone}
             className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
           />
           {errors.phone && (
@@ -84,6 +91,7 @@ const SenderForm = () => {
               },
             })}
             placeholder="Enter your email address"
+            defaultValue={email}
             className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
           />
           {errors.email && (
