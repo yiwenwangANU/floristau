@@ -14,6 +14,8 @@ export type RecipientFormValues = {
   lastName: string;
   phone: string;
   address: string;
+  suburb: string;
+  postcode: string;
   message: string | null;
   deliveryInstructions: string | null;
 };

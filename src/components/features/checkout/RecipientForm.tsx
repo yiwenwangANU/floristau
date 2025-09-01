@@ -11,7 +11,9 @@ const RecipientForm = () => {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<RecipientFormValues>({ defaultValues: { address: "" } });
+  } = useForm<RecipientFormValues>({
+    defaultValues: { address: "", suburb: "", postcode: "" },
+  });
   const onSubmit: SubmitHandler<RecipientFormValues> = (data) => {
     console.log(data);
   };
@@ -73,7 +75,67 @@ const RecipientForm = () => {
             )}
             <label className="text-xl">Address</label>
             <PlacesAutocomplete control={control} />
+            <div className="flex flex-row justify-between">
+              <div className="flex flex-col gap-2 items-end ">
+                <div className="flex flex-row gap-4 items-center">
+                  <label className="text-xl">Suburb</label>
+                  <input
+                    type="text"
+                    {...register("suburb", {
+                      required: "This field is required",
+                    })}
+                    placeholder="Enter your suburb"
+                    className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
+                  />
+                </div>
+                {errors.suburb && (
+                  <span className="mt-2 text-sm text-red-600 place-content-end">
+                    {errors.suburb && (
+                      <span className="mt-2 text-sm text-red-600">
+                        {errors.suburb.message}
+                      </span>
+                    )}
+                  </span>
+                )}
+              </div>
+              <div className="flex flex-col gap-2 items-end">
+                <div className="flex flex-row gap-4 items-center">
+                  <label className="text-xl">Postcode</label>
+                  <input
+                    type="text"
+                    {...register("postcode", {
+                      required: "This field is required",
+                    })}
+                    placeholder="Enter your postcode"
+                    className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
+                  />
+                </div>
+                {errors.postcode && (
+                  <span className="mt-2 text-sm text-red-600 place-content-end">
+                    {errors.postcode.message}
+                  </span>
+                )}
+              </div>
+            </div>
 
+            <label className="text-xl">Phone Number</label>
+            <input
+              type="text"
+              {...register("phone", {
+                required: "This field is required",
+                pattern: {
+                  value: /^\d{10}$/,
+                  message: "Phone must be exactly 10 digits",
+                },
+              })}
+              placeholder="Enter your phone number"
+              className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
+            />
+            {errors.phone && (
+              <span className="mt-2 text-sm text-red-600">
+                {errors.phone.message}
+              </span>
+            )}
             <label className="text-xl">Card Message</label>
             <textarea
               {...register("message")}

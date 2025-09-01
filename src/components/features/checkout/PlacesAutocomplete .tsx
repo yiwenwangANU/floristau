@@ -16,7 +16,6 @@ const PlacesAutocomplete = ({
     setValue,
     clearSuggestions,
   } = usePlacesAutocomplete({
-    callbackName: "YOUR_CALLBACK_NAME",
     requestOptions: {
       /* Define search scope here */
       componentRestrictions: { country: "au" },
@@ -46,7 +45,11 @@ const PlacesAutocomplete = ({
       } = suggestion;
 
       return (
-        <li key={place_id} onClick={handleSelect(suggestion)}>
+        <li
+          key={place_id}
+          onClick={handleSelect(suggestion)}
+          className="px-5 py-1 hover:bg-gray-300 cursor-pointer"
+        >
           <strong>{main_text}</strong> <small>{secondary_text}</small>
         </li>
       );
