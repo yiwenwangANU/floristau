@@ -1,6 +1,7 @@
 "use client";
 import CartCardCheckout from "@/components/features/checkout/CartCardCheckout";
 import CartSubtotalCheckout from "@/components/features/checkout/CartSbutotalCheckout";
+import RecipientForm from "@/components/features/checkout/RecipientForm";
 import SenderForm from "@/components/features/checkout/SenderForm";
 import SenderInfo from "@/components/features/checkout/SenderInfo";
 import { useAppSelector } from "@/redux/hooks";
@@ -20,7 +21,10 @@ const CheckoutPageClient = () => {
         {sender.mode == "form" ? (
           <SenderForm />
         ) : sender.mode == "info" ? (
-          <SenderInfo />
+          <>
+            <SenderInfo />
+            <RecipientForm />
+          </>
         ) : null}
       </div>
       <div className="py-10">
