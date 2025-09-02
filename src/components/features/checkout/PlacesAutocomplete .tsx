@@ -39,7 +39,9 @@ const PlacesAutocomplete = ({
       // Geocode → parse → fill other fields
       const results = await getGeocode({ placeId: place_id });
       const parts = parseComponents(results[0].address_components);
-
+      setFormValue("address", parts.addressLine1 || description, {
+        shouldValidate: true,
+      });
       setFormValue("suburb", parts.suburb, { shouldValidate: true });
       setFormValue("postcode", parts.postcode, { shouldValidate: true });
     };

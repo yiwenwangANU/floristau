@@ -113,24 +113,6 @@ const RecipientForm = () => {
             </div>
           </div>
 
-          <label className="text-xl">Phone Number</label>
-          <input
-            type="text"
-            {...register("phone", {
-              required: "This field is required",
-              pattern: {
-                value: /^\d{10}$/,
-                message: "Phone must be exactly 10 digits",
-              },
-            })}
-            placeholder="Enter your phone number"
-            className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
-          />
-          {errors.phone && (
-            <span className="mt-2 text-sm text-red-600">
-              {errors.phone.message}
-            </span>
-          )}
           <label className="text-xl">Card Message</label>
           <textarea
             {...register("message")}
