@@ -1,19 +1,20 @@
-import usePlacesAutocomplete from "use-places-autocomplete";
+import usePlacesAutocomplete, { getGeocode } from "use-places-autocomplete";
 import useOnclickOutside from "react-cool-onclickoutside";
-import { Control, Controller } from "react-hook-form";
+import { Control, Controller, UseFormSetValue } from "react-hook-form";
 import { RecipientFormValues } from "@/libs/types/forms";
 
 const PlacesAutocomplete = ({
   control,
+  setValue: setFormValue,
 }: {
   control: Control<RecipientFormValues>;
+  setValue: UseFormSetValue<RecipientFormValues>;
 }) => {
   const {
     ready,
     value: autoValue,
     setValue: setAutoValue,
     suggestions: { status, data },
-    setValue,
     clearSuggestions,
   } = usePlacesAutocomplete({
     requestOptions: {
@@ -29,14 +30,43 @@ const PlacesAutocomplete = ({
   });
 
   const handleSelect =
-    ({ description }: { description: string }) =>
-    () => {
+    ({ description, place_id }: { description: string; place_id: string }) =>
+    async () => {
       // When the user selects a place, we can replace the keyword without request data from API
       // by setting the second parameter to "false"
-      setValue(description, false);
+      setAutoValue(description, false);
       clearSuggestions();
+      // Geocode → parse → fill other fields
+      const results = await getGeocode({ placeId: place_id });
+      const parts = parseComponents(results[0].address_components);
+
+      setFormValue("suburb", parts.suburb, { shouldValidate: true });
+      setFormValue("postcode", parts.postcode, { shouldValidate: true });
     };
 
+  const parseComponents = (
+    components: google.maps.GeocoderAddressComponent[]
+  ) => {
+    const get = (type: string) =>
+      components.find((c) => c.types.includes(type))?.long_name ?? "";
+
+    // AU-friendly mapping (adjust for your locale)
+    const streetNumber = get("street_number");
+    const route = get("route");
+    const suburb =
+      get("locality") || get("postal_town") || get("sublocality") || "";
+    const state = get("administrative_area_level_1");
+    const postcode = get("postal_code");
+    const country = get("country");
+
+    return {
+      addressLine1: [streetNumber, route].filter(Boolean).join(" "),
+      suburb,
+      state,
+      postcode,
+      country,
+    };
+  };
   const renderSuggestions = () =>
     data.map((suggestion) => {
       const {

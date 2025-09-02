@@ -1,5 +1,4 @@
 import Button from "@/components/ui/Button";
-import { LoadScript } from "@react-google-maps/api";
 import { SubmitHandler, useForm } from "react-hook-form";
 import PlacesAutocomplete from "./PlacesAutocomplete ";
 import { RecipientFormValues } from "@/libs/types/forms";
@@ -9,6 +8,7 @@ const RecipientForm = () => {
     register,
     handleSubmit,
     control,
+    setValue,
     formState: { errors },
   } = useForm<RecipientFormValues>({
     defaultValues: { address: "", suburb: "", postcode: "" },
@@ -69,7 +69,7 @@ const RecipientForm = () => {
             </span>
           )}
           <label className="text-xl">Address</label>
-          <PlacesAutocomplete control={control} />
+          <PlacesAutocomplete control={control} setValue={setValue} />
           <div className="flex flex-row justify-between">
             <div className="flex flex-col gap-2 items-end ">
               <div className="flex flex-row gap-4 items-center">
