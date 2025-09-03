@@ -4,8 +4,19 @@ import PlacesAutocomplete from "./PlacesAutocomplete ";
 import { RecipientFormValues } from "@/libs/types/forms";
 import { useDispatch } from "react-redux";
 import { setRecipientMode, updateRecipient } from "@/redux/RecipientSlice";
+import { useAppSelector } from "@/redux/hooks";
 
 const RecipientForm = () => {
+  const {
+    firstName,
+    lastName,
+    phone,
+    address,
+    suburb,
+    postcode,
+    cardMessage,
+    deliveryInstructions,
+  } = useAppSelector((s) => s.recipient);
   const {
     register,
     handleSubmit,
@@ -13,9 +24,19 @@ const RecipientForm = () => {
     setValue,
     formState: { errors },
   } = useForm<RecipientFormValues>({
-    defaultValues: { address: "", suburb: "", postcode: "" },
+    defaultValues: {
+      firstName,
+      lastName,
+      phone,
+      address,
+      suburb,
+      postcode,
+      cardMessage,
+      deliveryInstructions,
+    },
   });
   const dispatch = useDispatch();
+
   const onSubmit: SubmitHandler<RecipientFormValues> = (data) => {
     console.log(data);
     dispatch(updateRecipient(data));

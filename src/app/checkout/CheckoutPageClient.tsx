@@ -2,6 +2,7 @@
 import CartCardCheckout from "@/components/features/checkout/CartCardCheckout";
 import CartSubtotalCheckout from "@/components/features/checkout/CartSbutotalCheckout";
 import RecipientForm from "@/components/features/checkout/RecipientForm";
+import RecipientInfo from "@/components/features/checkout/RecipientInfo";
 import SenderForm from "@/components/features/checkout/SenderForm";
 import SenderInfo from "@/components/features/checkout/SenderInfo";
 import { useAppSelector } from "@/redux/hooks";
@@ -14,6 +15,7 @@ const CheckoutPageClient = () => {
     return { items };
   });
   const sender = useAppSelector((s) => s.sender);
+  const recipient = useAppSelector((s) => s.recipient);
   if (items.length == 0) redirect("/");
   const libraries: "places"[] = ["places"];
   return (
@@ -24,13 +26,11 @@ const CheckoutPageClient = () => {
       <div className="px-40 py-20 grid grid-cols-[2fr_1fr] gap-40">
         <div>
           <h1 className="text-4xl py-10">Checkout</h1>
-          {sender.mode == "form" ? (
-            <SenderForm />
-          ) : sender.mode == "info" ? (
-            <>
-              <SenderInfo />
-              <RecipientForm />
-            </>
+          {sender.mode == "form" ? <SenderForm /> : <SenderInfo />}
+          {recipient.mode == "form" ? (
+            <RecipientForm />
+          ) : recipient.mode == "info" ? (
+            <RecipientInfo />
           ) : null}
         </div>
         <div className="py-10">

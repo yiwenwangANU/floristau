@@ -17,7 +17,7 @@ const RecipientInfo = () => {
       <span className="flex flex-row items-center justify-between">
         <div className="flex flex-row gap-6 items-center">
           <span className="text-xl flex items-center justify-center w-12 h-12 text-white bg-black rounded-full">
-            1
+            2
           </span>
           <span className="text-2xl">Recipient Details</span>
         </div>
