@@ -1,8 +1,7 @@
 import usePlacesAutocomplete, { getGeocode } from "use-places-autocomplete";
 import useOnclickOutside from "react-cool-onclickoutside";
-import { Control, Controller, UseFormSetValue } from "react-hook-form";
+import { Control, useController, UseFormSetValue } from "react-hook-form";
 import { RecipientFormValues } from "@/libs/types/forms";
-import { useAppSelector } from "@/redux/hooks";
 import { useEffect } from "react";
 
 const PlacesAutocomplete = ({
@@ -12,9 +11,15 @@ const PlacesAutocomplete = ({
   control: Control<RecipientFormValues>;
   setValue: UseFormSetValue<RecipientFormValues>;
 }) => {
+  const { field, fieldState } = useController({
+    name: "address",
+    control,
+    rules: {
+      required: "This field is required",
+    },
+  });
   const {
     ready,
-    value: autoValue,
     setValue: setAutoValue,
     suggestions: { status, data },
     clearSuggestions,
@@ -25,6 +30,10 @@ const PlacesAutocomplete = ({
     },
     debounce: 300,
   });
+  useEffect(() => {
+    setAutoValue(field.value ?? "", false);
+  }, [field.value, setAutoValue]);
+
   const ref = useOnclickOutside(() => {
     // When the user clicks outside of the component, we can dismiss
     // the searched suggestions by calling this method
@@ -91,34 +100,24 @@ const PlacesAutocomplete = ({
 
   return (
     <div ref={ref}>
-      <Controller
-        name="address"
-        control={control}
-        rules={{ required: "This field is required" }}
-        render={({ field, fieldState }) => {
-          return (
-            <>
-              <input
-                {...field}
-                value={autoValue ?? ""}
-                onChange={(e) => {
-                  // keep BOTH in sync
-                  setAutoValue(e.target.value);
-                  field.onChange(e.target.value);
-                }}
-                disabled={!ready}
-                placeholder="Enter your address"
-                className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none w-full"
-              />
-              {fieldState.error && (
-                <span className="mt-2 text-sm text-red-600">
-                  {fieldState.error.message}
-                </span>
-              )}
-            </>
-          );
+      <input
+        {...field}
+        value={field.value ?? ""}
+        onChange={(e) => {
+          // keep BOTH in sync
+          field.onChange(e.target.value);
+          setAutoValue(e.target.value);
         }}
+        disabled={!ready}
+        placeholder="Enter your address"
+        className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none w-full"
       />
+      {fieldState.error && (
+        <span className="mt-2 text-sm text-red-600">
+          {fieldState.error.message}
+        </span>
+      )}
+
       {/* We can use the "status" to decide whether we should display the dropdown or not */}
       {status === "OK" && <ul>{renderSuggestions()}</ul>}
     </div>

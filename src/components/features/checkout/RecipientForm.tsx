@@ -5,6 +5,7 @@ import { RecipientFormValues } from "@/libs/types/forms";
 import { useDispatch } from "react-redux";
 import { setRecipientMode, updateRecipient } from "@/redux/RecipientSlice";
 import { useAppSelector } from "@/redux/hooks";
+import { useEffect } from "react";
 
 const RecipientForm = () => {
   const {
@@ -22,6 +23,8 @@ const RecipientForm = () => {
     handleSubmit,
     control,
     setValue,
+    reset,
+    getValues,
     formState: { errors },
   } = useForm<RecipientFormValues>({
     defaultValues: {
@@ -42,6 +45,31 @@ const RecipientForm = () => {
     dispatch(updateRecipient(data));
     dispatch(setRecipientMode("info"));
   };
+  useEffect(() => {
+    // rehydrate RHF whenever Redux changes (e.g., when entering “Edit” with new data)
+    reset({
+      ...getValues(),
+      firstName,
+      lastName,
+      phone,
+      address,
+      suburb,
+      postcode,
+      cardMessage,
+      deliveryInstructions,
+    });
+  }, [
+    firstName,
+    lastName,
+    phone,
+    address,
+    suburb,
+    postcode,
+    cardMessage,
+    deliveryInstructions,
+    getValues,
+    reset,
+  ]);
   return (
     <div className="w-4/5 pt-10 border-t-2 border-gray-200 mt-10">
       <span className="flex flex-row gap-5 items-center">
