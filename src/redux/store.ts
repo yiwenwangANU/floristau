@@ -1,6 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import cartReducer from "./CartSlice";
 import senderReducer from "./SenderSlice";
+import recipientReducer from "./RecipientSlice";
+
 const PERSIST_KEY = "cart:v1";
 
 function loadPreloadedState() {
@@ -16,7 +18,11 @@ function loadPreloadedState() {
 }
 
 export const store = configureStore({
-  reducer: { cart: cartReducer, sender: senderReducer },
+  reducer: {
+    cart: cartReducer,
+    sender: senderReducer,
+    recipient: recipientReducer,
+  },
   preloadedState: loadPreloadedState(),
 });
 
