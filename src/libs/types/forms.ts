@@ -16,6 +16,6 @@ export type RecipientFormValues = {
   address: string;
   suburb: string;
   postcode: string;
-  message: string | null;
-  deliveryInstructions: string | null;
+  cardMessage: string;
+  deliveryInstructions: string;
 };

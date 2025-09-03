@@ -2,6 +2,8 @@ import Button from "@/components/ui/Button";
 import { SubmitHandler, useForm } from "react-hook-form";
 import PlacesAutocomplete from "./PlacesAutocomplete ";
 import { RecipientFormValues } from "@/libs/types/forms";
+import { useDispatch } from "react-redux";
+import { setRecipientMode, updateRecipient } from "@/redux/RecipientSlice";
 
 const RecipientForm = () => {
   const {
@@ -13,8 +15,11 @@ const RecipientForm = () => {
   } = useForm<RecipientFormValues>({
     defaultValues: { address: "", suburb: "", postcode: "" },
   });
+  const dispatch = useDispatch();
   const onSubmit: SubmitHandler<RecipientFormValues> = (data) => {
     console.log(data);
+    dispatch(updateRecipient(data));
+    dispatch(setRecipientMode("info"));
   };
   return (
     <div className="w-4/5 pt-10 border-t-2 border-gray-200 mt-10">
@@ -115,7 +120,7 @@ const RecipientForm = () => {
 
           <label className="text-xl">Card Message</label>
           <textarea
-            {...register("message")}
+            {...register("cardMessage")}
             placeholder="Enter your message"
             className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
           />
