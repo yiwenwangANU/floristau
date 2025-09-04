@@ -13,7 +13,8 @@ type ButtonProps = {
     | "manageGifts"
     | "buyNow"
     | "addToCart"
-    | "next";
+    | "next"
+    | "findUs";
   children: ReactNode;
 } & ComponentPropsWithoutRef<"button">;
 
@@ -72,6 +73,10 @@ const Button: FC<ButtonProps> = ({
     case "next":
       variantStyles =
         "font-semibold border-1 border-black h-10 w-full text-white bg-black hover:text-black hover:bg-white duration-300";
+      break;
+    case "findUs":
+      variantStyles =
+        "w-fit px-6 py-3 bg-black text-white hover:bg-white hover:text-black border border-black";
       break;
   }
 

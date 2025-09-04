@@ -1,6 +1,8 @@
 import Card from "@/components/ui/Card";
 import CardWithWords from "@/components/ui/CardWithWords";
 import CardWithWordsSec from "@/components/ui/CardWithWordsSec";
+import ShopLocation from "@/components/ui/ShopLocation";
+import { Ship } from "lucide-react";
 import Image from "next/image";
 export default function Home() {
   return (
@@ -54,6 +56,7 @@ export default function Home() {
           <CardWithWordsSec title="Green" image="/3.jpg" color="green" />
           <CardWithWordsSec title="White" image="/4.jpg" color="gray" />
         </div>
+        <ShopLocation />
       </main>
     </div>
   );
