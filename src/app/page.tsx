@@ -1,20 +1,13 @@
+import ExploreFlowersBanner from "@/components/features/homepage/components/ExploreFlowersBanner";
 import Card from "@/components/ui/Card";
 import CardWithWords from "@/components/ui/CardWithWords";
 import CardWithWordsSec from "@/components/ui/CardWithWordsSec";
 import ShopLocation from "@/components/ui/ShopLocation";
-import { Ship } from "lucide-react";
-import Image from "next/image";
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen w-full">
       <main>
-        <Image
-          src="/MRxTAB_banner_web_v1_8ab0ef35-a22d-4804-9914-29996babacd1_1920x.jpg"
-          alt="Red Flowers"
-          width={600}
-          height={500}
-          className="w-full h-auto"
-        />
+        <ExploreFlowersBanner />
         <div className="text-2xl sm:text-4xl pt-20 pb-2 px-1 sm:px-8 font-sans font-medium">
           Our Best Selling Flowers
         </div>

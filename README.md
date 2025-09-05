@@ -2,6 +2,9 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+// fonts handwritten: caveat- shadows into light-Gloria Hallelujah - Reenie Beanie
+marcellus - Tenor Sans -Macondo
+
 First, run the development server:
 
 ```bash
