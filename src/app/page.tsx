@@ -1,4 +1,4 @@
-import ExploreFlowersBanner from "@/components/features/homepage/components/ExploreFlowersBanner";
+import ExploreFlowersBanner from "@/components/features/banner/components/ExploreFlowersBanner";
 import Card from "@/components/ui/Card";
 import CardWithWords from "@/components/ui/CardWithWords";
 import CardWithWordsSec from "@/components/ui/CardWithWordsSec";
