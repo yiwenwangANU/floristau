@@ -4,14 +4,14 @@ import { Cross2Icon } from "@radix-ui/react-icons";
 
 import CartContent from "./CartContent";
 import { useCartContext } from "@/contexts/CartContext";
-import CartManageGift from "../CartManageGift";
+import CartManageGift from "./CartManageGift";
 import ErrorPage from "@/app/error";
 import Loading from "@/app/loading";
 import useGetWine from "@/hooks/useGetWine";
 import useGetChocolate from "@/hooks/useGetChocolate";
 import useGetTeddy from "@/hooks/useGetTeddys";
 import Button from "@/components/ui/Button";
-import CartSubtotal from "../CartSubtotal";
+import CartSubtotal from "./CartSubtotal";
 import Link from "next/link";
 const CartDialog = () => {
   const { cartOpen, cartGiftPage, handleOpenChange, handleCartClose } =

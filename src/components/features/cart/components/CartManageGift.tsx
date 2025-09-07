@@ -3,16 +3,13 @@
 import Image from "next/image";
 import * as Accordion from "@radix-ui/react-accordion";
 import NumberStepper from "@/components/form/NumberStepper";
-
-import { useDispatch, useSelector } from "react-redux";
 import { updateGiftQty } from "@/redux/CartSlice";
-import { RootState } from "@/redux/store";
 import { GetGiftsResponse } from "@/libs/types/gifts";
 import ErrorPage from "@/app/error";
 import { useCartContext } from "@/contexts/CartContext";
 import Button from "@/components/ui/Button";
-
-type GiftType = "wine" | "chocolate" | "teddy";
+import useCartManageGift from "../hooks/useCartManageGift";
+import { useDispatch } from "react-redux";
 
 export default function CartManageGift({
   wineData,
@@ -23,27 +20,17 @@ export default function CartManageGift({
   chocolateData: GetGiftsResponse;
   teddyData: GetGiftsResponse;
 }) {
-  const dispatch = useDispatch();
-  const items = useSelector((s: RootState) => s.cart.cartState.items);
   const { cartId, handleGiftClose } = useCartContext();
-  const cartItem = items.find((i) => i.id === cartId);
+  const dispatch = useDispatch();
+  const { cartItem, getCurrentQty, categories } = useCartManageGift({
+    cartId,
+    wineData,
+    chocolateData,
+    teddyData,
+  });
   if (!cartItem || !cartId) return <ErrorPage />;
-  const categories: {
-    type: GiftType;
-    label: string;
-    data: GetGiftsResponse;
-  }[] = [
-    { type: "wine", label: "Add Wine", data: wineData },
-    { type: "chocolate", label: "Add Chocolate", data: chocolateData },
-    { type: "teddy", label: "Add Teddy Bear", data: teddyData },
-  ];
 
   // helper: get current qty from Redux for a given gift name within a category
-  const getCurrentQty = (type: GiftType, name: string) => {
-    const arr = cartItem.giftQty[type] ?? [];
-    const found = arr.find((g) => g.name === name);
-    return found?.qty ?? 0;
-  };
 
   return (
     <>
