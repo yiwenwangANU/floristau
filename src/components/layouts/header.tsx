@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 import Navigation from "../ui/Navigation";
-import CartButton from "../features/cart/CartButton";
+import CartButton from "../features/cart/components/CartButton";
 
 const Header = () => {
   return (
