@@ -1,6 +1,6 @@
 import CartButton from "@/components/features/cart/components/CartButton";
-import Logo from "@/components/features/navigation/Logo";
-import NaviMenu from "@/components/features/navigation/NaviMenu";
+import Logo from "@/components/features/navigation/components/Logo";
+import NaviMenu from "@/components/features/navigation/components/NaviMenu";
 
 const Navigation = () => {
   return (
