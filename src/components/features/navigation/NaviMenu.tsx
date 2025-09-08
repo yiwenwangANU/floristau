@@ -1,13 +1,19 @@
-import NavItem from "@/components/features/navigation/NavItem";
 import { NavigationMenu } from "radix-ui";
+import NavItem from "@/components/features/navigation/NavItem";
+import { NavItemData } from "@/components/features/navigation/NavItemData";
 
 const NaviMenu = () => {
   return (
     <NavigationMenu.Root className="relative z-[9999] flex w-screen justify-center">
       <NavigationMenu.List className="flex rounded-md p-1 gap-1">
-        <NavItem title="flowers" itemsList={flowersList} />
-        <NavItem title="occasions" itemsList={occasionsList} />
-        <NavItem title="color" itemsList={colorList} />
+        {NavItemData.map((data) => (
+          <NavItem
+            key={data.title}
+            title={data.title}
+            href={data.href}
+            itemsList={data.itemsList}
+          />
+        ))}
 
         <NavigationMenu.Indicator className="top-full z-10 flex h-2.5 items-end justify-center overflow-hidden transition-[width,transform_250ms_ease] data-[state=hidden]:animate-fadeOut data-[state=visible]:animate-fadeIn">
           <div className="relative top-[70%] size-2.5 rotate-45 rounded-tl-sm bg-white" />

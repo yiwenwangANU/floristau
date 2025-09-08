@@ -1,22 +1,24 @@
-import { CaretDownIcon } from "@radix-ui/react-icons";
 import { NavigationMenu } from "radix-ui";
-import NavListItem from "./NavListItem";
+import { CaretDownIcon } from "@radix-ui/react-icons";
+import NavListItem from "@/components/features/navigation/NavListItem";
 
-type itemsListProps = {
-  href: string;
-  name: string;
-  description: string;
-}[];
+type itemsListProps =
+  | {
+      href: string;
+      name: string;
+    }[];
 const NavItem = ({
   title,
+  href,
   itemsList,
 }: {
   title: string;
+  href: string;
   itemsList: itemsListProps;
 }) => {
   return (
     <NavigationMenu.Item>
-      <NavigationMenu.Trigger className="px-20 py-4 group flex select-none items-center justify-between gap-0.5 rounded text-[15px] font-medium leading-none outline-none hover:bg-secondary-hover focus:shadow-[0_0_0_2px]">
+      <NavigationMenu.Trigger className="px-20 py-4 group flex select-none items-center justify-between text-[15px] font-medium leading-none hover:bg-secondary-hover hover:outline-2 hover:outline-black focus:outline-black focus:outline-2 focus:shadow-[0_0_0_2px]">
         {title}
         <CaretDownIcon
           className="relative top-px transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
@@ -31,9 +33,7 @@ const NavItem = ({
               href={item.href}
               title={item.name}
               className="hover:bg-secondary-hover"
-            >
-              {item.description}
-            </NavListItem>
+            />
           ))}
         </ul>
       </NavigationMenu.Content>
