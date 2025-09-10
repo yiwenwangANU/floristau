@@ -1,6 +1,7 @@
 import { NavigationMenu } from "radix-ui";
 import { CaretDownIcon } from "@radix-ui/react-icons";
 import NavListItem from "@/components/features/navigation/components/NavListItem";
+import Link from "next/link";
 
 type itemsListProps = {
   href: string;
@@ -15,16 +16,34 @@ const NavItem = ({
   href: string;
   itemsList: itemsListProps;
 }) => {
+  const hasItems = itemsList && itemsList.length > 0;
+  if (!hasItems) {
+    return (
+      <NavigationMenu.Item className="w-full">
+        <NavigationMenu.Link
+          asChild
+          className="capitalize group flex select-none justify-between w-50 gap-0.5 px-5 py-3 text-[15px] font-medium leading-none hover:bg-secondary-hover hover:outline-2 hover:outline-black focus:outline-black focus:outline-2 focus:shadow-[0_0_0_2px]"
+        >
+          <Link href={href}>{title}</Link>
+        </NavigationMenu.Link>
+      </NavigationMenu.Item>
+    );
+  }
   return (
     <NavigationMenu.Item className="w-full">
-      <NavigationMenu.Trigger className="capitalize group flex select-none justify-between w-50 gap-0.5 px-5 py-3 text-[15px] font-medium leading-none hover:bg-secondary-hover hover:outline-2 hover:outline-black focus:outline-black focus:outline-2 focus:shadow-[0_0_0_2px]">
-        {title}
-        {itemsList.length > 0 && (
-          <CaretDownIcon
-            className="relative top-px transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
-            aria-hidden
-          />
-        )}
+      <NavigationMenu.Trigger
+        asChild
+        className="capitalize group flex select-none justify-between w-50 gap-0.5 px-5 py-3 text-[15px] font-medium leading-none hover:bg-secondary-hover hover:outline-2 hover:outline-black focus:outline-black focus:outline-2 focus:shadow-[0_0_0_2px]"
+      >
+        <Link href={href}>
+          {title}
+          {hasItems && (
+            <CaretDownIcon
+              className="relative top-px transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
+              aria-hidden
+            />
+          )}
+        </Link>
       </NavigationMenu.Trigger>
       {itemsList.length > 0 && (
         <NavigationMenu.Content
