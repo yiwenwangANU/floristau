@@ -2,11 +2,10 @@ import { NavigationMenu } from "radix-ui";
 import { CaretDownIcon } from "@radix-ui/react-icons";
 import NavListItem from "@/components/features/navigation/components/NavListItem";
 
-type itemsListProps =
-  | {
-      href: string;
-      name: string;
-    }[];
+type itemsListProps = {
+  href: string;
+  name: string;
+}[];
 const NavItem = ({
   title,
   href,
@@ -25,17 +24,24 @@ const NavItem = ({
           aria-hidden
         />
       </NavigationMenu.Trigger>
-      <NavigationMenu.Content className="absolute left-0 top-0 w-full data-[motion=from-end]:animate-enterFromRight data-[motion=from-start]:animate-enterFromLeft data-[motion=to-end]:animate-exitToRight data-[motion=to-start]:animate-exitToLeft sm:w-auto">
-        <ul className="one m-0 grid list-none gap-x-2.5 p-[20px] sm:w-[100vh] sm:grid-cols-[1fr_1fr_1fr] bg-secondary ">
-          {itemsList.map((item) => (
-            <NavListItem
-              key={item.name}
-              href={item.href}
-              title={item.name}
-              className="hover:bg-secondary-hover"
-            />
-          ))}
-        </ul>
+      <NavigationMenu.Content className="absolute left-0 top-full bg-secondary">
+        <div className="w-screen">
+          <ul
+            className="
+        grid grid-cols-3 
+        list-none m-0 p-5 gap-4
+      "
+          >
+            {itemsList.map((item) => (
+              <NavListItem
+                key={item.name}
+                href={item.href}
+                title={item.name}
+                className="hover:bg-secondary-hover"
+              />
+            ))}
+          </ul>
+        </div>
       </NavigationMenu.Content>
     </NavigationMenu.Item>
   );

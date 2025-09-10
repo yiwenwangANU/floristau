@@ -17,7 +17,7 @@ export default function Home() {
           <Card id={3} title="Yellow Flowers" price="$39.99" image="/3.jpg" />
           <Card id={4} title="White Flowers" price="$49.99" image="/4.jpg" />
         </div>
-        <div className="text-2xl sm:text-4xl pt-20 pb-2 px-1 sm:px-8 font-sans font-medium">
+        <div className="text-2xl text-violet1 sm:text-4xl pt-20 pb-2 px-1 sm:px-8 font-sans font-medium">
           Choose your Flowers by Occasions
         </div>
 
