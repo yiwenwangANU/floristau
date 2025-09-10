@@ -23,7 +23,7 @@ export default function RootLayout({
           <Navigation />
           <ToastContainer />
           <CartDialog />
-          {children}
+          <main className="pt-15">{children}</main>
           <Footer />
         </Providers>
       </body>

@@ -5,6 +5,8 @@
 
 @theme {
   --radius: 0.625rem;
+  /* Heights*/
+  --header-h: 60px;
 
   /* Colors */
   --color-border: hsl(0 0% 89.8%);
