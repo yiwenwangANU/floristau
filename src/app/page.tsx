@@ -1,10 +1,9 @@
 import Banner from "@/components/features/banner/components/Banner";
 import Card from "@/components/ui/Card";
-import CardWithWords from "@/components/ui/CardWithWords";
-import CardWithWordsSec from "@/components/ui/CardWithWordsSec";
 import ShopLocation from "@/components/ui/ShopLocation";
+import Button from "@/components/ui/Button";
 import { Raleway } from "next/font/google";
-
+import Link from "next/link";
 const raleway = Raleway({
   subsets: ["latin"],
 });
@@ -35,6 +34,9 @@ export default function Home() {
           <Card id={3} title="Yellow Flowers" price="$39.99" image="/3.jpg" />
           <Card id={4} title="White Flowers" price="$49.99" image="/4.jpg" />
         </div>
+        <Link href="/flowers" className="flex justify-center pt-6 pb-14">
+          <Button variant="blackLong">Shop Now</Button>
+        </Link>
         <Banner
           imageUrl="/1014_PF_Fall25-Site_Anniversary_Hero.webp"
           headline="Shop by Occasions"
@@ -58,6 +60,9 @@ export default function Home() {
           <Card id={3} title="Yellow Flowers" price="$39.99" image="/3.jpg" />
           <Card id={4} title="White Flowers" price="$49.99" image="/4.jpg" />
         </div>
+        <Link href="/occasions" className="flex justify-center pt-6 pb-14">
+          <Button variant="blackLong">Browse by Occasions</Button>
+        </Link>
         <Banner
           imageUrl="/0908_Bouqsday_HPUpdate_Desktop.jpg"
           headline="Shop by Flower Types"
@@ -81,8 +86,11 @@ export default function Home() {
           <Card id={3} title="Yellow Flowers" price="$39.99" image="/3.jpg" />
           <Card id={4} title="White Flowers" price="$49.99" image="/4.jpg" />
         </div>
+        <Link href="/flowers" className="flex justify-center pt-6 pb-14">
+          <Button variant="blackLong">Explore Flowers by Types</Button>
+        </Link>
         <ShopLocation />
-        <div
+        {/* <div
           className="relative text-2xl text-violet1 sm:text-4xl pt-20 pb-2 px-1 sm:px-8 font-sans font-medium
              after:absolute after:left-1/2 after:-bottom-1 after:h-[2px] after:w-full
              after:-translate-x-1/2 after:bg-black after:content-['']
@@ -119,7 +127,7 @@ export default function Home() {
           <CardWithWordsSec title="Red" image="/2.jpg" color="red" />
           <CardWithWordsSec title="Green" image="/3.jpg" color="green" />
           <CardWithWordsSec title="White" image="/4.jpg" color="gray" />
-        </div>
+        </div> */}
       </main>
     </div>
   );
