@@ -55,7 +55,7 @@ const NavItem = ({
               data-[motion=to-start]:animate-[exit-to-left_250ms_ease]
               data-[motion=to-end]:animate-[exit-to-right_250ms_ease]"
         >
-          <ul className="grid w-full grid-cols-[1fr_1fr_1fr] place-items-center">
+          <ul className="grid w-full grid-cols-[1fr_1fr_1fr] gap-x-10 pt-10">
             {itemsList.map((item) => (
               <NavListItem key={item.name} href={item.href} title={item.name} />
             ))}
