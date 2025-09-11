@@ -1,23 +1,27 @@
 import { NavigationMenu } from "radix-ui";
 import React from "react";
-import classNames from "classnames";
 
 type ListItemProps = React.ComponentPropsWithoutRef<"a"> & {
   title: string;
 };
 const NavListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
-  ({ className, title, ...props }, forwardedRef) => (
+  ({ title, ...props }, forwardedRef) => (
     <li>
       <NavigationMenu.Link asChild>
         <a
-          className={classNames(
-            "block select-none rounded-md p-3 text-[15px] leading-none no-underline outline-none transition-colors focus:shadow-[0_0_0_2px]",
-            className
-          )}
+          className="select-none text-[15px] transition-colors"
           {...props}
           ref={forwardedRef}
         >
-          <div className="mb-[5px] font-medium leading-[1.2]">{title}</div>
+          <div
+            className="text-xl font-medium leading-[1.2] relative inline-block my-8 text-center
+            border-b-2 border-gray-200
+            after:absolute after:left-1/2 after:-bottom-1 after:h-[2px]
+           after:w-full after:-translate-x-1/2 after:bg-black after:content-[''] after:origin-center
+            after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100"
+          >
+            {title}
+          </div>
         </a>
       </NavigationMenu.Link>
     </li>

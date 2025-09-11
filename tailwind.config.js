@@ -50,6 +50,10 @@ const config = {
           from: { opacity: "1" },
           to: { opacity: "0" },
         },
+        borderGrow: {
+          from: { width: "0", left: "50%" },
+          to: { width: "100%", left: "0%" },
+        },
       },
       animation: {
         scaleIn: "scaleIn 200ms ease",
@@ -60,6 +64,7 @@ const config = {
         enterFromRight: "enterFromRight 250ms ease",
         exitToLeft: "exitToLeft 250ms ease",
         exitToRight: "exitToRight 250ms ease",
+        borderGrow: "borderGrow 300ms ease",
       },
     },
   },

@@ -55,14 +55,9 @@ const NavItem = ({
               data-[motion=to-start]:animate-[exit-to-left_250ms_ease]
               data-[motion=to-end]:animate-[exit-to-right_250ms_ease]"
         >
-          <ul className="grid w-full grid-cols-[1fr_1fr_1fr]">
+          <ul className="grid w-full grid-cols-[1fr_1fr_1fr] place-items-center">
             {itemsList.map((item) => (
-              <NavListItem
-                key={item.name}
-                href={item.href}
-                title={item.name}
-                className="hover:bg-secondary-hover"
-              />
+              <NavListItem key={item.name} href={item.href} title={item.name} />
             ))}
           </ul>
         </NavigationMenu.Content>

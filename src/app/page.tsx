@@ -11,13 +11,26 @@ export default function Home() {
         <div className="text-2xl sm:text-4xl pt-20 pb-2 px-1 sm:px-8 font-sans font-medium">
           Our Best Selling Flowers
         </div>
+        <div
+          className="relative inline-block after:absolute after:left-1/2 after:-bottom-1 after:h-[2px]
+           after:w-full after:-translate-x-1/2 after:bg-black after:content-[''] after:origin-center
+            after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100"
+        >
+          Hover me
+        </div>
         <div className="flex flex-row flex-wrap gap-8 py-5 px-1 sm:px-8 items-center">
           <Card id={1} title="Red Flowers" price="$19.99" image="/1.jpg" />
           <Card id={2} title="Blue Flowers" price="$29.99" image="/2.jpg" />
           <Card id={3} title="Yellow Flowers" price="$39.99" image="/3.jpg" />
           <Card id={4} title="White Flowers" price="$49.99" image="/4.jpg" />
         </div>
-        <div className="text-2xl text-violet1 sm:text-4xl pt-20 pb-2 px-1 sm:px-8 font-sans font-medium">
+        <div
+          className="relative text-2xl text-violet1 sm:text-4xl pt-20 pb-2 px-1 sm:px-8 font-sans font-medium
+             after:absolute after:left-1/2 after:-bottom-1 after:h-[2px] after:w-full
+             after:-translate-x-1/2 after:bg-black after:content-['']
+             after:origin-center after:scale-x-0 after:transition-transform after:duration-300
+             hover:after:scale-x-100"
+        >
           Choose your Flowers by Occasions
         </div>
 
