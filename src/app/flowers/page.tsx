@@ -1,4 +1,5 @@
 "use client";
+import Filter from "@/components/features/filter&sort/Filter";
 import AddNewFlower from "@/components/ui/AddNewFlower";
 import Card from "@/components/ui/Card";
 import useGetFlowers from "@/hooks/useGetFlowers";
@@ -9,12 +10,10 @@ const Flowers = () => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="text-2xl sm:text-4xl pt-20 pb-2 px-1 sm:px-8 font-sans font-medium">
-        Our Best Selling Flowers
-      </div>
-      <div className="flex flex-row flex-wrap gap-8 py-5 px-1 sm:px-8 items-center">
-        <AddNewFlower />
+    <div className="flex flex-col min-h-screen py-5 px-1 sm:px-8 gap-3">
+      <Filter name="Color" catalog={["Red", "Blue", "Green"]} />
+      <div className="flex flex-row flex-wrap gap-8 items-center">
+        {/* <AddNewFlower /> */}
         {data?.map((flower) => (
           <Card
             key={flower.id}
