@@ -1,4 +1,6 @@
+"use client";
 import { ChevronDown } from "lucide-react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Popover } from "radix-ui";
 import { useState } from "react";
 export default function FlowerTypeFilter({
@@ -8,8 +10,24 @@ export default function FlowerTypeFilter({
   name: string;
   catalog: string[];
 }) {
-  const [open, setOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const [open, setOpen] = useState<boolean>(false);
+  const updateQueryString = (name: string, item: string, checked: boolean) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (checked) {
+      params.append(name, item);
+    }
+    if (!checked) {
+      params.delete(name, item);
+    }
+    return params.toString();
+  };
 
+  const handleCheck = (name: string, item: string, checked: boolean) => {
+    router.push(pathname + "?" + updateQueryString(name, item, checked));
+  };
   return (
     <Popover.Root open={open} onOpenChange={setOpen}>
       <Popover.Trigger
@@ -40,6 +58,7 @@ export default function FlowerTypeFilter({
                 <input
                   type="checkbox"
                   name={item}
+                  onChange={(e) => handleCheck(name, item, e.target.checked)}
                   className="relative h-5 w-5 cursor-pointer appearance-none border-2 border-gray-600 checked:bg-stone-400 checked:after:absolute checked:after:top-[-2px] checked:after:left-[2px] checked:after:text-sm checked:after:font-bold checked:after:text-white checked:after:content-['✓']"
                 />
               </label>
