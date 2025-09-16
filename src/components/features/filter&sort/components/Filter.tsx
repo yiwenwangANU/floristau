@@ -1,8 +1,9 @@
 "use client";
 import { ChevronDown } from "lucide-react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+
 import { Popover } from "radix-ui";
 import { useState } from "react";
+import useHandleCheck from "../hooks/useHandleCheck";
 export default function FlowerTypeFilter({
   name,
   catalog,
@@ -10,24 +11,8 @@ export default function FlowerTypeFilter({
   name: string;
   catalog: string[];
 }) {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [open, setOpen] = useState<boolean>(false);
-  const updateQueryString = (name: string, item: string, checked: boolean) => {
-    const params = new URLSearchParams(searchParams.toString());
-    if (checked) {
-      params.append(name, item);
-    }
-    if (!checked) {
-      params.delete(name, item);
-    }
-    return params.toString();
-  };
-
-  const handleCheck = (name: string, item: string, checked: boolean) => {
-    router.push(pathname + "?" + updateQueryString(name, item, checked));
-  };
+  const { handleCheck } = useHandleCheck();
   return (
     <Popover.Root open={open} onOpenChange={setOpen}>
       <Popover.Trigger

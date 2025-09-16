@@ -1,5 +1,5 @@
 "use client";
-import Filter from "@/components/features/filter&sort/Filter";
+import Filter from "@/components/features/filter&sort/components/Filter";
 import AddNewFlower from "@/components/ui/AddNewFlower";
 import Card from "@/components/ui/Card";
 import useGetFlowers from "@/hooks/useGetFlowers";
@@ -13,7 +13,7 @@ const Flowers = () => {
     <div className="flex min-h-screen flex-col gap-3 px-1 py-5 sm:px-8">
       <Filter name="Color" catalog={["Red", "Blue", "Green"]} />
       <div className="flex flex-row flex-wrap items-center gap-8">
-        {/* <AddNewFlower /> */}
+        <AddNewFlower />
         {data?.map((flower) => (
           <Card
             key={flower.id}
