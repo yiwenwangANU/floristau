@@ -4,7 +4,7 @@ export class ApiError extends Error {
   constructor(
     message: string,
     public statusCode?: number,
-    public code?: string
+    public code?: string,
   ) {
     super(message);
     this.name = "ApiError";
@@ -29,14 +29,14 @@ export function handleApiError(error: unknown, defaultMessage: string): never {
       throw new ApiError(
         "No response from server. Please check your connection.",
         0,
-        "NETWORK_ERROR"
+        "NETWORK_ERROR",
       );
     } else {
       // Error in request setup
       throw new ApiError(
         "Failed to make request. Please try again.",
         0,
-        "REQUEST_ERROR"
+        "REQUEST_ERROR",
       );
     }
   }

@@ -13,16 +13,16 @@ const RecipientInfo = () => {
     dispatch(setRecipientMode("form"));
   };
   return (
-    <div className="w-4/5 flex flex-col gap-1">
+    <div className="flex w-4/5 flex-col gap-1">
       <span className="flex flex-row items-center justify-between">
-        <div className="flex flex-row gap-6 items-center">
-          <span className="text-xl flex items-center justify-center w-12 h-12 text-white bg-black rounded-full">
+        <div className="flex flex-row items-center gap-6">
+          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-xl text-white">
             2
           </span>
           <span className="text-2xl">Recipient Details</span>
         </div>
         <span
-          className="underline cursor-pointer text-lg"
+          className="cursor-pointer text-lg underline"
           onClick={handleEditRecipient}
         >
           Edit

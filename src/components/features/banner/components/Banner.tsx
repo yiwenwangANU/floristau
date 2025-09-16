@@ -16,13 +16,13 @@ const Banner = ({
   position: "left" | "right";
 }) => {
   return (
-    <section className="relative w-full h-auto">
+    <section className="relative h-auto w-full">
       <Image
         src={imageUrl}
         alt={`banner-${headline}`}
         width={600}
         height={500}
-        className="w-full h-auto"
+        className="h-auto w-full"
       />
       <BannerCard
         headline={headline}

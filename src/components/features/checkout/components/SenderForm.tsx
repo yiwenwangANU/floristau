@@ -29,21 +29,21 @@ const SenderForm = () => {
   };
   return (
     <div className="w-4/5">
-      <span className="flex flex-row gap-5 items-center">
-        <span className="text-xl flex items-center justify-center w-12 h-12 text-white bg-black rounded-full">
+      <span className="flex flex-row items-center gap-5">
+        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-xl text-white">
           1
         </span>
         <span className="text-2xl">Sender Details</span>
       </span>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex flex-col py-10 gap-3">
+        <div className="flex flex-col gap-3 py-10">
           <label className="text-xl">First Name</label>
           <input
             type="text"
             {...register("firstName", { required: "This field is required" })}
             placeholder="Enter your first name"
             defaultValue={firstName}
-            className="w-full p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
+            className="w-full rounded border-2 border-gray-200 p-5 focus:border-black focus:ring-0 focus:outline-none"
           />
           {errors.firstName && (
             <span className="mt-2 text-sm text-red-600">
@@ -56,7 +56,7 @@ const SenderForm = () => {
             {...register("lastName", { required: "This field is required" })}
             placeholder="Enter your last name"
             defaultValue={lastName}
-            className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
+            className="rounded border-2 border-gray-200 p-5 focus:border-black focus:ring-0 focus:outline-none"
           />
           {errors.lastName && (
             <span className="mt-2 text-sm text-red-600">
@@ -75,7 +75,7 @@ const SenderForm = () => {
             })}
             placeholder="Enter your phone number"
             defaultValue={phone}
-            className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
+            className="rounded border-2 border-gray-200 p-5 focus:border-black focus:ring-0 focus:outline-none"
           />
           {errors.phone && (
             <span className="mt-2 text-sm text-red-600">
@@ -94,7 +94,7 @@ const SenderForm = () => {
             })}
             placeholder="Enter your email address"
             defaultValue={email}
-            className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
+            className="rounded border-2 border-gray-200 p-5 focus:border-black focus:ring-0 focus:outline-none"
           />
           {errors.email && (
             <span className="mt-2 text-sm text-red-600">

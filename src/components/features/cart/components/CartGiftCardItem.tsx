@@ -22,18 +22,18 @@ const CartGiftCardItem = ({
         id: cartId,
         type,
         giftName: name,
-      })
+      }),
     );
   };
   return (
     <div
       key={item.name}
-      className="text-sm flex flex-row items-center justify-between w-full pb-2"
+      className="flex w-full flex-row items-center justify-between pb-2 text-sm"
     >
       <div className="flex flex-col py-2">
         <span className="text-lg font-semibold">{item.name}</span>
         <span
-          className="underline cursor-pointer"
+          className="cursor-pointer underline"
           onClick={() => onRemoveGift(item.type, item.name)}
         >
           Remove
@@ -50,11 +50,11 @@ const CartGiftCardItem = ({
                 giftName: item.name,
                 giftQty: qty,
                 giftPrice: item.price,
-              })
+              }),
             )
           }
         />
-        <span className="text-lg font-semibold w-10">
+        <span className="w-10 text-lg font-semibold">
           ${item.price.toFixed(2)}
         </span>
       </div>

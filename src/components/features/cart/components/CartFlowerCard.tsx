@@ -17,9 +17,9 @@ const CartFlowerCard = ({
 }) => {
   const dispatch = useAppDispatch();
   return (
-    <div className="flex flex-row gap-4 pb-5 border-b border-gray-200">
+    <div className="flex flex-row gap-4 border-b border-gray-200 pb-5">
       <Image src={imageUrl} alt={name} width={150} height={150} />
-      <div className="flex flex-row items-start justify-between gap-4 w-full">
+      <div className="flex w-full flex-row items-start justify-between gap-4">
         <div className="flex flex-col gap-2">
           <span className="text-lg font-semibold">{name}</span>
           <span className="text-gray-500">{size}</span>
@@ -28,7 +28,7 @@ const CartFlowerCard = ({
           </span>
         </div>
         <span
-          className="underline cursor-pointer"
+          className="cursor-pointer underline"
           onClick={() => dispatch(removeItem(id))}
         >
           Remove

@@ -9,7 +9,7 @@ const raleway = Raleway({
 });
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen w-full">
+    <div className="flex min-h-screen w-full flex-col">
       <main>
         <Banner
           imageUrl="/1014_PF_Fall25-Site_Fall_Hero.webp"
@@ -20,11 +20,11 @@ export default function Home() {
           position="right"
         />
         <div
-          className={`text-2xl sm:text-4xl pt-20 pb-2 px-1 sm:px-8 font-sans font-medium ${raleway.className}`}
+          className={`px-1 pt-20 pb-2 font-sans text-2xl font-medium sm:px-8 sm:text-4xl ${raleway.className}`}
         >
           Our Best Selling Flowers
         </div>
-        <div className="flex flex-row flex-wrap gap-8 py-5 px-1 sm:px-8 items-center">
+        <div className="flex flex-row flex-wrap items-center gap-8 px-1 py-5 sm:px-8">
           <Card id={1} title="Red Flowers" price="$19.99" image="/1.jpg" />
           <Card id={2} title="Blue Flowers" price="$29.99" image="/2.jpg" />
           <Card id={3} title="Yellow Flowers" price="$39.99" image="/3.jpg" />
@@ -46,11 +46,11 @@ export default function Home() {
           position="left"
         />
         <div
-          className={`text-2xl sm:text-4xl pt-20 pb-2 px-1 sm:px-8 font-sans font-medium ${raleway.className}`}
+          className={`px-1 pt-20 pb-2 font-sans text-2xl font-medium sm:px-8 sm:text-4xl ${raleway.className}`}
         >
           Choose your Flowers by Occasions
         </div>
-        <div className="flex flex-row flex-wrap gap-8 py-5 px-1 sm:px-8 items-center">
+        <div className="flex flex-row flex-wrap items-center gap-8 px-1 py-5 sm:px-8">
           <Card id={1} title="Red Flowers" price="$19.99" image="/1.jpg" />
           <Card id={2} title="Blue Flowers" price="$29.99" image="/2.jpg" />
           <Card id={3} title="Yellow Flowers" price="$39.99" image="/3.jpg" />
@@ -72,11 +72,11 @@ export default function Home() {
           position="left"
         />
         <div
-          className={`text-2xl sm:text-4xl pt-20 pb-2 px-1 sm:px-8 font-sans font-medium ${raleway.className}`}
+          className={`px-1 pt-20 pb-2 font-sans text-2xl font-medium sm:px-8 sm:text-4xl ${raleway.className}`}
         >
           Choose Your Flowers by Types
         </div>
-        <div className="flex flex-row flex-wrap gap-8 py-5 px-1 sm:px-8 items-center">
+        <div className="flex flex-row flex-wrap items-center gap-8 px-1 py-5 sm:px-8">
           <Card id={1} title="Red Flowers" price="$19.99" image="/1.jpg" />
           <Card id={2} title="Blue Flowers" price="$29.99" image="/2.jpg" />
           <Card id={3} title="Yellow Flowers" price="$39.99" image="/3.jpg" />

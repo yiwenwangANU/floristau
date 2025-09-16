@@ -12,7 +12,7 @@ export const flowersApi = {
   getFlowers: async (): Promise<GetFlowersResponse> => {
     try {
       const response = await axiosPublic.get<GetFlowersResponse>(
-        "/api/Public/Flower/getFlowers"
+        "/api/Public/Flower/getFlowers",
       );
       return response.data;
     } catch (error) {
@@ -22,7 +22,7 @@ export const flowersApi = {
   getFlowerById: async (id: number): Promise<GetFlowerResponse> => {
     try {
       const response = await axiosPublic.get<GetFlowerResponse>(
-        `/api/Public/Flower/getFlowerById/${id}`
+        `/api/Public/Flower/getFlowerById/${id}`,
       );
       return response.data; // Assuming API returns array with one flower
     } catch (error) {
@@ -38,7 +38,7 @@ export const flowersApi = {
       }
       const response = await axiosPublic.post<UploadImageResponse>(
         "/api/File/uploadImage",
-        formData
+        formData,
       );
       return response.data;
     } catch (error) {
@@ -47,12 +47,12 @@ export const flowersApi = {
   },
 
   createFlower: async (
-    flower: CreateFlowerDto
+    flower: CreateFlowerDto,
   ): Promise<CreateFlowerResponse> => {
     try {
       const response = await axiosPublic.post<CreateFlowerResponse>(
         "/api/admin/Flower/createFlower",
-        flower
+        flower,
       );
       return response.data;
     } catch (error) {

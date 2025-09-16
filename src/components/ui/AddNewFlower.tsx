@@ -104,30 +104,28 @@ const AddNewFlower = () => {
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
-        <div className="group border rounded-md overflow-hidden hover:cursor-pointer lg:w-[23%] md:w-[30%] sm:w-[45%]">
-          <div className="relative bg-stone-200 aspect-square">
-            <Plus className="w-[400px] h-[400px] mx-auto object-cover" />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition duration-200"></div>
+        <div className="group overflow-hidden rounded-md border hover:cursor-pointer sm:w-[45%] md:w-[30%] lg:w-[23%]">
+          <div className="relative aspect-square bg-stone-200">
+            <Plus className="mx-auto h-[400px] w-[400px] object-cover" />
+            <div className="absolute inset-0 bg-black/0 transition duration-200 group-hover:bg-black/10"></div>
           </div>
-          <div className="flex flex-row justify-between items-center">
-            <div className="pb-5 pt-8 text-xl font-semibold mx-auto">
+          <div className="flex flex-row items-center justify-between">
+            <div className="mx-auto pt-8 pb-5 text-xl font-semibold">
               Create new Flower
             </div>
           </div>
         </div>
       </Dialog.Trigger>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black/50 data-[state=open]:animate-overlayShow" />
+        <Dialog.Overlay className="data-[state=open]:animate-overlayShow fixed inset-0 bg-black/50" />
         <Dialog.Content
           onInteractOutside={(event) => event.preventDefault()}
-          className="fixed inset-x-2 top-2 bottom-2 w-auto rounded-md bg-white shadow overflow-y-auto p-[25px]
-           sm:left-1/2 sm:top-1/2 sm:inset-x-auto sm:bottom-auto sm:w-[90vw] sm:max-w-[500px]
-           sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-md sm:max-h-[85vh]"
+          className="fixed inset-x-2 top-2 bottom-2 w-auto overflow-y-auto rounded-md bg-white p-[25px] shadow sm:inset-x-auto sm:top-1/2 sm:bottom-auto sm:left-1/2 sm:max-h-[85vh] sm:w-[90vw] sm:max-w-[500px] sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-md"
         >
           <Dialog.Title className="m-0 text-[20px] font-semibold">
             Create new flower
           </Dialog.Title>
-          <Dialog.Description className="mb-5 mt-2.5 text-[15px] leading-normal">
+          <Dialog.Description className="mt-2.5 mb-5 text-[15px] leading-normal">
             Create your new flower here. Click save when you are done.
           </Dialog.Description>
           <form
@@ -142,8 +140,7 @@ const AddNewFlower = () => {
                 Name
               </label>
               <input
-                className="block h-[35px] w-full flex-1 rounded px-2.5 text-[15px] leading-none 
-                            border border-gray-300 focus:border-2 focus:border-violet-600"
+                className="block h-[35px] w-full flex-1 rounded border border-gray-300 px-2.5 text-[15px] leading-none focus:border-2 focus:border-violet-600"
                 id="name"
                 {...register("name", { required: true })}
               />
@@ -156,8 +153,7 @@ const AddNewFlower = () => {
                 Description
               </label>
               <textarea
-                className="flex-1 block w-full h-24 rounded-md bg-white p-2 text-[15px] leading-normal
-                            border border-gray-300 focus:border-2 focus:border-violet-600"
+                className="block h-24 w-full flex-1 rounded-md border border-gray-300 bg-white p-2 text-[15px] leading-normal focus:border-2 focus:border-violet-600"
                 id="description"
                 {...register("description", { required: true })}
               />
@@ -172,12 +168,7 @@ const AddNewFlower = () => {
               <input
                 type="file"
                 {...register("imageFile", { required: true })}
-                className="flex-1 border border-gray-300 rounded-lg w-full 
-                  focus:outline-none focus:ring-2 focus:ring-violet-500
-                file:border-r-gray-300 file:border-r file:mr-5 file:py-1 file:px-3
-                file:bg-primary file:text-white file:font-bold
-                  hover:file:cursor-pointer hover:file:bg-white
-                hover:file:text-primary-hover"
+                className="file:bg-primary hover:file:text-primary-hover w-full flex-1 rounded-lg border border-gray-300 file:mr-5 file:border-r file:border-r-gray-300 file:px-3 file:py-1 file:font-bold file:text-white hover:file:cursor-pointer hover:file:bg-white focus:ring-2 focus:ring-violet-500 focus:outline-none"
                 onChange={handleImageChange}
               />
             </fieldset>
@@ -195,7 +186,7 @@ const AddNewFlower = () => {
                     alt="Preview"
                     width={80} // equivalent to w-20
                     height={80} // equivalent to h-20
-                    className="flex-1 mt-2 rounded-lg border border-gray-300 object-cover"
+                    className="mt-2 flex-1 rounded-lg border border-gray-300 object-cover"
                   />
                 </div>
               </fieldset>
@@ -209,7 +200,7 @@ const AddNewFlower = () => {
               </label>
               <select
                 id="productType"
-                className={`inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] border border-gray-300 focus:border-2 focus:border-violet-600 ${
+                className={`inline-flex h-[35px] w-full flex-1 items-center justify-center rounded border border-gray-300 px-2.5 text-[15px] focus:border-2 focus:border-violet-600 ${
                   productType == "" ? "text-gray-500" : "text-gray-900"
                 }`}
                 {...register("productType", { required: true })}
@@ -234,7 +225,7 @@ const AddNewFlower = () => {
               </label>
               <select
                 id="color"
-                className={`inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none border border-gray-300 focus:border-2 focus:border-violet-600 ${
+                className={`inline-flex h-[35px] w-full flex-1 items-center justify-center rounded border border-gray-300 px-2.5 text-[15px] leading-none focus:border-2 focus:border-violet-600 ${
                   color == "" ? "text-gray-500" : "text-gray-900"
                 }`}
                 {...register("color", { required: true })}
@@ -259,7 +250,7 @@ const AddNewFlower = () => {
               </label>
               <select
                 id="occasion"
-                className={`inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none border border-gray-300 focus:border-2 focus:border-violet-600 ${
+                className={`inline-flex h-[35px] w-full flex-1 items-center justify-center rounded border border-gray-300 px-2.5 text-[15px] leading-none focus:border-2 focus:border-violet-600 ${
                   occasion == "" ? "text-gray-500" : "text-gray-900"
                 }`}
                 {...register("occasion", { required: true })}
@@ -276,7 +267,7 @@ const AddNewFlower = () => {
               </select>
             </fieldset>
             <fieldset className="mb-[15px] flex items-center gap-5">
-              <label className="w-[90px] text-right text-[15px] font-semibold pt-1">
+              <label className="w-[90px] pt-1 text-right text-[15px] font-semibold">
                 Flowers
               </label>
               <div className="flex-1">
@@ -308,7 +299,7 @@ const AddNewFlower = () => {
               </label>
               <input
                 type="number"
-                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none border border-gray-300 focus:border-2 focus:border-violet-600"
+                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded border border-gray-300 px-2.5 text-[15px] leading-none focus:border-2 focus:border-violet-600"
                 id="price"
                 defaultValue={0}
                 {...register("price", { required: true, min: 1 })}
@@ -323,7 +314,7 @@ const AddNewFlower = () => {
               </label>
               <input
                 type="number"
-                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded px-2.5 text-[15px] leading-none border border-gray-300 focus:border-2 focus:border-violet-600"
+                className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded border border-gray-300 px-2.5 text-[15px] leading-none focus:border-2 focus:border-violet-600"
                 id="discount"
                 defaultValue={0}
                 {...register("discount")}
@@ -346,14 +337,9 @@ const AddNewFlower = () => {
                     id="isPopular"
                     checked={field.value}
                     onCheckedChange={field.onChange}
-                    className="relative h-[25px] w-[42px] cursor-default rounded-full bg-gray-500 shadow-primary outline-none 
-                   focus:shadow-[0_0_0_2px] focus:shadow-primary data-[state=checked]:bg-primary"
+                    className="shadow-primary focus:shadow-primary data-[state=checked]:bg-primary relative h-[25px] w-[42px] cursor-default rounded-full bg-gray-500 outline-none focus:shadow-[0_0_0_2px]"
                   >
-                    <Switch.Thumb
-                      className="block size-[21px] translate-x-0.5 rounded-full bg-white 
-                     shadow-[0_2px_2px] shadow-blackA4 transition-transform duration-100 
-                     will-change-transform data-[state=checked]:translate-x-[19px]"
-                    />
+                    <Switch.Thumb className="shadow-blackA4 block size-[21px] translate-x-0.5 rounded-full bg-white shadow-[0_2px_2px] transition-transform duration-100 will-change-transform data-[state=checked]:translate-x-[19px]" />
                   </Switch.Root>
                 )}
               />
@@ -363,7 +349,7 @@ const AddNewFlower = () => {
                 variant="create"
                 disabled={isPending}
                 type="submit"
-                className="font-semibold h-12 inline-flex items-center justify-center rounded px-[15px]"
+                className="inline-flex h-12 items-center justify-center rounded px-[15px] font-semibold"
               >
                 {isPending ? "Creating..." : "Create Flower"}
               </Button>
@@ -371,7 +357,7 @@ const AddNewFlower = () => {
           </form>
           <Dialog.Close asChild>
             <button
-              className="absolute right-2.5 top-2.5 inline-flex size-[25px] appearance-none items-center justify-center rounded-full"
+              className="absolute top-2.5 right-2.5 inline-flex size-[25px] appearance-none items-center justify-center rounded-full"
               aria-label="Close"
             >
               <Cross2Icon />

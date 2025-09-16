@@ -11,7 +11,7 @@ export const cartSlice = createSlice({
   reducers: {
     newItem: (state, action: PayloadAction<CartItem>) => {
       const existing = state.cartState.items.find(
-        (item) => item.id === action.payload.id
+        (item) => item.id === action.payload.id,
       );
       if (existing) {
         existing.qty += action.payload.qty;
@@ -22,7 +22,7 @@ export const cartSlice = createSlice({
     },
     increment: (state, action: PayloadAction<number>) => {
       const existing = state.cartState.items.find(
-        (item) => item.flowerId === action.payload
+        (item) => item.flowerId === action.payload,
       );
       if (existing) {
         existing.qty += 1;
@@ -30,20 +30,20 @@ export const cartSlice = createSlice({
     },
     decrement: (state, action: PayloadAction<number>) => {
       const existing = state.cartState.items.find(
-        (item) => item.flowerId === action.payload
+        (item) => item.flowerId === action.payload,
       );
       if (existing && existing.qty > 1) {
         existing.qty -= 1;
       }
       if (existing && existing.qty === 1) {
         state.cartState.items = state.cartState.items.filter(
-          (item) => item.flowerId !== action.payload
+          (item) => item.flowerId !== action.payload,
         );
       }
     },
     removeItem: (state, action: PayloadAction<string>) => {
       state.cartState.items = state.cartState.items.filter(
-        (item) => item.id !== action.payload
+        (item) => item.id !== action.payload,
       );
     },
     updateGiftQty: (
@@ -54,10 +54,10 @@ export const cartSlice = createSlice({
         giftName: string;
         giftQty: number;
         giftPrice: number;
-      }>
+      }>,
     ) => {
       const item = state.cartState.items.find(
-        (item) => item.id === action.payload.id
+        (item) => item.id === action.payload.id,
       );
       if (!item) return;
 
@@ -65,7 +65,7 @@ export const cartSlice = createSlice({
       const list = item.giftQty[action.payload.type];
 
       const giftIndex = list.findIndex(
-        (gift) => gift.name === action.payload.giftName
+        (gift) => gift.name === action.payload.giftName,
       );
 
       if (giftIndex >= 0) {
@@ -95,14 +95,14 @@ export const cartSlice = createSlice({
         id: string;
         type: "wine" | "chocolate" | "teddy";
         giftName: string;
-      }>
+      }>,
     ) => {
       const item = state.cartState.items.find(
-        (item) => item.id === action.payload.id
+        (item) => item.id === action.payload.id,
       );
       if (!item) return;
       const gift = item.giftQty[action.payload.type].find(
-        (gift) => gift.name === action.payload.giftName
+        (gift) => gift.name === action.payload.giftName,
       );
       if (!gift) return;
       item.giftQty[action.payload.type] = item.giftQty[

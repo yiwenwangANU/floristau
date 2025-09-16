@@ -71,21 +71,21 @@ const RecipientForm = () => {
     reset,
   ]);
   return (
-    <div className="w-4/5 pt-10 border-t-2 border-gray-200 mt-10">
-      <span className="flex flex-row gap-5 items-center">
-        <span className="text-xl flex items-center justify-center w-12 h-12 text-white bg-black rounded-full">
+    <div className="mt-10 w-4/5 border-t-2 border-gray-200 pt-10">
+      <span className="flex flex-row items-center gap-5">
+        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-xl text-white">
           2
         </span>
         <span className="text-2xl">Recipient Details</span>
       </span>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex flex-col py-10 gap-5">
+        <div className="flex flex-col gap-5 py-10">
           <label className="text-xl">First Name</label>
           <input
             type="text"
             {...register("firstName", { required: "This field is required" })}
             placeholder="Enter your first name"
-            className="w-full p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
+            className="w-full rounded border-2 border-gray-200 p-5 focus:border-black focus:ring-0 focus:outline-none"
           />
           {errors.firstName && (
             <span className="mt-2 text-sm text-red-600">
@@ -97,7 +97,7 @@ const RecipientForm = () => {
             type="text"
             {...register("lastName", { required: "This field is required" })}
             placeholder="Enter your last name"
-            className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
+            className="rounded border-2 border-gray-200 p-5 focus:border-black focus:ring-0 focus:outline-none"
           />
           {errors.lastName && (
             <span className="mt-2 text-sm text-red-600">
@@ -115,7 +115,7 @@ const RecipientForm = () => {
               },
             })}
             placeholder="Enter your phone number"
-            className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
+            className="rounded border-2 border-gray-200 p-5 focus:border-black focus:ring-0 focus:outline-none"
           />
           {errors.phone && (
             <span className="mt-2 text-sm text-red-600">
@@ -125,8 +125,8 @@ const RecipientForm = () => {
           <label className="text-xl">Address</label>
           <PlacesAutocomplete control={control} setValue={setValue} />
           <div className="flex flex-row justify-between">
-            <div className="flex flex-col gap-2 items-end ">
-              <div className="flex flex-row gap-4 items-center">
+            <div className="flex flex-col items-end gap-2">
+              <div className="flex flex-row items-center gap-4">
                 <label className="text-xl">Suburb</label>
                 <input
                   type="text"
@@ -134,11 +134,11 @@ const RecipientForm = () => {
                     required: "This field is required",
                   })}
                   placeholder="Enter your suburb"
-                  className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
+                  className="rounded border-2 border-gray-200 p-5 focus:border-black focus:ring-0 focus:outline-none"
                 />
               </div>
               {errors.suburb && (
-                <span className="mt-2 text-sm text-red-600 place-content-end">
+                <span className="mt-2 place-content-end text-sm text-red-600">
                   {errors.suburb && (
                     <span className="mt-2 text-sm text-red-600">
                       {errors.suburb.message}
@@ -147,8 +147,8 @@ const RecipientForm = () => {
                 </span>
               )}
             </div>
-            <div className="flex flex-col gap-2 items-end">
-              <div className="flex flex-row gap-4 items-center">
+            <div className="flex flex-col items-end gap-2">
+              <div className="flex flex-row items-center gap-4">
                 <label className="text-xl">Postcode</label>
                 <input
                   type="text"
@@ -156,11 +156,11 @@ const RecipientForm = () => {
                     required: "This field is required",
                   })}
                   placeholder="Enter your postcode"
-                  className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
+                  className="rounded border-2 border-gray-200 p-5 focus:border-black focus:ring-0 focus:outline-none"
                 />
               </div>
               {errors.postcode && (
-                <span className="mt-2 text-sm text-red-600 place-content-end">
+                <span className="mt-2 place-content-end text-sm text-red-600">
                   {errors.postcode.message}
                 </span>
               )}
@@ -171,13 +171,13 @@ const RecipientForm = () => {
           <textarea
             {...register("cardMessage")}
             placeholder="Enter your message"
-            className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
+            className="rounded border-2 border-gray-200 p-5 focus:border-black focus:ring-0 focus:outline-none"
           />
           <label className="text-xl">Delivery Instructions</label>
           <textarea
             {...register("deliveryInstructions")}
             placeholder="Enter your delivery instructions"
-            className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
+            className="rounded border-2 border-gray-200 p-5 focus:border-black focus:ring-0 focus:outline-none"
           />
         </div>
 

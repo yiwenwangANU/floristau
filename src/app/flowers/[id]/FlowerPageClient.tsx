@@ -49,7 +49,7 @@ export default function FlowerPageClient({ id }: { id: string }) {
     return <ErrorPage />;
 
   return (
-    <div className="flex flex-row gap-12 min-h-screen pt-12 pb-2 px-2 sm:px-8">
+    <div className="flex min-h-screen flex-row gap-12 px-2 pt-12 pb-2 sm:px-8">
       <div className="w-4/5 px-5 py-15">
         <Image
           src={flowerData.imageUrl}
@@ -67,7 +67,7 @@ export default function FlowerPageClient({ id }: { id: string }) {
         </p>
       </div>
 
-      <div className="flex flex-col gap-5 w-4/5 px-5 py-15">
+      <div className="flex w-4/5 flex-col gap-5 px-5 py-15">
         <FlowerDetail
           name={flowerData.name}
           description={flowerData.description}

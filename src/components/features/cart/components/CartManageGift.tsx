@@ -37,7 +37,7 @@ export default function CartManageGift({
       <Accordion.Root type="single" defaultValue="item-wine" collapsible>
         {categories.map(({ label, type, data }) => (
           <Accordion.Item key={type} value={`item-${type}`}>
-            <Accordion.Trigger className="text-xl pt-5 pb-6 capitalize font-semibold">
+            <Accordion.Trigger className="pt-5 pb-6 text-xl font-semibold capitalize">
               {label}
             </Accordion.Trigger>
             <Accordion.Content>
@@ -46,7 +46,7 @@ export default function CartManageGift({
                 return (
                   <div
                     key={`${type}-${g.id}`}
-                    className="border p-4 rounded flex flex-row justify-between items-center my-2"
+                    className="my-2 flex flex-row items-center justify-between rounded border p-4"
                   >
                     <div className="flex items-center gap-3">
                       <Image
@@ -73,7 +73,7 @@ export default function CartManageGift({
                               giftName: g.name,
                               giftQty: nextQty,
                               giftPrice: g.price,
-                            })
+                            }),
                           )
                         }
                       />

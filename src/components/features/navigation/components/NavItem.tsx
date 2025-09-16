@@ -22,7 +22,7 @@ const NavItem = ({
       <NavigationMenu.Item className="w-full">
         <NavigationMenu.Link
           asChild
-          className="capitalize group flex select-none justify-between w-50 gap-0.5 px-5 py-3 text-[15px] font-medium leading-none hover:bg-secondary-hover hover:outline-2 hover:outline-black focus:outline-black focus:outline-2 focus:shadow-[0_0_0_2px]"
+          className="group hover:bg-secondary-hover flex w-50 justify-between gap-0.5 px-5 py-3 text-[15px] leading-none font-medium capitalize select-none hover:outline-2 hover:outline-black focus:shadow-[0_0_0_2px] focus:outline-2 focus:outline-black"
         >
           <Link href={href}>{title}</Link>
         </NavigationMenu.Link>
@@ -33,7 +33,7 @@ const NavItem = ({
     <NavigationMenu.Item className="w-full">
       <NavigationMenu.Trigger
         asChild
-        className="capitalize group flex select-none justify-between w-50 gap-0.5 px-5 py-3 text-[15px] font-medium leading-none hover:bg-secondary-hover hover:outline-2 hover:outline-black focus:outline-black focus:outline-2 focus:shadow-[0_0_0_2px]"
+        className="group hover:bg-secondary-hover flex w-50 justify-between gap-0.5 px-5 py-3 text-[15px] leading-none font-medium capitalize select-none hover:outline-2 hover:outline-black focus:shadow-[0_0_0_2px] focus:outline-2 focus:outline-black"
       >
         <Link href={href}>
           {title}
@@ -46,15 +46,7 @@ const NavItem = ({
         </Link>
       </NavigationMenu.Trigger>
       {itemsList.length > 0 && (
-        <NavigationMenu.Content
-          className="absolute left-0 top-0 w-full bg-secondary
-              data-[state=open]:animate-[fade-in_200ms_ease]
-              data-[state=closed]:animate-[fade-out_200ms_ease]
-              data-[motion=from-start]:animate-[enter-from-left_250ms_ease]
-              data-[motion=from-end]:animate-[enter-from-right_250ms_ease]
-              data-[motion=to-start]:animate-[exit-to-left_250ms_ease]
-              data-[motion=to-end]:animate-[exit-to-right_250ms_ease]"
-        >
+        <NavigationMenu.Content className="bg-secondary absolute top-0 left-0 w-full data-[motion=from-end]:animate-[enter-from-right_250ms_ease] data-[motion=from-start]:animate-[enter-from-left_250ms_ease] data-[motion=to-end]:animate-[exit-to-right_250ms_ease] data-[motion=to-start]:animate-[exit-to-left_250ms_ease] data-[state=closed]:animate-[fade-out_200ms_ease] data-[state=open]:animate-[fade-in_200ms_ease]">
           <ul className="grid w-full grid-cols-[1fr_1fr_1fr] gap-x-10 pt-10">
             {itemsList.map((item) => (
               <NavListItem key={item.name} href={item.href} title={item.name} />

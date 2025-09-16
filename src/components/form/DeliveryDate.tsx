@@ -11,21 +11,21 @@ const DeliveryDate = ({ control }: { control: Control<FlowerFormValues> }) => {
       control={control}
       rules={{ required: "Delivery date is required" }}
       render={({ field, fieldState }) => (
-        <div className="flex flex-col relative">
-          <label className="text-xl h-12">Delivery Date</label>
+        <div className="relative flex flex-col">
+          <label className="h-12 text-xl">Delivery Date</label>
           <DatePicker
             selected={field.value}
             onChange={(date) => field.onChange(date)}
-            className="p-5 block w-full border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
+            className="block w-full rounded border-2 border-gray-200 p-5 focus:border-black focus:ring-0 focus:outline-none"
             placeholderText="Select delivery date"
             minDate={addDays(new Date(), 1)}
           />
           <Calendar
-            className="absolute right-7 top-20 -translate-y-1/2 text-gray-400 pointer-events-none"
+            className="pointer-events-none absolute top-20 right-7 -translate-y-1/2 text-gray-400"
             size={20}
           />
           {fieldState.error && (
-            <p className="text-red-500 text-sm mt-1">
+            <p className="mt-1 text-sm text-red-500">
               {fieldState.error.message}
             </p>
           )}

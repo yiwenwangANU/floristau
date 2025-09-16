@@ -39,7 +39,7 @@ const GiftSelect = ({
     >
       {categories.map(({ label, type, data }) => (
         <AccordionItem key={type} value={`item-${type}`}>
-          <AccordionTrigger className="text-xl pt-5 pb-10 capitalize">
+          <AccordionTrigger className="pt-5 pb-10 text-xl capitalize">
             {label}
           </AccordionTrigger>
           <AccordionContent>

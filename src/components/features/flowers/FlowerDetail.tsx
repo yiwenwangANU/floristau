@@ -10,9 +10,9 @@ const FlowerDetail = ({
 }) => {
   return (
     <>
-      <div className="text-5xl font-mono tracking-wide">{name}</div>
+      <div className="font-mono text-5xl tracking-wide">{name}</div>
       <div
-        className={`text-gray-600 text-lg tracking-wide ${roboto.className}`}
+        className={`text-lg tracking-wide text-gray-600 ${roboto.className}`}
       >
         {description}
       </div>

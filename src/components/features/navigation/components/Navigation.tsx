@@ -4,7 +4,7 @@ import NaviMenu from "@/components/features/navigation/components/NaviMenu";
 
 const Navigation = () => {
   return (
-    <header className="fixed h-[var(--header-h)] bg-secondary px-12 flex flex-row items-center justify-between z-50 w-full">
+    <header className="bg-secondary fixed z-50 flex h-[var(--header-h)] w-full flex-row items-center justify-between px-12">
       <Logo />
       <NaviMenu />
       <CartButton />

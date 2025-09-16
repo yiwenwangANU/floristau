@@ -58,7 +58,7 @@ const PlacesAutocomplete = ({
     };
 
   const parseComponents = (
-    components: google.maps.GeocoderAddressComponent[]
+    components: google.maps.GeocoderAddressComponent[],
   ) => {
     const get = (type: string) =>
       components.find((c) => c.types.includes(type))?.long_name ?? "";
@@ -91,7 +91,7 @@ const PlacesAutocomplete = ({
         <li
           key={place_id}
           onClick={handleSelect(suggestion)}
-          className="px-5 py-1 hover:bg-gray-300 cursor-pointer"
+          className="cursor-pointer px-5 py-1 hover:bg-gray-300"
         >
           <strong>{main_text}</strong> <small>{secondary_text}</small>
         </li>
@@ -110,7 +110,7 @@ const PlacesAutocomplete = ({
         }}
         disabled={!ready}
         placeholder="Enter your address"
-        className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none w-full"
+        className="w-full rounded border-2 border-gray-200 p-5 focus:border-black focus:ring-0 focus:outline-none"
       />
       {fieldState.error && (
         <span className="mt-2 text-sm text-red-600">

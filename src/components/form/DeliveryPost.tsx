@@ -15,12 +15,12 @@ const DeliveryPost = ({ control }: { control: Control<FlowerFormValues> }) => {
       }}
       render={({ field, fieldState }) => (
         <div className="flex flex-col py-10">
-          <label className="text-xl h-12">Postcode</label>
+          <label className="h-12 text-xl">Postcode</label>
           <input
             type="text"
             placeholder="Enter delivery postcode"
             {...field}
-            className="p-5 border-2 border-gray-200 rounded focus:border-black focus:ring-0 focus:outline-none"
+            className="rounded border-2 border-gray-200 p-5 focus:border-black focus:ring-0 focus:outline-none"
           />
           {fieldState.error && (
             <span className="mt-2 text-sm text-red-600">

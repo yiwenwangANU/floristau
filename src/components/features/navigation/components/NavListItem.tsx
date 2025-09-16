@@ -14,20 +14,20 @@ const NavListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
           {...props}
           className={[
             // layout & baseline border
-            "relative block w-full mx-20 mb-8 px-5 py-3 border-b-2 border-gray-200 select-none text-[15px] transition-colors",
+            "relative mx-20 mb-8 block w-full border-b-2 border-gray-200 px-5 py-3 text-[15px] transition-colors select-none",
             // animated overlay line (exact same width & position as the border)
-            "after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-full after:-translate-x-1/2",
-            "after:bg-black after:content-[''] after:origin-center after:scale-x-0 after:transition-transform after:duration-300",
+            "after:absolute after:bottom-0 after:left-1/2 after:h-[2px] after:w-full after:-translate-x-1/2",
+            "after:origin-center after:scale-x-0 after:bg-black after:transition-transform after:duration-300 after:content-['']",
             // trigger animation when hovering the whole block
             "hover:after:scale-x-100",
             className,
           ].join(" ")}
         >
-          <span className="block font-semibold leading-[1.2]">{title}</span>
+          <span className="block leading-[1.2] font-semibold">{title}</span>
         </a>
       </NavigationMenu.Link>
     </li>
-  )
+  ),
 );
 
 NavListItem.displayName = "NavListItem";

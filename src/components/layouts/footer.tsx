@@ -11,11 +11,11 @@ import {
 const Footer = () => {
   return (
     <footer className="bg-secondary mt-auto">
-      <div className="container pb-3 pt-10">
-        <div className="flex justify-between gap-8 flex-col items-start sm:flex-row sm:items-center">
+      <div className="container pt-10 pb-3">
+        <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
           <div className="flex-1">
-            <h3 className="text-lg font-medium mb-4">About FloristAU</h3>
-            <p className="text-sm text-secondary-foreground mb-4">
+            <h3 className="mb-4 text-lg font-medium">About FloristAU</h3>
+            <p className="text-secondary-foreground mb-4 text-sm">
               Your trusted Australian florist delivering fresh flowers and
               beautiful arrangements nationwide.
             </p>
@@ -42,12 +42,12 @@ const Footer = () => {
           </div>
 
           <div className="flex-1">
-            <h3 className="text-lg font-medium mb-4">Quick Links</h3>
+            <h3 className="mb-4 text-lg font-medium">Quick Links</h3>
             <ul className="space-y-1">
               <li>
                 <Link
                   href="/about"
-                  className="text-sm text-secondary-foreground hover:text-primary"
+                  className="text-secondary-foreground hover:text-primary text-sm"
                 >
                   About Us
                 </Link>
@@ -55,7 +55,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/delivery"
-                  className="text-sm text-secondary-foreground hover:text-primary"
+                  className="text-secondary-foreground hover:text-primary text-sm"
                 >
                   Delivery Information
                 </Link>
@@ -63,7 +63,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/care-guide"
-                  className="text-sm text-secondary-foreground hover:text-primary"
+                  className="text-secondary-foreground hover:text-primary text-sm"
                 >
                   Flower Care Guide
                 </Link>
@@ -72,32 +72,32 @@ const Footer = () => {
           </div>
 
           <div className="flex-1">
-            <h3 className="text-lg font-medium mb-4">Contact Info</h3>
+            <h3 className="mb-4 text-lg font-medium">Contact Info</h3>
             <ul className="space-y-2">
-              <li className="flex items-center gap-2 text-sm text-secondary-foreground">
+              <li className="text-secondary-foreground flex items-center gap-2 text-sm">
                 <Phone className="h-4 w-4" />
                 <span>1300 FLOWERS</span>
               </li>
-              <li className="flex items-center gap-2 text-sm text-secondary-foreground">
+              <li className="text-secondary-foreground flex items-center gap-2 text-sm">
                 <Mail className="h-4 w-4" />
                 <span>hello@floristau.com.au</span>
               </li>
-              <li className="flex items-start gap-2 text-sm text-secondary-foreground">
-                <MapPin className="h-4 w-4 mt-0.5" />
+              <li className="text-secondary-foreground flex items-start gap-2 text-sm">
+                <MapPin className="mt-0.5 h-4 w-4" />
                 <span>Sydney, Canberra</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-8 pt-3 border-t text-center">
-          <p className="text-sm text-secondary-foreground">
+        <div className="mt-8 border-t pt-3 text-center">
+          <p className="text-secondary-foreground text-sm">
             © 2025 FloristAU. All rights reserved. |
-            <Link href="/privacy" className="ml-1 hover:text-primary">
+            <Link href="/privacy" className="hover:text-primary ml-1">
               Privacy Policy
             </Link>{" "}
             |
-            <Link href="/terms" className="ml-1 hover:text-primary">
+            <Link href="/terms" className="hover:text-primary ml-1">
               Terms of Service
             </Link>
           </p>

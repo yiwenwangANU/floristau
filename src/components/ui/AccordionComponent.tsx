@@ -8,7 +8,7 @@ export const AccordionItem = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof Accordion.Item>
 >(({ children, className, ...props }, forwardedRef) => (
   <Accordion.Item
-    className={classNames("mt-px overflow-hidden border-t ", className)}
+    className={classNames("mt-px overflow-hidden border-t", className)}
     {...props}
     ref={forwardedRef}
   >
@@ -25,7 +25,7 @@ export const AccordionTrigger = React.forwardRef<
     <Accordion.Trigger
       className={classNames(
         "group flex flex-1 cursor-default items-center justify-between",
-        className
+        className,
       )}
       {...props}
       ref={forwardedRef}
@@ -46,8 +46,8 @@ export const AccordionContent = React.forwardRef<
 >(({ children, className, ...props }, forwardedRef) => (
   <Accordion.Content
     className={classNames(
-      "overflow-hidden bg-mauve2 text-[15px] text-mauve11 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown",
-      className
+      "bg-mauve2 text-mauve11 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown overflow-hidden text-[15px]",
+      className,
     )}
     {...props}
     ref={forwardedRef}

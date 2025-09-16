@@ -16,7 +16,7 @@ const CartCardCheckout = ({
   giftQty: GiftQty;
 }) => {
   return (
-    <div className="flex flex-col gap-4 mb-4 border rounded p-4 border-gray-200">
+    <div className="mb-4 flex flex-col gap-4 rounded border border-gray-200 p-4">
       <CartFlowerCardCheckout
         name={name}
         size={size}

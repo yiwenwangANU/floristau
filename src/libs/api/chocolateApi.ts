@@ -5,7 +5,7 @@ export const chocolateApi = {
   getChocolate: async (): Promise<GetGiftsResponse> => {
     try {
       const response = await axiosPublic.get<GetGiftsResponse>(
-        "/api/public/chocolate"
+        "/api/public/chocolate",
       );
       return response.data;
     } catch (error) {

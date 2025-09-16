@@ -26,19 +26,19 @@ const CardWithWords = ({
   color,
 }: CardWithWordsProps) => {
   return (
-    <div className="border rounded-md overflow-hidden grid xl:grid-cols-[.75fr_1fr] grid-rows-[.15fr_1fr] lg:w-[30%] md:w-[40%] sm:w-[85%] h-full max-h-80 xl:hover:cursor-auto hover:cursor-pointer">
-      <div className={`${colorMap[color]} min-w-0 h-full`}>
-        <div className="p-4 flex xl:flex-col flex-row justify-between h-full">
+    <div className="grid h-full max-h-80 grid-rows-[.15fr_1fr] overflow-hidden rounded-md border hover:cursor-pointer sm:w-[85%] md:w-[40%] lg:w-[30%] xl:grid-cols-[.75fr_1fr] xl:hover:cursor-auto">
+      <div className={`${colorMap[color]} h-full min-w-0`}>
+        <div className="flex h-full flex-row justify-between p-4 xl:flex-col">
           <h3
             className={
-              "xl:pt-6 xl:text-4xl text-2xl xl:font-semibold font-medium text-white"
+              "text-2xl font-medium text-white xl:pt-6 xl:text-4xl xl:font-semibold"
             }
           >
             {title}
           </h3>
-          <p className={"p-2 text-white text-xl hidden xl:block"}>{content}</p>
-          <ArrowRight className="text-white block xl:hidden" />
-          <Button variant="secondary" className="w-fit m-2 hidden xl:block">
+          <p className={"hidden p-2 text-xl text-white xl:block"}>{content}</p>
+          <ArrowRight className="block text-white xl:hidden" />
+          <Button variant="secondary" className="m-2 hidden w-fit xl:block">
             Shop Now
           </Button>
         </div>
@@ -48,7 +48,7 @@ const CardWithWords = ({
         alt={title}
         width={500}
         height={600}
-        className="object-cover h-full"
+        className="h-full object-cover"
       />
     </div>
   );

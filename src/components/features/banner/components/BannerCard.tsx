@@ -17,11 +17,9 @@ const BannerCard = ({
 }) => {
   return (
     <div
-      className={`absolute rounded inset-0 bg-secondary bg-opacity-50 w-fit h-fit  
-        ${
-          position === "left" ? "left-[23%]" : "left-[72%]"
-        } top-1/2 -translate-y-1/2 -translate-x-1/2
-         flex flex-col justify-center items-left gap-4 py-10 px-14`}
+      className={`bg-secondary bg-opacity-50 absolute inset-0 h-fit w-fit rounded ${
+        position === "left" ? "left-[23%]" : "left-[72%]"
+      } items-left top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col justify-center gap-4 px-14 py-10`}
     >
       <h2 className={`relative z-10 ${marcellus.className} text-4xl`}>
         {headline}

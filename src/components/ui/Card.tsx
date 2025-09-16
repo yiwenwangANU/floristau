@@ -14,7 +14,7 @@ const Card = ({ id, title, price, image, discount }: CardProps) => {
   return (
     <Link
       href={`/flowers/${id}`}
-      className="group border rounded-md overflow-hidden hover:cursor-pointer lg:w-[23%] md:w-[30%] sm:w-[45%]"
+      className="group overflow-hidden rounded-md border hover:cursor-pointer sm:w-[45%] md:w-[30%] lg:w-[23%]"
     >
       <div className="relative aspect-square">
         <Image
@@ -24,9 +24,9 @@ const Card = ({ id, title, price, image, discount }: CardProps) => {
           height={500}
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition duration-200"></div>
+        <div className="absolute inset-0 bg-black/0 transition duration-200 group-hover:bg-black/10"></div>
       </div>
-      <div className="flex flex-row justify-between items-center">
+      <div className="flex flex-row items-center justify-between">
         <div className="p-4">
           <h3 className="text-lg font-semibold">{title}</h3>
           <p className="text-gray-600">{price}</p>

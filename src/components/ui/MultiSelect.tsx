@@ -30,7 +30,7 @@ const MultiSelect = forwardRef<HTMLButtonElement, MultiSelectProps>(
       className = "",
       searchable = true,
     },
-    ref
+    ref,
   ) => {
     const [open, setOpen] = useState(false);
     const [query, setQuery] = useState("");
@@ -80,11 +80,11 @@ const MultiSelect = forwardRef<HTMLButtonElement, MultiSelectProps>(
           ref={ref} // <-- Forwarded ref lands here, enabling RHF auto-focus
           type="button"
           onClick={() => setOpen((o) => !o)}
-          className="w-full rounded bg-white pl-3 pr-1 py-2 text-left border border-gray-300 focus:border-2 focus:border-violet-600 flex items-center justify-between gap-2"
+          className="flex w-full items-center justify-between gap-2 rounded border border-gray-300 bg-white py-2 pr-1 pl-3 text-left focus:border-2 focus:border-violet-600"
           aria-haspopup="listbox"
           aria-expanded={open}
         >
-          <div className="flex flex-wrap gap-1 items-center">
+          <div className="flex flex-wrap items-center gap-1">
             {value.length === 0 && (
               <span className="text-gray-500">{placeholder}</span>
             )}
@@ -94,7 +94,7 @@ const MultiSelect = forwardRef<HTMLButtonElement, MultiSelectProps>(
                 return (
                   <span
                     key={String(v)}
-                    className="inline-flex items-center gap-1 rounded bg-violet-100 text-violet-800 px-2 py-0.5 text-sm"
+                    className="inline-flex items-center gap-1 rounded bg-violet-100 px-2 py-0.5 text-sm text-violet-800"
                     onClick={(e) => e.stopPropagation()}
                   >
                     {label}
@@ -121,13 +121,13 @@ const MultiSelect = forwardRef<HTMLButtonElement, MultiSelectProps>(
             aria-multiselectable="true"
           >
             {searchable && (
-              <div className="p-2 border-b">
+              <div className="border-b p-2">
                 <input
                   autoFocus
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search…"
-                  className="w-full rounded border px-2 py-1 border-gray-300 outline-none focus:border-2 focus:border-violet-600"
+                  className="w-full rounded border border-gray-300 px-2 py-1 outline-none focus:border-2 focus:border-violet-600"
                 />
               </div>
             )}
@@ -149,7 +149,7 @@ const MultiSelect = forwardRef<HTMLButtonElement, MultiSelectProps>(
                 );
               })}
             </ul>
-            <div className="flex items-center justify-between p-2 border-t">
+            <div className="flex items-center justify-between border-t p-2">
               <button
                 type="button"
                 className="text-sm text-gray-600 hover:underline"
@@ -159,7 +159,7 @@ const MultiSelect = forwardRef<HTMLButtonElement, MultiSelectProps>(
               </button>
               <button
                 type="button"
-                className="rounded bg-violet-600 px-3 py-1.5 text-white text-sm"
+                className="rounded bg-violet-600 px-3 py-1.5 text-sm text-white"
                 onClick={() => setOpen(false)}
               >
                 Done
@@ -169,7 +169,7 @@ const MultiSelect = forwardRef<HTMLButtonElement, MultiSelectProps>(
         )}
       </div>
     );
-  }
+  },
 );
 
 MultiSelect.displayName = "MultiSelect";

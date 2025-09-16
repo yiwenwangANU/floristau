@@ -10,9 +10,9 @@ const Flowers = () => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
   return (
-    <div className="flex flex-col min-h-screen py-5 px-1 sm:px-8 gap-3">
+    <div className="flex min-h-screen flex-col gap-3 px-1 py-5 sm:px-8">
       <Filter name="Color" catalog={["Red", "Blue", "Green"]} />
-      <div className="flex flex-row flex-wrap gap-8 items-center">
+      <div className="flex flex-row flex-wrap items-center gap-8">
         {/* <AddNewFlower /> */}
         {data?.map((flower) => (
           <Card

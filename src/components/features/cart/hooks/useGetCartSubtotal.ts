@@ -16,7 +16,7 @@ const useGetCartSubtotal = (): CartSubtotal => {
     const flowersTotal = items.reduce(
       (acc, curr) =>
         acc + curr.price * curr.qty + (curr.size === "premium" ? 20 : 0),
-      0
+      0,
     );
     const sumGifts = (giftQtyItem: { qty: number; price: number }[]) => {
       return giftQtyItem.reduce((acc, curr) => acc + curr.price * curr.qty, 0);
@@ -27,7 +27,7 @@ const useGetCartSubtotal = (): CartSubtotal => {
         sumGifts(curr.giftQty.wine) +
         sumGifts(curr.giftQty.chocolate) +
         sumGifts(curr.giftQty.teddy),
-      0
+      0,
     );
     const subtotal = flowersTotal + giftTotal;
     const first = items[0];

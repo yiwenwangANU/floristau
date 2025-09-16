@@ -16,7 +16,7 @@ export default function FlowerTypeFilter({
         asChild
         className="w-32 hover:outline-2 hover:outline-black"
       >
-        <div className="px-3 py-2 flex flex-row justify-between bg-stone-200 items-center hover:cursor-pointer">
+        <div className="flex flex-row items-center justify-between bg-stone-200 px-3 py-2 hover:cursor-pointer">
           <button className="tracking-wide">{name}</button>
           <ChevronDown className="w-5" />
         </div>
@@ -24,7 +24,7 @@ export default function FlowerTypeFilter({
 
       <Popover.Portal>
         <Popover.Content
-          className="bg-white border p-3 shadow w-56"
+          className="w-56 border bg-white shadow"
           side="bottom"
           align="start"
           sideOffset={10}
@@ -32,9 +32,16 @@ export default function FlowerTypeFilter({
         >
           <div className="flex flex-col gap-2">
             {catalog.map((item) => (
-              <label key={item} className="flex items-center justify-between">
+              <label
+                key={item}
+                className="flex w-full cursor-pointer items-center justify-between px-3 py-2 text-sm select-none hover:bg-stone-100"
+              >
                 <span>{item}</span>
-                <input type="checkbox" id={item} name={item} />
+                <input
+                  type="checkbox"
+                  name={item}
+                  className="relative h-5 w-5 cursor-pointer appearance-none border-2 border-gray-600 checked:bg-stone-400 checked:after:absolute checked:after:top-[-2px] checked:after:left-[2px] checked:after:text-sm checked:after:font-bold checked:after:text-white checked:after:content-['✓']"
+                />
               </label>
             ))}
           </div>

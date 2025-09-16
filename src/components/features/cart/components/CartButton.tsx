@@ -5,7 +5,7 @@ import { ShoppingCart } from "lucide-react";
 const CartButton = () => {
   const { handleCartOpen } = useCartContext();
   return (
-    <ShoppingCart className="w-6 h-6 cursor-pointer" onClick={handleCartOpen} />
+    <ShoppingCart className="h-6 w-6 cursor-pointer" onClick={handleCartOpen} />
   );
 };
 export default CartButton;

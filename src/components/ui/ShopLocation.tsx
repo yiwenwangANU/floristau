@@ -7,10 +7,10 @@ const raleway = Raleway({
 });
 const ShopLocation = () => {
   return (
-    <div className="my-20 flex flex-row justify-center items-center gap-20">
+    <div className="my-20 flex flex-row items-center justify-center gap-20">
       <div className="flex flex-col justify-between gap-12">
         <h1 className={`text-5xl ${raleway.className}`}>Visit our shop</h1>
-        <div className="flex flex-col text-lg mt-5 gap-4 text-gray-500">
+        <div className="mt-5 flex flex-col gap-4 text-lg text-gray-500">
           <p>100 Murranji St, Hawker ACT 2614</p>
           <div>
             <p>Mon-Fri: 9am - 5pm</p>
@@ -24,7 +24,7 @@ const ShopLocation = () => {
           onClick={() =>
             window.open(
               "https://www.google.com/maps/place/100+Murranji+St,+Hawker+ACT+2614",
-              "_blank"
+              "_blank",
             )
           }
         >

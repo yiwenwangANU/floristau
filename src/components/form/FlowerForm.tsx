@@ -130,7 +130,7 @@ const FlowerForm = ({
           type="button"
           disabled={isSubmitting}
           onClick={handleSubmit(onAddToCart, onAddToCartInvalid)}
-          className="px-4 cursor-pointer w-full py-3 my-10 overflow-hidden bg-stone-300 font-medium tracking-wide hover:bg-stone-400"
+          className="my-10 w-full cursor-pointer overflow-hidden bg-stone-300 px-4 py-3 font-medium tracking-wide hover:bg-stone-400"
         >
           Add to Cart
         </Button>

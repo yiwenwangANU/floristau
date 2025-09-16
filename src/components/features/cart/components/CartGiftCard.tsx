@@ -15,7 +15,7 @@ const CartGiftCard = ({
 
   return (
     <div className="flex flex-col items-start">
-      <div className="flex flex-col gap-2 w-full">
+      <div className="flex w-full flex-col gap-2">
         {giftFlat.length > 0 && (
           <span className="text-2xl font-semibold">Gifts</span>
         )}

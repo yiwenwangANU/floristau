@@ -23,9 +23,9 @@ const CheckoutPageClient = () => {
       googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}
       libraries={libraries}
     >
-      <div className="px-40 py-20 grid grid-cols-[2fr_1fr] gap-40">
+      <div className="grid grid-cols-[2fr_1fr] gap-40 px-40 py-20">
         <div>
-          <h1 className="text-4xl py-10">Checkout</h1>
+          <h1 className="py-10 text-4xl">Checkout</h1>
           {sender.mode == "form" ? <SenderForm /> : <SenderInfo />}
           {recipient.mode == "form" ? (
             <RecipientForm />

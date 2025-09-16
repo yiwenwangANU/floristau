@@ -19,7 +19,7 @@ const GiftCard = ({
   control: Control<FlowerFormValues>;
 }) => {
   return (
-    <div className="border p-4 rounded flex flex-row justify-between items-center my-2">
+    <div className="my-2 flex flex-row items-center justify-between rounded border p-4">
       <Image src={imageUrl} alt={name} width={40} height={40} />
       <h2 className="text-lg font-bold">{name}</h2>
       <div className="flex flex-row items-center gap-4">

@@ -47,7 +47,7 @@ const CartDialog = () => {
     <Dialog.Root open={cartOpen} onOpenChange={handleOpenChange}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50" />
-        <Dialog.Content className="fixed bg-white left-1/2 top-1/2 w-1/3 max-h-3/4 -translate-x-1/2 -translate-y-1/2 rounded-md p-[25px] overflow-y-auto">
+        <Dialog.Content className="fixed top-1/2 left-1/2 max-h-3/4 w-1/3 -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-md bg-white p-[25px]">
           {cartGiftPage ? (
             <CartManageGift
               wineData={wineData}
@@ -72,14 +72,14 @@ const CartDialog = () => {
 
           <div className="mt-[25px] flex justify-end">
             <Dialog.Close asChild>
-              <button className="h-[20px] px-[15px] underline font-medium cursor-pointer text-gray-700 hover:text-black">
+              <button className="h-[20px] cursor-pointer px-[15px] font-medium text-gray-700 underline hover:text-black">
                 Continue Shopping
               </button>
             </Dialog.Close>
           </div>
           <Dialog.Close asChild>
             <button
-              className="absolute right-2.5 top-2.5 inline-flex size-[25px] appearance-none items-center justify-center rounded-full text-violet11 bg-gray3 hover:bg-violet4 focus:shadow-[0_0_0_2px] focus:shadow-violet7 focus:outline-none"
+              className="text-violet11 bg-gray3 hover:bg-violet4 focus:shadow-violet7 absolute top-2.5 right-2.5 inline-flex size-[25px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
               aria-label="Close"
             >
               <Cross2Icon />
