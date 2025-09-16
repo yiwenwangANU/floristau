@@ -1,4 +1,4 @@
-import { ArrowDown, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Popover } from "radix-ui";
 import { useState } from "react";
 export default function FlowerTypeFilter({
@@ -24,8 +24,11 @@ export default function FlowerTypeFilter({
 
       <Popover.Portal>
         <Popover.Content
-          className="mx-8 mt-2 bg-white border p-3 shadow w-56"
-          sideOffset={6}
+          className="bg-white border p-3 shadow w-56"
+          side="bottom"
+          align="start"
+          sideOffset={10}
+          alignOffset={0}
         >
           <div className="flex flex-col gap-2">
             {catalog.map((item) => (
