@@ -31,17 +31,18 @@
     "react-toastify": "^11.0.5",
     "redux": "^5.0.1",
     "use-places-autocomplete": "^4.0.1",
+    "usehooks-ts": "^3.1.1",
     "zod": "^4.0.14"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4.1.11",
+    "@tailwindcss/postcss": "^4.1.13",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.5",
-    "tailwindcss": "^4.1.11",
+    "tailwindcss": "^4.1.13",
     "typescript": "^5"
   }
 }

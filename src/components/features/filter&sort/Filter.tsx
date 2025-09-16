@@ -1,29 +1,42 @@
-import {
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/AccordionComponent";
-import { Accordion } from "radix-ui";
+import { ArrowDown, ChevronDown } from "lucide-react";
+import { Popover } from "radix-ui";
+import { useState } from "react";
+export default function FlowerTypeFilter({
+  name,
+  catalog,
+}: {
+  name: string;
+  catalog: string[];
+}) {
+  const [open, setOpen] = useState(false);
 
-const Filter = ({ name, catalog }: { name: string; catalog: string[] }) => {
   return (
-    <Accordion.Root
-      className="w-32 bg-stone-200 hover:outline-2 hover:outline-black px-3 py-2 hover:cursor-pointer"
-      type="single"
-      collapsible
-    >
-      <AccordionItem value="item-1">
-        <AccordionTrigger>{name}</AccordionTrigger>
-        <AccordionContent>
-          {catalog.map((item) => (
-            <div key={item}>
-              <input type="checkbox" id={item} name={item} />
-              <label htmlFor={item}>{item}</label>
-            </div>
-          ))}
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion.Root>
+    <Popover.Root open={open} onOpenChange={setOpen}>
+      <Popover.Trigger
+        asChild
+        className="w-32 hover:outline-2 hover:outline-black"
+      >
+        <div className="px-3 py-2 flex flex-row justify-between bg-stone-200 items-center hover:cursor-pointer">
+          <button className="tracking-wide">{name}</button>
+          <ChevronDown className="w-5" />
+        </div>
+      </Popover.Trigger>
+
+      <Popover.Portal>
+        <Popover.Content
+          className="mx-8 mt-2 bg-white border p-3 shadow w-56"
+          sideOffset={6}
+        >
+          <div className="flex flex-col gap-2">
+            {catalog.map((item) => (
+              <label key={item} className="flex items-center justify-between">
+                <span>{item}</span>
+                <input type="checkbox" id={item} name={item} />
+              </label>
+            ))}
+          </div>
+        </Popover.Content>
+      </Popover.Portal>
+    </Popover.Root>
   );
-};
-export default Filter;
+}
