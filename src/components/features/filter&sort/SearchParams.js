@@ -1,4 +1,4 @@
-export const filters = [
+export const filterData = [
   {
     filterLabel: "occasion",
     filterValue: [
@@ -14,7 +14,7 @@ export const filters = [
   },
   {
     filterLabel: "color",
-    filterLabel: [
+    filterValue: [
       "red",
       "white",
       "yellow",
@@ -40,6 +40,8 @@ export const filters = [
       "other",
     ],
   },
+];
+export const filterMultiData = [
   {
     filterLabel: "flowerType",
     filterValue: [

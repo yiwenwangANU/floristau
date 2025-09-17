@@ -17,10 +17,10 @@ export default function FlowerTypeFilter({
     <Popover.Root open={open} onOpenChange={setOpen}>
       <Popover.Trigger
         asChild
-        className="w-32 hover:outline-2 hover:outline-black"
+        className="w-36 hover:outline-2 hover:outline-black"
       >
         <div className="flex flex-row items-center justify-between bg-stone-200 px-3 py-2 hover:cursor-pointer">
-          <button className="tracking-wide">{name}</button>
+          <button className="tracking-wide capitalize">{name}</button>
           <ChevronDown className="w-5" />
         </div>
       </Popover.Trigger>
@@ -37,7 +37,7 @@ export default function FlowerTypeFilter({
             {catalog.map((item) => (
               <label
                 key={item}
-                className="flex w-full cursor-pointer items-center justify-between px-3 py-2 text-sm select-none hover:bg-stone-100"
+                className="flex w-full cursor-pointer items-center justify-between px-3 py-2 capitalize select-none hover:bg-stone-100"
               >
                 <span>{item}</span>
                 <input
