@@ -7,6 +7,7 @@ const useRemoveFilter = () => {
   const removeFilter = (name: string, value: string) => {
     const params = new URLSearchParams(searchParams.toString());
     params.delete(name, value);
+    return params.toString();
   };
   return { removeFilter };
 };
