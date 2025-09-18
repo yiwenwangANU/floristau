@@ -1,14 +1,13 @@
 "use client";
-import Filter from "@/components/features/filter&sort/components/Filter";
 import FilterIndicator from "@/components/features/filter&sort/components/FilterIndicatorRow";
 import FilterRow from "@/components/features/filter&sort/components/FilterRow";
 import AddNewFlower from "@/components/ui/AddNewFlower";
 import Card from "@/components/ui/Card";
 import useGetFlowers from "@/hooks/useGetFlowers";
+import useGetFlowersBySearchParams from "@/hooks/useGetFlowersBySearchParams";
 
 const Flowers = () => {
-  const { data, isLoading, error } = useGetFlowers();
-
+  const { data, isLoading, error } = useGetFlowersBySearchParams();
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
   return (

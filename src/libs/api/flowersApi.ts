@@ -19,6 +19,29 @@ export const flowersApi = {
       handleApiError(error, "Failed to fetch flowers.");
     }
   },
+  fetchFlower: async (params: {
+    Page?: number;
+    PageSize?: number;
+    ProductType?: string;
+    Color?: string;
+    Occasion?: string;
+    FlowerTypeIds?: string[];
+    MinPrice?: number;
+    MaxPrice?: number;
+    SearchTerm?: string;
+    Sort?: string;
+  }): Promise<GetFlowersResponse> => {
+    console.log(params);
+    try {
+      const response = await axiosPublic.get<GetFlowersResponse>(
+        "/api/Public/Flower/getFlowers",
+        { params },
+      );
+      return response.data;
+    } catch (error) {
+      handleApiError(error, "Failed to fetch flowers.");
+    }
+  },
   getFlowerById: async (id: number): Promise<GetFlowerResponse> => {
     try {
       const response = await axiosPublic.get<GetFlowerResponse>(
