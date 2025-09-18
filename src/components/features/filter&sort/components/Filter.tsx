@@ -49,7 +49,7 @@ export default function Filter(filterProp: FilterProp) {
                     type="checkbox"
                     name={filterProp.name}
                     checked={checked} // controlled
-                    onChange={() => handleCheck(filterProp.name, item)}
+                    onChange={() => handleCheck(filterProp.name, item, checked)}
                     className="relative h-5 w-5 cursor-pointer appearance-none border-2 border-gray-600 checked:bg-stone-400 checked:after:absolute checked:after:top-[-2px] checked:after:left-[2px] checked:after:text-sm checked:after:font-bold checked:after:text-white checked:after:content-['✓']"
                   />
                 </label>

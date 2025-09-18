@@ -38,8 +38,9 @@ export default function FilterMulti(filterMultiProp: FilterMultiProp) {
         >
           <div className="flex flex-col gap-2">
             {filterMultiProp.catalog.map((item) => {
-              const checked =
-                searchParams.get(filterMultiProp.name) === item.value; // only one allowed
+              const checked = searchParams
+                .getAll(filterMultiProp.name)
+                ?.includes(item.value);
               return (
                 <label
                   key={item.value}
@@ -50,7 +51,9 @@ export default function FilterMulti(filterMultiProp: FilterMultiProp) {
                     type="checkbox"
                     name={filterMultiProp.name}
                     checked={checked} // controlled
-                    onChange={() => handleCheck(filterMultiProp.name, item)}
+                    onChange={() =>
+                      handleCheck(filterMultiProp.name, item, checked)
+                    }
                     className="relative h-5 w-5 cursor-pointer appearance-none border-2 border-gray-600 checked:bg-stone-400 checked:after:absolute checked:after:top-[-2px] checked:after:left-[2px] checked:after:text-sm checked:after:font-bold checked:after:text-white checked:after:content-['✓']"
                   />
                 </label>
