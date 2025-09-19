@@ -1,5 +1,5 @@
 import Banner from "@/components/features/banner/components/Banner";
-import Card from "@/components/ui/Card";
+import Card from "@/components/features/flowers/FlowerCard";
 import ShopLocation from "@/components/ui/ShopLocation";
 import Button from "@/components/ui/Button";
 import { Raleway } from "next/font/google";

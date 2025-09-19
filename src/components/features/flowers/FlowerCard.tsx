@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "./Button";
+import Button from "../../ui/Button";
 import Link from "next/link";
 
 type CardProps = {
@@ -10,7 +10,7 @@ type CardProps = {
   discount?: string;
 };
 
-const Card = ({ id, title, price, image, discount }: CardProps) => {
+const FlowerCard = ({ id, title, price, image, discount }: CardProps) => {
   return (
     <Link
       href={`/flowers/${id}`}
@@ -40,4 +40,4 @@ const Card = ({ id, title, price, image, discount }: CardProps) => {
   );
 };
 
-export default Card;
+export default FlowerCard;

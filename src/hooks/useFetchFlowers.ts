@@ -5,7 +5,7 @@ import { useMemo } from "react";
 
 const PAZE_SIZE = 12;
 
-const useGetFlowersBySearchParams = () => {
+const useFetchFlowers = () => {
   const searchParams = useSearchParams();
   const signature = searchParams.toString();
   const paramsObj = useMemo(
@@ -24,4 +24,4 @@ const useGetFlowersBySearchParams = () => {
   });
 };
 
-export default useGetFlowersBySearchParams;
+export default useFetchFlowers;
