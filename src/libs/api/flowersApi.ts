@@ -25,7 +25,7 @@ export const flowersApi = {
     ProductType?: string;
     Color?: string;
     Occasion?: string;
-    FlowerTypeIds?: string[];
+    FlowerTypeIds?: number[];
     MinPrice?: number;
     MaxPrice?: number;
     SearchTerm?: string;

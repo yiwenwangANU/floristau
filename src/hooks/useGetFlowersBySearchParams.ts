@@ -16,7 +16,7 @@ const useGetFlowersBySearchParams = () => {
     queryKey: ["getFlowers", signature],
     queryFn: () =>
       flowersApi.fetchFlower({
-        FlowerTypeIds: searchParams.getAll("flowerType"),
+        FlowerTypeIds: searchParams.getAll("flowerType").map(Number),
         Page: Number(paramsObj.Page ?? 1),
         PageSize: Number(paramsObj.PageSize ?? PAZE_SIZE),
         ...paramsObj,
