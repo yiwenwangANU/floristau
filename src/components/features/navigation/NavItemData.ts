@@ -1,3 +1,19 @@
+import {
+  FILTER_OPTIONS_MULTI,
+  FILTER_OPTIONS,
+  FILTER_OPTIONS_PLANT,
+} from "@/components/features/filter&sort/FilterOptions";
+
+const flowerTypeValues =
+  FILTER_OPTIONS_MULTI.find((fo) => fo.option == "flowerType")?.filterValues ??
+  [];
+
+const occasionTypeValues =
+  FILTER_OPTIONS.find((fo) => fo.option == "occasion")?.filterValues ?? [];
+
+const plantTypeValues =
+  FILTER_OPTIONS_PLANT.find((fo) => fo.option == "PlantType")?.filterValues ??
+  [];
 export const NavItemData = [
   {
     title: "flowers",
@@ -11,22 +27,10 @@ export const NavItemData = [
         href: "/flowers/?featured=true",
         name: "Best Sellers",
       },
-      {
-        href: "/flowers/?flowerType=1",
-        name: "Roses",
-      },
-      {
-        href: "/flowers/?flowerType=7",
-        name: "Lilies",
-      },
-      {
-        href: "/flowers/flowerType=9",
-        name: "Sunflowers",
-      },
-      {
-        href: "/flowers/?flowerType=6",
-        name: "Orchids",
-      },
+      ...flowerTypeValues?.map((f) => ({
+        href: `/flowers/?flowerType=${f.value}`,
+        name: f.label,
+      })),
     ],
   },
   {
@@ -43,36 +47,10 @@ export const NavItemData = [
     title: "occasions",
     href: "/flowers",
     itemsList: [
-      {
-        href: "/flowers/?occasion=birthday",
-        name: "Birthday",
-      },
-      {
-        href: "/flowers/?occasion=graduation",
-        name: "Graduation",
-      },
-      {
-        href: "/flowers/?occasion=anniversary",
-        name: "Anniversary",
-      },
-      { href: "/flowers/?occasion=wedding", name: "Wedding" },
-      {
-        href: "/flowers/?occasion=new-baby",
-        name: "New Baby",
-      },
-      {
-        href: "/flowers/?occasion=thankyou",
-        name: "Thank You",
-      },
-      {
-        href: "/flowers/?occasion=getwell",
-        name: "Get Well",
-      },
-      {
-        href: "/occasflowersions/?occasion=sympathy",
-        name: "Sympathy",
-      },
-      { href: "/flowers/?occasion=funeral", name: "Funeral" },
+      ...occasionTypeValues?.map((f) => ({
+        href: `/flowers/?occasion=${f.value}`,
+        name: f.label,
+      })),
     ],
   },
   {
@@ -80,15 +58,15 @@ export const NavItemData = [
     href: "/plants",
     itemsList: [
       { href: "/plants", name: "All Plants" },
-      { href: "/plants/?planttype=succulents", name: "Succulents" },
-      { href: "/plants/?planttype=terrarium", name: "Terrarium" },
-      { href: "/plants/?planttype=floweringPlants", name: "Flowering Plants" },
-      { href: "/plants/?planttype=green", name: "Green Plants" },
+      ...plantTypeValues?.map((f) => ({
+        href: `/plants/?plantType=${f.value}`,
+        name: f.label,
+      })),
     ],
   },
   {
     title: "dry flowers",
-    href: "/dryflowers",
+    href: "/flowers?productType=driedflower",
     itemsList: [],
   },
 ];
