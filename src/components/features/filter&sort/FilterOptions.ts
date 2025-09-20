@@ -40,8 +40,6 @@ export const FILTER_OPTIONS: FilterOption[] = [
       { label: "Basket", value: "basket" },
       { label: "Funeral", value: "funeral" },
       { label: "Hamper", value: "hamper" },
-      { label: "Plant", value: "plant" },
-      { label: "Succulent", value: "succulent" },
       { label: "Dried Flower", value: "driedflower" },
       { label: "Other", value: "other" },
     ],
@@ -73,6 +71,19 @@ export const SORTS_OPTIONS: FilterOption[] = [
     filterValues: [
       { label: "Price Low to High", value: "priceAsc" },
       { label: "Price High to Low", value: "priceDesc" },
+    ],
+  },
+];
+
+export const FILTER_OPTIONS_PLANT: FilterOption[] = [
+  {
+    option: "PlantType",
+    filterValues: [
+      { label: "Succulents", value: "succulents" },
+      { label: "Terrarium", value: "terrarium" },
+      { label: "FloweringPlants", value: "floweringPlants" },
+      { label: "GreenPlants", value: "greenPlants" },
+      { label: "Orchids", value: "orchids" },
     ],
   },
 ];

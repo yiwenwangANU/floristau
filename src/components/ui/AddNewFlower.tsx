@@ -33,8 +33,6 @@ const PRODUCT_TYPE_OPTIONS = [
   { label: "Basket", value: "basket" },
   { label: "Funeral", value: "funeral" },
   { label: "Hamper", value: "hamper" },
-  { label: "Plant", value: "plant" },
-  { label: "Succulent", value: "succulent" },
   { label: "Dried Flower", value: "driedflower" },
   { label: "Other", value: "other" },
 ] as const;
