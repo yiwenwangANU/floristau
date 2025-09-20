@@ -52,12 +52,14 @@ const COLOR_OPTIONS = [
 
 const OCCASION_OPTIONS = [
   { label: "Birthday", value: "birthday" },
-  { label: "Sympathy", value: "sympathy" },
+  { label: "Graduation", value: "graduation" },
+  { label: "Anniversary", value: "anniversary" },
+  { label: "Wedding", value: "wedding" },
+  { label: "New Baby", value: "newbaby" },
   { label: "Thank You", value: "thankyou" },
   { label: "Get Well", value: "getwell" },
+  { label: "Sympathy", value: "sympathy" },
   { label: "Funeral", value: "funeral" },
-  { label: "New Baby", value: "newbaby" },
-  { label: "Congratulations", value: "congratulations" },
   { label: "Other", value: "other" },
 ] as const;
 

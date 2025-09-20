@@ -1,4 +1,4 @@
-import { filterMultiData } from "../SearchParams";
+import { filterMultiData } from "../FilterOptions";
 
 const useGetFlowerTypeById = () => {
   const filterValue = filterMultiData.find(

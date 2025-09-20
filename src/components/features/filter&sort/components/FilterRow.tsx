@@ -1,4 +1,4 @@
-import { filterData, filterMultiData } from "../SearchParams";
+import { filterData, filterMultiData } from "../FilterOptions";
 import Filter from "./Filter";
 import FilterMulti from "./FilterMulti";
 const FilterRow = () => {

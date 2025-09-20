@@ -12,67 +12,67 @@ export const NavItemData = [
         name: "Best Sellers",
       },
       {
-        href: "/flowers/?flowertype=roses",
+        href: "/flowers/?flowerType=1",
         name: "Roses",
       },
       {
-        href: "/flowers/?flowertype=lilies",
+        href: "/flowers/?flowerType=7",
         name: "Lilies",
       },
       {
-        href: "/flowers/?flowertype=sunflowers",
+        href: "/flowers/flowerType=9",
         name: "Sunflowers",
       },
       {
-        href: "/flowers/?flowertype=orchids",
+        href: "/flowers/?flowerType=6",
         name: "Orchids",
       },
     ],
   },
   {
     title: "birthday",
-    href: "/birthday",
+    href: "flowers/?occasion=birthday",
     itemsList: [],
   },
   {
     title: "sympathy",
-    href: "/sympathy",
+    href: "flowers/?occasion=sympathy",
     itemsList: [],
   },
   {
     title: "occasions",
-    href: "/occasions",
+    href: "/flowers",
     itemsList: [
       {
-        href: "/occasions/?occasion=birthday",
+        href: "/flowers/?occasion=birthday",
         name: "Birthday",
       },
       {
-        href: "/occasions/?occasion=graduation",
+        href: "/flowers/?occasion=graduation",
         name: "Graduation",
       },
       {
-        href: "/occasions/?occasion=anniversary",
+        href: "/flowers/?occasion=anniversary",
         name: "Anniversary",
       },
-      { href: "/occasions/?occasion=wedding", name: "Wedding" },
+      { href: "/flowers/?occasion=wedding", name: "Wedding" },
       {
-        href: "/occasions/?occasion=new-baby",
+        href: "/flowers/?occasion=new-baby",
         name: "New Baby",
       },
       {
-        href: "/occasions/?occasion=thankyou",
+        href: "/flowers/?occasion=thankyou",
         name: "Thank You",
       },
       {
-        href: "/occasions/?occasion=getwell",
+        href: "/flowers/?occasion=getwell",
         name: "Get Well",
       },
       {
-        href: "/occasions/?occasion=sympathy",
+        href: "/occasflowersions/?occasion=sympathy",
         name: "Sympathy",
       },
-      { href: "/occasions/?occasion=funeral", name: "Funeral" },
+      { href: "/flowers/?occasion=funeral", name: "Funeral" },
     ],
   },
   {
