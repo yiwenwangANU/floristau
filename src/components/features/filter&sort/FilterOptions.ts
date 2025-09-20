@@ -69,10 +69,10 @@ export const FILTER_OPTIONS_MULTI: FilterOption[] = [
 
 export const SORTS_OPTIONS: FilterOption[] = [
   {
-    option: "sortBy",
+    option: "sort",
     filterValues: [
-      { label: "PriceAsc", value: "priceAsc" },
-      { label: "PriceDesc", value: "priceDesc" },
+      { label: "Price Low to High", value: "priceAsc" },
+      { label: "Price High to Low", value: "priceDesc" },
     ],
   },
 ];
