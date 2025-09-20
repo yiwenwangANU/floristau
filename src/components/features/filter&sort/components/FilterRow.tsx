@@ -1,4 +1,8 @@
-import { FILTER_OPTIONS, FILTER_OPTIONS_MULTI } from "../FilterOptions";
+import {
+  FILTER_OPTIONS,
+  FILTER_OPTIONS_MULTI,
+  SORTS_OPTIONS,
+} from "../FilterOptions";
 import Filter from "./Filter";
 import FilterMulti from "./FilterMulti";
 const FilterRow = () => {
@@ -13,6 +17,9 @@ const FilterRow = () => {
           name={fo.option}
           catalog={fo.filterValues}
         />
+      ))}
+      {SORTS_OPTIONS.map((so) => (
+        <Filter key={so.option} name={so.option} catalog={so.filterValues} />
       ))}
     </div>
   );

@@ -67,9 +67,18 @@ export const FILTER_OPTIONS_MULTI: FilterOption[] = [
   },
 ];
 
-export const FILTER_OPTION_ALL: FilterOption[] = [
-  ...FILTER_OPTIONS,
-  ...FILTER_OPTIONS_MULTI,
+export const SORTS_OPTIONS: FilterOption[] = [
+  {
+    option: "sortBy",
+    filterValues: [
+      { label: "PriceAsc", value: "priceAsc" },
+      { label: "PriceDesc", value: "priceDesc" },
+    ],
+  },
 ];
 
-export const sorts = ["PriceAsc", "PriceDesc"];
+export const FILTER_OPTIONS_ALL: FilterOption[] = [
+  ...FILTER_OPTIONS,
+  ...FILTER_OPTIONS_MULTI,
+  ...SORTS_OPTIONS,
+];
