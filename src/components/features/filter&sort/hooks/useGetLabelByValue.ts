@@ -1,8 +1,8 @@
-import { FILTER_OPTIONS } from "../FilterOptions";
+import { FILTER_OPTION_ALL } from "../FilterOptions";
 
 const useGetLabelByValue = () => {
   const getLabelByValue = (name: string, value: string): string | undefined => {
-    const filterValues = FILTER_OPTIONS.find(
+    const filterValues = FILTER_OPTION_ALL.find(
       (filter) => filter.option == name,
     )?.filterValues;
     let label;

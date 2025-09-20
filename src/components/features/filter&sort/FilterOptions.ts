@@ -1,6 +1,6 @@
 type FilterOption = {
   option: string;
-  filterValues: { label: string; value: string | number }[];
+  filterValues: { label: string; value: string }[];
 };
 export const FILTER_OPTIONS: FilterOption[] = [
   {
@@ -46,6 +46,8 @@ export const FILTER_OPTIONS: FilterOption[] = [
       { label: "Other", value: "other" },
     ],
   },
+];
+export const FILTER_OPTIONS_MULTI: FilterOption[] = [
   {
     option: "flowerType",
     filterValues: [
@@ -64,24 +66,10 @@ export const FILTER_OPTIONS: FilterOption[] = [
     ],
   },
 ];
-export const filterMultiData = [
-  {
-    filterLabel: "flowerType",
-    filterValue: [
-      { label: "Roses", value: "1" },
-      { label: "Chrysanthemums", value: "2" },
-      { label: "Carnations", value: "3" },
-      { label: "Natives", value: "4" },
-      { label: "Gerberas", value: "5" },
-      { label: "Orchids", value: "6" },
-      { label: "Lilies", value: "7" },
-      { label: "Tropicals", value: "8" },
-      { label: "Sunflowers", value: "9" },
-      { label: "Irises", value: "10" },
-      { label: "Tulips", value: "11" },
-      { label: "Other", value: "12" },
-    ],
-  },
+
+export const FILTER_OPTION_ALL: FilterOption[] = [
+  ...FILTER_OPTIONS,
+  ...FILTER_OPTIONS_MULTI,
 ];
 
 export const sorts = ["PriceAsc", "PriceDesc"];

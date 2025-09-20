@@ -7,7 +7,7 @@ import { useSearchParams } from "next/navigation";
 
 type FilterProp = {
   name: string;
-  catalog: string[];
+  catalog: { label: string; value: string }[];
 };
 
 export default function Filter(filterProp: FilterProp) {
@@ -38,18 +38,20 @@ export default function Filter(filterProp: FilterProp) {
         >
           <div className="flex flex-col gap-2">
             {filterProp.catalog.map((item) => {
-              const checked = searchParams.get(filterProp.name) === item; // only one allowed
+              const checked = searchParams.get(filterProp.name) === item.value; // only one allowed
               return (
                 <label
-                  key={item}
+                  key={item.label}
                   className="flex w-full cursor-pointer items-center justify-between px-3 py-2 capitalize select-none hover:bg-stone-100"
                 >
-                  <span>{item}</span>
+                  <span>{item.label}</span>
                   <input
                     type="checkbox"
                     name={filterProp.name}
                     checked={checked} // controlled
-                    onChange={() => handleCheck(filterProp.name, item, checked)}
+                    onChange={() =>
+                      handleCheck(filterProp.name, item.value, checked)
+                    }
                     className="relative h-5 w-5 cursor-pointer appearance-none border-2 border-gray-600 checked:bg-stone-400 checked:after:absolute checked:after:top-[-2px] checked:after:left-[2px] checked:after:text-sm checked:after:font-bold checked:after:text-white checked:after:content-['✓']"
                   />
                 </label>

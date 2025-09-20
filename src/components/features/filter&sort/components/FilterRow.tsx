@@ -1,21 +1,17 @@
-import { filterData, filterMultiData } from "../FilterOptions";
+import { FILTER_OPTIONS, FILTER_OPTIONS_MULTI } from "../FilterOptions";
 import Filter from "./Filter";
 import FilterMulti from "./FilterMulti";
 const FilterRow = () => {
   return (
     <div className="flex flex-row gap-5">
-      {filterData.map((filter) => (
-        <Filter
-          key={filter.filterLabel}
-          name={filter.filterLabel}
-          catalog={filter.filterValue}
-        />
+      {FILTER_OPTIONS.map((fo) => (
+        <Filter key={fo.option} name={fo.option} catalog={fo.filterValues} />
       ))}
-      {filterMultiData.map((filter) => (
+      {FILTER_OPTIONS_MULTI.map((fo) => (
         <FilterMulti
-          key={filter.filterLabel}
-          name={filter.filterLabel}
-          catalog={filter.filterValue}
+          key={fo.option}
+          name={fo.option}
+          catalog={fo.filterValues}
         />
       ))}
     </div>
