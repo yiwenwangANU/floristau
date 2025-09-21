@@ -37,7 +37,7 @@ export type GetPlantsResponse = {
   imageUrl: string;
 }[];
 
-export type GetFlowerResponse = {
+export type GetPlantResponse = {
   id: number;
   name: string;
   price: number;

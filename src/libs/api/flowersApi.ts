@@ -31,7 +31,6 @@ export const flowersApi = {
     SearchTerm?: string;
     Sort?: string;
   }): Promise<GetFlowersResponse> => {
-    console.log(params);
     try {
       const response = await axiosPublic.get<GetFlowersResponse>(
         "/api/Public/Flower/getFlowers",
