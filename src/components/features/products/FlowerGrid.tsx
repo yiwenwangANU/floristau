@@ -1,5 +1,5 @@
 import AddNewFlower from "@/components/ui/AddNewFlower";
-import FlowerCard from "@/components/features/flowers/FlowerCard";
+import FlowerCard from "@/components/features/products/ProductCard";
 import useFetchFlowers from "@/hooks/useFetchFlowers";
 
 const FlowerGrid = () => {

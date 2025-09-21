@@ -9,7 +9,7 @@ import useGetWine from "@/hooks/useGetWine";
 import useGetChocolate from "@/hooks/useGetChocolate";
 import useGetTeddy from "@/hooks/useGetTeddys";
 
-import FlowerDetail from "@/components/features/flowers/FlowerDetail";
+import FlowerDetail from "@/components/features/products/ProductDetail";
 import FlowerForm from "@/components/form/FlowerForm";
 
 export default function FlowerPageClient({ id }: { id: string }) {
