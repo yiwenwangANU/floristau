@@ -6,23 +6,24 @@ import GiftSelect from "@/components/form/GiftSelect";
 import { useForm } from "react-hook-form";
 import { GetGiftsResponse, GiftQty } from "@/libs/types/gifts";
 import { useAppDispatch } from "@/redux/hooks";
-import { newItem, decrement, increment } from "@/redux/CartSlice";
+import { newItem } from "@/redux/CartSlice";
 import { CartItem } from "@/libs/types/cart";
 import { nanoid } from "@reduxjs/toolkit";
 import { store } from "@/redux/store";
-import { FlowerFormValues } from "@/libs/types/forms";
+import { ProductFormValues } from "@/libs/types/forms";
 import { GetFlowerResponse } from "@/libs/types/flowers";
 import { useCartContext } from "@/contexts/CartContext";
+import { GetPlantResponse } from "@/libs/types/plants";
 
-const FlowerForm = ({
+const ProductForm = ({
   id,
-  flowerData,
+  productData,
   wineData,
   chocolateData,
   teddyData,
 }: {
   id: string;
-  flowerData: GetFlowerResponse;
+  productData: GetFlowerResponse | GetPlantResponse;
   wineData: GetGiftsResponse;
   chocolateData: GetGiftsResponse;
   teddyData: GetGiftsResponse;
@@ -60,27 +61,27 @@ const FlowerForm = ({
     control,
     handleSubmit,
     formState: { isSubmitting },
-  } = useForm<FlowerFormValues>({
+  } = useForm<ProductFormValues>({
     defaultValues: {
       size: "standard",
       giftQty: giftDefaults,
-      flowerId: Number(id),
+      productId: Number(id),
       postcode: "",
     },
     mode: "onTouched",
     reValidateMode: "onChange",
   });
-  const onSubmit = (data: FlowerFormValues) => {
+  const onSubmit = (data: ProductFormValues) => {
     const deliveryDateISO = data.deliveryDate
       ? data.deliveryDate.toISOString()
       : null;
     const cartItem: CartItem = {
       id: nanoid(),
-      flowerId: flowerData.id,
-      name: flowerData.name,
-      price: flowerData.price,
+      productId: productData.id,
+      name: productData.name,
+      price: productData.price,
       qty: 1,
-      imageUrl: flowerData.imageUrl,
+      imageUrl: productData.imageUrl,
       deliveryDateISO,
       size: data.size,
       giftQty: filterGiftQty(data.giftQty),
@@ -90,11 +91,11 @@ const FlowerForm = ({
     dispatch(newItem(cartItem));
     console.log("Store state: ", store.getState());
   };
-  const onBuyNow = (data: FlowerFormValues) => {
+  const onBuyNow = (data: ProductFormValues) => {
     onSubmit(data);
     console.log("Buying now:", data);
   };
-  const onAddToCart = (data: FlowerFormValues) => {
+  const onAddToCart = (data: ProductFormValues) => {
     onSubmit(data);
     console.log("Adding to cart:", data);
     handleGiftClose();
@@ -105,7 +106,7 @@ const FlowerForm = ({
   };
   return (
     <form>
-      <SizeSelect control={control} price={flowerData.price} />
+      <SizeSelect control={control} price={productData.price} />
       <GiftSelect
         wineData={wineData}
         chocolateData={chocolateData}
@@ -138,4 +139,4 @@ const FlowerForm = ({
     </form>
   );
 };
-export default FlowerForm;
+export default ProductForm;

@@ -1,10 +1,10 @@
-import { FlowerFormValues } from "@/libs/types/forms";
+import { ProductFormValues } from "@/libs/types/forms";
 import { addDays } from "date-fns";
 import { Calendar } from "lucide-react";
 import DatePicker from "react-datepicker";
 import { Control, Controller } from "react-hook-form";
 
-const DeliveryDate = ({ control }: { control: Control<FlowerFormValues> }) => {
+const DeliveryDate = ({ control }: { control: Control<ProductFormValues> }) => {
   return (
     <Controller
       name="deliveryDate"

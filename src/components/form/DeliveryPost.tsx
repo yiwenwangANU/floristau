@@ -1,7 +1,7 @@
-import { FlowerFormValues } from "@/libs/types/forms";
+import { ProductFormValues } from "@/libs/types/forms";
 import { Control, Controller } from "react-hook-form";
 
-const DeliveryPost = ({ control }: { control: Control<FlowerFormValues> }) => {
+const DeliveryPost = ({ control }: { control: Control<ProductFormValues> }) => {
   return (
     <Controller
       name="postcode"

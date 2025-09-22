@@ -1,9 +1,9 @@
 import { GiftQty } from "./gifts";
 
-export type FlowerFormValues = {
+export type ProductFormValues = {
   size: "standard" | "premium";
   giftQty: GiftQty;
-  flowerId: number;
+  productId: number;
   postcode: string;
   deliveryDate: Date | null;
   message: string | null;

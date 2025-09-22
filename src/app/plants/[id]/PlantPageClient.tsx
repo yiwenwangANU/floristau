@@ -10,7 +10,7 @@ import useGetChocolate from "@/hooks/useGetChocolate";
 import useGetTeddy from "@/hooks/useGetTeddys";
 
 import ProductDetail from "@/components/features/products/ProductDetail";
-import FlowerForm from "@/components/form/FlowerForm";
+import ProductForm from "@/components/form/ProductForm";
 
 export default function PlantPageClient({ id }: { id: string }) {
   const {
@@ -72,9 +72,9 @@ export default function PlantPageClient({ id }: { id: string }) {
           name={plantData.name}
           description={plantData.description}
         />
-        <FlowerForm
+        <ProductForm
           id={id}
-          flowerData={plantData}
+          productData={plantData}
           wineData={wineData}
           chocolateData={chocolateData}
           teddyData={teddyData}

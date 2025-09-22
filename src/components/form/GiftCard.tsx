@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Control, Controller } from "react-hook-form";
 import NumberStepper from "@/components/form/NumberStepper";
-import { FlowerFormValues } from "@/libs/types/forms";
+import { ProductFormValues } from "@/libs/types/forms";
 
 const GiftCard = ({
   type,
@@ -16,7 +16,7 @@ const GiftCard = ({
   name: string;
   imageUrl: string;
   price: number;
-  control: Control<FlowerFormValues>;
+  control: Control<ProductFormValues>;
 }) => {
   return (
     <div className="my-2 flex flex-row items-center justify-between rounded border p-4">

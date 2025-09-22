@@ -1,11 +1,11 @@
-import { FlowerFormValues } from "@/libs/types/forms";
+import { ProductFormValues } from "@/libs/types/forms";
 import { Control, Controller } from "react-hook-form";
 
 const SizeSelect = ({
   control,
   price,
 }: {
-  control: Control<FlowerFormValues>;
+  control: Control<ProductFormValues>;
   price: number;
 }) => {
   return (

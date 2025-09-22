@@ -2,7 +2,7 @@ import { GiftQty } from "./gifts";
 
 export type CartItem = {
   id: string;
-  flowerId: number;
+  productId: number;
   name: string;
   price: number;
   qty: number;
