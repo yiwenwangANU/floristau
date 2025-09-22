@@ -1,23 +1,23 @@
 import ProductCard from "@/components/features/products/ProductCard";
-import useFetchFlowers from "@/hooks/useFetchFlowers";
+import useFetchPlants from "@/hooks/useFetchPlants";
 
-const FlowerGrid = () => {
-  const { data, isLoading, error } = useFetchFlowers();
+const PlantGrid = () => {
+  const { data, isLoading, error } = useFetchPlants();
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
   return (
     <div className="flex flex-row flex-wrap items-center gap-8">
-      {/* <AddNewFlower /> */}
-      {data?.map((flower) => (
+      {data?.map((plant) => (
         <ProductCard
-          key={flower.id}
-          id={flower.id}
-          title={flower.name}
-          price={`$${flower.price}`}
-          image={flower.imageUrl}
+          key={plant.id}
+          id={plant.id}
+          type="plants"
+          title={plant.name}
+          price={`$${plant.price}`}
+          image={plant.imageUrl}
         />
       ))}
     </div>
   );
 };
-export default FlowerGrid;
+export default PlantGrid;
