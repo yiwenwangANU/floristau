@@ -1,7 +1,7 @@
 import { Roboto } from "next/font/google";
 
 const roboto = Roboto({ weight: "400", subsets: ["latin"], style: "normal" });
-const FlowerDetail = ({
+const ProductDetail = ({
   name,
   description,
 }: {
@@ -20,4 +20,4 @@ const FlowerDetail = ({
   );
 };
 
-export default FlowerDetail;
+export default ProductDetail;

@@ -9,7 +9,7 @@ import useGetWine from "@/hooks/useGetWine";
 import useGetChocolate from "@/hooks/useGetChocolate";
 import useGetTeddy from "@/hooks/useGetTeddys";
 
-import FlowerDetail from "@/components/features/products/ProductDetail";
+import ProductDetail from "@/components/features/products/ProductDetail";
 import FlowerForm from "@/components/form/FlowerForm";
 
 export default function FlowerPageClient({ id }: { id: string }) {
@@ -68,7 +68,7 @@ export default function FlowerPageClient({ id }: { id: string }) {
       </div>
 
       <div className="flex w-4/5 flex-col gap-5 px-5 py-15">
-        <FlowerDetail
+        <ProductDetail
           name={flowerData.name}
           description={flowerData.description}
         />

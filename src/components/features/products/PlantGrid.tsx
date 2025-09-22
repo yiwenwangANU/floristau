@@ -1,4 +1,3 @@
-import AddNewFlower from "@/components/ui/AddNewFlower";
 import ProductCard from "@/components/features/products/ProductCard";
 import useFetchFlowers from "@/hooks/useFetchFlowers";
 
@@ -13,7 +12,6 @@ const FlowerGrid = () => {
         <ProductCard
           key={flower.id}
           id={flower.id}
-          type="flowers"
           title={flower.name}
           price={`$${flower.price}`}
           image={flower.imageUrl}

@@ -4,16 +4,24 @@ import Link from "next/link";
 
 type CardProps = {
   id: number;
+  type: "flowers" | "plants";
   title: string;
   price: string;
   image: string;
   discount?: string;
 };
 
-const FlowerCard = ({ id, title, price, image, discount }: CardProps) => {
+const ProductCard = ({
+  id,
+  type,
+  title,
+  price,
+  image,
+  discount,
+}: CardProps) => {
   return (
     <Link
-      href={`/flowers/${id}`}
+      href={`/${type}/${id}`}
       className="group overflow-hidden rounded-md border hover:cursor-pointer sm:w-[45%] md:w-[30%] lg:w-[23%]"
     >
       <div className="relative aspect-square">
@@ -40,4 +48,4 @@ const FlowerCard = ({ id, title, price, image, discount }: CardProps) => {
   );
 };
 
-export default FlowerCard;
+export default ProductCard;
