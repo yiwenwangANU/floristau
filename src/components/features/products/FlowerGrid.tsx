@@ -1,3 +1,4 @@
+"use client";
 import AddNewFlower from "@/components/ui/AddNewFlower";
 import ProductCard from "@/components/features/products/ProductCard";
 import useFetchFlowers from "@/hooks/useFetchFlowers";

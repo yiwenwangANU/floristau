@@ -1,4 +1,3 @@
-"use client";
 import FilterIndicator from "@/components/features/filter&sort/components/FilterIndicatorRow";
 import FilterRow from "@/components/features/filter&sort/components/FilterRow";
 import FlowerGrid from "@/components/features/products/FlowerGrid";

@@ -1,3 +1,4 @@
+"use client";
 import ProductCard from "@/components/features/products/ProductCard";
 import useFetchPlants from "@/hooks/useFetchPlants";
 
