@@ -47,6 +47,8 @@ export type GetFlowersResponse = {
   description?: string;
   available: boolean;
   imageUrl: string;
+  stripePriceId: string;
+  stripeProductId: string;
 }[];
 
 export type GetFlowerResponse = {
@@ -57,4 +59,6 @@ export type GetFlowerResponse = {
   description?: string;
   available: boolean;
   imageUrl: string;
+  stripePriceId: string;
+  stripeProductId: string;
 };
