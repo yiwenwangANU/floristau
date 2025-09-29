@@ -12,6 +12,8 @@ export type CartItem = {
   postcode: string;
   deliveryDateISO: string | null;
   message: string | null;
+  stripePriceId: string;
+  stripeProductId: string;
 };
 
 export type CartState = {

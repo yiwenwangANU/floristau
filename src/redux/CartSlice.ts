@@ -22,7 +22,7 @@ export const cartSlice = createSlice({
     },
     increment: (state, action: PayloadAction<number>) => {
       const existing = state.cartState.items.find(
-        (item) => item.flowerId === action.payload,
+        (item) => item.productId === action.payload,
       );
       if (existing) {
         existing.qty += 1;
@@ -30,14 +30,14 @@ export const cartSlice = createSlice({
     },
     decrement: (state, action: PayloadAction<number>) => {
       const existing = state.cartState.items.find(
-        (item) => item.flowerId === action.payload,
+        (item) => item.productId === action.payload,
       );
       if (existing && existing.qty > 1) {
         existing.qty -= 1;
       }
       if (existing && existing.qty === 1) {
         state.cartState.items = state.cartState.items.filter(
-          (item) => item.flowerId !== action.payload,
+          (item) => item.productId !== action.payload,
         );
       }
     },
