@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { setSenderMode } from "@/redux/SenderSlice";
+import { setSenderMode } from "@/redux/slices/SenderSlice";
 
 const SenderInfo = () => {
   const { firstName, lastName, phone, email } = useAppSelector((s) => {

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import * as Accordion from "@radix-ui/react-accordion";
 import NumberStepper from "@/components/form/NumberStepper";
-import { updateGiftQty } from "@/redux/CartSlice";
+import { updateGiftQty } from "@/redux/slices/CartSlice";
 import { GetGiftsResponse } from "@/libs/types/gifts";
 import ErrorPage from "@/app/error";
 import { useCartContext } from "@/contexts/CartContext";

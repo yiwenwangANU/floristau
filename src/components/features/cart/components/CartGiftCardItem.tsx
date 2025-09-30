@@ -1,6 +1,6 @@
 "use client";
 import NumberStepper from "@/components/form/NumberStepper";
-import { removeGift, updateGiftQty } from "@/redux/CartSlice";
+import { removeGift, updateGiftQty } from "@/redux/slices/CartSlice";
 import { useDispatch } from "react-redux";
 
 const CartGiftCardItem = ({

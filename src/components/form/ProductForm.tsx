@@ -6,7 +6,7 @@ import GiftSelect from "@/components/form/GiftSelect";
 import { useForm } from "react-hook-form";
 import { GetGiftsResponse, GiftQty } from "@/libs/types/gifts";
 import { useAppDispatch } from "@/redux/hooks";
-import { newItem } from "@/redux/CartSlice";
+import { newItem } from "@/redux/slices/CartSlice";
 import { CartItem } from "@/libs/types/cart";
 import { nanoid } from "@reduxjs/toolkit";
 import { store } from "@/redux/store";

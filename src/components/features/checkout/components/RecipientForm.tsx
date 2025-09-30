@@ -3,7 +3,10 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import PlacesAutocomplete from "./PlacesAutocomplete ";
 import { RecipientFormValues } from "@/libs/types/forms";
 import { useDispatch } from "react-redux";
-import { setRecipientMode, updateRecipient } from "@/redux/RecipientSlice";
+import {
+  setRecipientMode,
+  updateRecipient,
+} from "@/redux/slices/RecipientSlice";
 import { useAppSelector } from "@/redux/hooks";
 import { useEffect } from "react";
 

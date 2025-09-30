@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import cartReducer from "./CartSlice";
-import senderReducer from "./SenderSlice";
-import recipientReducer from "./RecipientSlice";
+import cartReducer from "./slices/CartSlice";
+import senderReducer from "./slices/SenderSlice";
+import recipientReducer from "./slices/RecipientSlice";
 
 const PERSIST_KEY = "cart:v1";
 

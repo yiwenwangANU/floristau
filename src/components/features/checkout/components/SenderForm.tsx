@@ -1,7 +1,7 @@
 import Button from "@/components/ui/Button";
 import { useAppSelector } from "@/redux/hooks";
-import { setRecipientMode } from "@/redux/RecipientSlice";
-import { updateSender, setSenderMode } from "@/redux/SenderSlice";
+import { setRecipientMode } from "@/redux/slices/RecipientSlice";
+import { updateSender, setSenderMode } from "@/redux/slices/SenderSlice";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
