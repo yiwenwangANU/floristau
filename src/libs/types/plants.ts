@@ -21,6 +21,8 @@ export type CreatePlantResponse = {
   price: number;
   plantType: string;
   discount: number;
+  stripePriceId: string;
+  stripeProductId: string;
 };
 
 export type UploadImageResponse = {
@@ -35,6 +37,8 @@ export type GetPlantsResponse = {
   description?: string;
   available: boolean;
   imageUrl: string;
+  stripePriceId: string;
+  stripeProductId: string;
 }[];
 
 export type GetPlantResponse = {
@@ -45,4 +49,6 @@ export type GetPlantResponse = {
   description?: string;
   available: boolean;
   imageUrl: string;
+  stripePriceId: string;
+  stripeProductId: string;
 };

@@ -33,6 +33,8 @@ export type CreateFlowerResponse = {
   FlowerTypeIds: number[];
   isPopular: boolean;
   discount: number;
+  stripePriceId: string;
+  stripeProductId: string;
 };
 
 export type UploadImageResponse = {

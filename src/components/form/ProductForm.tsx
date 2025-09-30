@@ -87,6 +87,8 @@ const ProductForm = ({
       giftQty: filterGiftQty(data.giftQty),
       postcode: data.postcode,
       message: data.message,
+      stripePriceId: productData.stripePriceId,
+      stripeProductId: productData.stripeProductId,
     };
     dispatch(newItem(cartItem));
     console.log("Store state: ", store.getState());
