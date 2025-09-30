@@ -1,6 +1,7 @@
 "use client";
 import CartCardCheckout from "@/components/features/checkout/components/CartCardCheckout";
 import CartSubtotalCheckout from "@/components/features/checkout/components/CartSubtotalCheckout";
+import CheckoutButton from "@/components/features/checkout/components/CheckoutButton";
 import RecipientForm from "@/components/features/checkout/components/RecipientForm";
 import RecipientInfo from "@/components/features/checkout/components/RecipientInfo";
 import SenderForm from "@/components/features/checkout/components/SenderForm";
@@ -32,6 +33,9 @@ const CheckoutPageClient = () => {
           ) : recipient.mode == "info" ? (
             <RecipientInfo />
           ) : null}
+          {sender.mode == "info" && recipient.mode == "info" && (
+            <CheckoutButton />
+          )}
         </div>
         <div className="py-10">
           {items.map((item) => (

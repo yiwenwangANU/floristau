@@ -17,7 +17,8 @@ type ButtonProps = {
     | "findUs"
     | "shopNow"
     | "blackRounded"
-    | "blackLong";
+    | "blackLong"
+    | "blackFull";
   children: ReactNode;
 } & ComponentPropsWithoutRef<"button">;
 
@@ -93,6 +94,9 @@ const Button: FC<ButtonProps> = ({
       variantStyles =
         "w-60 px-6 py-3 bg-black text-white hover:bg-white hover:text-black border border-black";
       break;
+    case "blackFull":
+      variantStyles =
+        "w-full px-6 py-3 bg-black text-white hover:bg-white hover:text-black border border-black";
   }
 
   return (
