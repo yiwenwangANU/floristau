@@ -1,6 +1,6 @@
 import { GiftQty } from "@/libs/types/gifts";
-import CartFlowerCardCheckout from "./CartFlowerCardCheckout";
-import CartGiftCardCheckout from "./CartGiftCardCheckout";
+import CartFlowerCardCheckout from "@/features/checkout/components/CartFlowerCardCheckout";
+import CartGiftCardCheckout from "@/features/checkout/components/CartGiftCardCheckout";
 
 const CartCardCheckout = ({
   name,

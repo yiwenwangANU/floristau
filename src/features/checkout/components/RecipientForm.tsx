@@ -1,14 +1,16 @@
-import Button from "@/components/ui/Button";
 import { SubmitHandler, useForm } from "react-hook-form";
-import PlacesAutocomplete from "./PlacesAutocomplete ";
-import { RecipientFormValues } from "@/libs/types/forms";
 import { useDispatch } from "react-redux";
+import { useAppSelector } from "@/redux/hooks";
+import { useEffect } from "react";
+
+import Button from "@/components/ui/Button";
+import { RecipientFormValues } from "@/libs/types/forms";
 import {
   setRecipientMode,
   updateRecipient,
 } from "@/redux/slices/RecipientSlice";
-import { useAppSelector } from "@/redux/hooks";
-import { useEffect } from "react";
+
+import PlacesAutocomplete from "@/features/checkout/components/PlacesAutocomplete";
 
 const RecipientForm = () => {
   const {

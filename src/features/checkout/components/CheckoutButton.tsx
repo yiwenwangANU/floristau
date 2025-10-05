@@ -1,7 +1,6 @@
 import Button from "@/components/ui/Button";
-import useCheckout from "@/hooks/useCheckout";
+import useCheckout from "@/features/checkout/hooks/useCheckout";
 import { useAppSelector } from "@/redux/hooks";
-import { useMutation } from "@tanstack/react-query";
 
 const CheckoutButton = () => {
   const { items } = useAppSelector((s) => {

@@ -1,9 +1,10 @@
-import Button from "@/components/ui/Button";
+import { useDispatch } from "react-redux";
 import { useAppSelector } from "@/redux/hooks";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+import Button from "@/components/ui/Button";
 import { setRecipientMode } from "@/redux/slices/RecipientSlice";
 import { updateSender, setSenderMode } from "@/redux/slices/SenderSlice";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { useDispatch } from "react-redux";
 
 type Inputs = {
   firstName: string;
