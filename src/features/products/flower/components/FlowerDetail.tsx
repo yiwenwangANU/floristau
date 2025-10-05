@@ -4,7 +4,7 @@ import useGetFlowerById from "@/features/products/flower/hooks/useGetFlowerById"
 import { Roboto } from "next/font/google";
 
 const roboto = Roboto({ weight: "400", subsets: ["latin"], style: "normal" });
-const ProductDetail = ({ id }: { id: string }) => {
+const FlowerDetail = ({ id }: { id: string }) => {
   const { data, isPending, isError } = useGetFlowerById(Number(id));
   if (isPending) return <Loading />;
   if (isError || !data) return <ErrorPage />;
@@ -20,4 +20,4 @@ const ProductDetail = ({ id }: { id: string }) => {
   );
 };
 
-export default ProductDetail;
+export default FlowerDetail;

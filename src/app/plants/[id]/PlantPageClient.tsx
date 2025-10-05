@@ -9,7 +9,7 @@ import useGetWine from "@/features/cart/hooks/useGetWine";
 import useGetChocolate from "@/features/cart/hooks/useGetChocolate";
 import useGetTeddy from "@/features/cart/hooks/useGetTeddys";
 
-import ProductDetail from "@/features/products/shared/components/ProductDetail";
+import ProductDetail from "@/features/products/flower/components/FlowerDetail";
 import ProductForm from "@/features/products/productForm/ProductForm";
 
 export default function PlantPageClient({ id }: { id: string }) {

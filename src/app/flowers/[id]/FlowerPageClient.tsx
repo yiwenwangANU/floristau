@@ -8,9 +8,9 @@ import useGetWine from "@/features/cart/hooks/useGetWine";
 import useGetChocolate from "@/features/cart/hooks/useGetChocolate";
 import useGetTeddy from "@/features/cart/hooks/useGetTeddys";
 
-import ProductDetail from "@/features/products/shared/components/ProductDetail";
 import ProductForm from "@/features/products/productForm/ProductForm";
-import ProductImage from "@/features/products/shared/components/ProductImage";
+import FlowerImage from "@/features/products/flower/components/FlowerImage";
+import FlowerDetail from "@/features/products/flower/components/FlowerDetail";
 
 export default function FlowerPageClient({ id }: { id: string }) {
   const {
@@ -50,9 +50,9 @@ export default function FlowerPageClient({ id }: { id: string }) {
 
   return (
     <div className="flex min-h-screen flex-row gap-12 px-2 pt-12 pb-2 sm:px-8">
-      <ProductImage id={id} />
+      <FlowerImage id={id} />
       <div className="flex w-4/5 flex-col gap-5 px-5 py-15">
-        <ProductDetail id={id} />
+        <FlowerDetail id={id} />
         <ProductForm id={id} productData={flowerData} />
       </div>
     </div>

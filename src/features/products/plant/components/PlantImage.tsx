@@ -1,9 +1,9 @@
-import useGetFlowerById from "@/features/products/flower/hooks/useGetFlowerById";
 import Image from "next/image";
 import ProductImageSpinner from "@/features/products/shared/components/ProductImageSpinner";
+import useGetPlantById from "@/features/products/plant/hooks/useGetPlantById";
 
-const ProductImage = ({ id }: { id: string }) => {
-  const { data, isPending, isError } = useGetFlowerById(Number(id));
+const PlantImage = ({ id }: { id: string }) => {
+  const { data, isPending, isError } = useGetPlantById(Number(id));
   return (
     <div className="w-4/5 px-5 py-15">
       {isPending || isError ? (
@@ -28,4 +28,4 @@ const ProductImage = ({ id }: { id: string }) => {
   );
 };
 
-export default ProductImage;
+export default PlantImage;
