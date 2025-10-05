@@ -1,16 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import Loading from "@/app/loading";
 import ErrorPage from "@/app/error";
 
-import useGetFlowerById from "@/hooks/useGetFlowerById";
+import useGetFlowerById from "@/features/products/flower/hooks/useGetFlowerById";
 import useGetWine from "@/features/cart/hooks/useGetWine";
 import useGetChocolate from "@/features/cart/hooks/useGetChocolate";
 import useGetTeddy from "@/features/cart/hooks/useGetTeddys";
 
-import ProductDetail from "@/features/products/components/ProductDetail";
-import ProductForm from "@/features/productForm/ProductForm";
+import ProductDetail from "@/features/products/shared/components/ProductDetail";
+import ProductForm from "@/features/products/productForm/ProductForm";
+import ProductImage from "@/features/products/shared/components/ProductImage";
 
 export default function FlowerPageClient({ id }: { id: string }) {
   const {
@@ -50,35 +50,10 @@ export default function FlowerPageClient({ id }: { id: string }) {
 
   return (
     <div className="flex min-h-screen flex-row gap-12 px-2 pt-12 pb-2 sm:px-8">
-      <div className="w-4/5 px-5 py-15">
-        <Image
-          src={flowerData.imageUrl}
-          alt={flowerData.name}
-          width={900}
-          height={900}
-          priority
-          className="h-auto w-auto"
-        />
-        <p className="p-2">The Image pictured is a Premium product.</p>
-        <p className="p-2 tracking-wide">
-          <strong>Disclaimer:</strong> Each arrangement is handcrafted with the
-          freshest seasonal flowers. Images are examples only; colours and
-          varieties may vary based on availability.
-        </p>
-      </div>
-
+      <ProductImage id={id} />
       <div className="flex w-4/5 flex-col gap-5 px-5 py-15">
-        <ProductDetail
-          name={flowerData.name}
-          description={flowerData.description}
-        />
-        <ProductForm
-          id={id}
-          productData={flowerData}
-          wineData={wineData}
-          chocolateData={chocolateData}
-          teddyData={teddyData}
-        />
+        <ProductDetail id={id} />
+        <ProductForm id={id} productData={flowerData} />
       </div>
     </div>
   );

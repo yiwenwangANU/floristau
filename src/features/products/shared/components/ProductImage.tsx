@@ -1,6 +1,6 @@
-import useGetFlowerById from "@/hooks/useGetFlowerById";
+import useGetFlowerById from "@/features/products/flower/hooks/useGetFlowerById";
 import Image from "next/image";
-import ProductImageSpinner from "@/features/products/components/ProductImageSpinner";
+import ProductImageSpinner from "@/features/products/shared/components/ProductImageSpinner";
 
 const ProductImage = ({ id }: { id: string }) => {
   const { data, isPending, isError } = useGetFlowerById(Number(id));

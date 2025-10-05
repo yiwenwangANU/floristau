@@ -1,5 +1,5 @@
 "use client";
-import useGetCartSubtotal from "@/hooks/useGetCartSubtotal";
+import useGetCartSubtotal from "@/features/products/shared/hooks/useGetCartSubtotal";
 
 const CartSubtotalCheckout = () => {
   const { subtotal, delivery, gst, total, postcode, deliveryDate } =

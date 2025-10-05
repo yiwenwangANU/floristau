@@ -1,6 +1,6 @@
 "use client";
-import ProductCard from "@/features/products/components/ProductCard";
-import useFetchPlants from "@/features/products/hooks/useFetchPlants";
+import ProductCard from "@/features/products/shared/components/ProductCard";
+import useFetchPlants from "@/features/products/plant/hooks/useFetchPlants";
 
 const PlantGrid = () => {
   const { data, isLoading, error } = useFetchPlants();

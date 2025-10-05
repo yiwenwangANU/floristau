@@ -1,7 +1,7 @@
 "use client";
 // import AddNewFlower from "@/components/ui/AddNewFlower";
-import ProductCard from "@/features/products/components/ProductCard";
-import useFetchFlowers from "@/features/products/hooks/useFetchFlowers";
+import ProductCard from "@/features/products/shared/components/ProductCard";
+import useFetchFlowers from "@/features/products/flower/hooks/useFetchFlowers";
 
 const FlowerGrid = () => {
   const { data, isLoading, error } = useFetchFlowers();

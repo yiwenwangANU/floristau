@@ -8,28 +8,47 @@ import { GetGiftsResponse, GiftQty } from "@/libs/types/gifts";
 import { newItem } from "@/redux/slices/CartSlice";
 import { CartItem } from "@/libs/types/cart";
 import { ProductFormValues } from "@/libs/types/forms";
-import { GetFlowerResponse } from "@/libs/types/flowers";
-import { GetPlantResponse } from "@/libs/types/plants";
 import { useCartContext } from "@/contexts/CartContext";
 
-import SizeSelect from "@/features/productForm/SizeSelect";
-import DeliveryPost from "@/features/productForm/DeliveryPost";
-import DeliveryDate from "@/features/productForm/DeliveryDate";
-import GiftSelect from "@/features/productForm/GiftSelect";
+import SizeSelect from "@/features/products/productForm/SizeSelect";
+import DeliveryPost from "@/features/products/productForm/DeliveryPost";
+import DeliveryDate from "@/features/products/productForm/DeliveryDate";
+import GiftSelect from "@/features/products/productForm/GiftSelect";
+import useGetWine from "../../cart/hooks/useGetWine";
+import useGetChocolate from "../../cart/hooks/useGetChocolate";
+import useGetTeddy from "../../cart/hooks/useGetTeddys";
+import useGetFlowerById from "../flower/hooks/useGetFlowerById";
 
 const ProductForm = ({
   id,
-  productData,
-  wineData,
-  chocolateData,
-  teddyData,
+  type,
 }: {
   id: string;
-  productData: GetFlowerResponse | GetPlantResponse;
-  wineData: GetGiftsResponse;
-  chocolateData: GetGiftsResponse;
-  teddyData: GetGiftsResponse;
+  type: "flower" | "plant";
 }) => {
+  if (type == "flower") {
+  }
+  const {
+    data: productData,
+    isPending: productIsPending,
+    isError: productIsError,
+  } = useGetFlowerById(Number(id));
+  const {
+    data: wineData,
+    isPending: wineIsPending,
+    isError: wineIsError,
+  } = useGetWine();
+  const {
+    data: chocolateData,
+    isPending: chocolateIsPending,
+    isError: chocolateError,
+  } = useGetChocolate();
+  const {
+    data: teddyData,
+    isPending: teddyIsPending,
+    isError: teddyError,
+  } = useGetTeddy();
+
   const { handleCartOpen, handleCartClose, handleGiftClose } = useCartContext();
   const dispatch = useAppDispatch();
   const giftDefaults: GiftQty = {

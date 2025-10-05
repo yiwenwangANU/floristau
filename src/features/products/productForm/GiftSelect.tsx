@@ -7,7 +7,7 @@ import { Control } from "react-hook-form";
 import * as Accordion from "@radix-ui/react-accordion";
 import { ProductFormValues } from "@/libs/types/forms";
 import { GetGiftsResponse } from "@/libs/types/gifts";
-import GiftCard from "@/features/productForm/GiftCard";
+import GiftCard from "@/features/products/productForm/GiftCard";
 
 const GiftSelect = ({
   wineData,

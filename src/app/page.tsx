@@ -1,4 +1,4 @@
-import Card from "@/features/products/components/ProductCard";
+import Card from "@/features/products/shared/components/ProductCard";
 import ShopLocation from "@/components/ui/ShopLocation";
 import Button from "@/components/ui/Button";
 import { Raleway } from "next/font/google";

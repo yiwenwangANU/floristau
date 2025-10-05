@@ -4,13 +4,13 @@ import Image from "next/image";
 import Loading from "@/app/loading";
 import ErrorPage from "@/app/error";
 
-import useGetPlantById from "@/hooks/useGetPlantById";
+import useGetPlantById from "@/features/products/plant/hooks/useGetPlantById";
 import useGetWine from "@/features/cart/hooks/useGetWine";
 import useGetChocolate from "@/features/cart/hooks/useGetChocolate";
 import useGetTeddy from "@/features/cart/hooks/useGetTeddys";
 
-import ProductDetail from "@/features/products/components/ProductDetail";
-import ProductForm from "@/features/productForm/ProductForm";
+import ProductDetail from "@/features/products/shared/components/ProductDetail";
+import ProductForm from "@/features/products/productForm/ProductForm";
 
 export default function PlantPageClient({ id }: { id: string }) {
   const {
