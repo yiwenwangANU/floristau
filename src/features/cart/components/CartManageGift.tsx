@@ -9,7 +9,7 @@ import ErrorPage from "@/app/error";
 import Button from "@/components/ui/Button";
 
 import NumberStepper from "@/features/cart/components/NumberStepper";
-import { useCartContext } from "@/features/cart/contexts/CartContext";
+import { useCartContext } from "@/contexts/CartContext";
 import useCartManageGift from "@/features/cart/hooks/useCartManageGift";
 
 export default function CartManageGift({

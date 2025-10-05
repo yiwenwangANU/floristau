@@ -7,7 +7,7 @@ import ErrorPage from "@/app/error";
 import Loading from "@/app/loading";
 import Button from "@/components/ui/Button";
 
-import { useCartContext } from "@/features/cart/contexts/CartContext";
+import { useCartContext } from "@/contexts/CartContext";
 import CartContent from "@/features/cart/components/CartContent";
 import CartManageGift from "@/features/cart/components/CartManageGift";
 import useGetWine from "@/features/cart/hooks/useGetWine";

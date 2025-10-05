@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { ShoppingCart } from "lucide-react";
-import { useCartContext } from "@/features/cart/contexts/CartContext";
+import { useCartContext } from "@/contexts/CartContext";
 import useGetCartItemNumber from "@/features/cart/hooks/useGetCartItemNumber";
 
 const CartButton = () => {
