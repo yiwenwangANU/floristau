@@ -10,7 +10,7 @@ import useGetChocolate from "@/features/cart/hooks/useGetChocolate";
 import useGetTeddy from "@/features/cart/hooks/useGetTeddys";
 
 import ProductDetail from "@/features/products/components/ProductDetail";
-import ProductForm from "@/features/products/components/ProductForm";
+import ProductForm from "@/features/productForm/ProductForm";
 
 export default function FlowerPageClient({ id }: { id: string }) {
   const {

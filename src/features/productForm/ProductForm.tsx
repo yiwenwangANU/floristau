@@ -1,19 +1,21 @@
-import Button from "@/components/ui/Button";
-import SizeSelect from "@/components/form/SizeSelect";
-import DeliveryPost from "@/components/form/DeliveryPost";
-import DeliveryDate from "@/components/form/DeliveryDate";
-import GiftSelect from "@/components/form/GiftSelect";
 import { useForm } from "react-hook-form";
-import { GetGiftsResponse, GiftQty } from "@/libs/types/gifts";
 import { useAppDispatch } from "@/redux/hooks";
-import { newItem } from "@/redux/slices/CartSlice";
-import { CartItem } from "@/libs/types/cart";
 import { nanoid } from "@reduxjs/toolkit";
 import { store } from "@/redux/store";
+
+import Button from "@/components/ui/Button";
+import { GetGiftsResponse, GiftQty } from "@/libs/types/gifts";
+import { newItem } from "@/redux/slices/CartSlice";
+import { CartItem } from "@/libs/types/cart";
 import { ProductFormValues } from "@/libs/types/forms";
 import { GetFlowerResponse } from "@/libs/types/flowers";
-import { useCartContext } from "@/contexts/CartContext";
 import { GetPlantResponse } from "@/libs/types/plants";
+import { useCartContext } from "@/contexts/CartContext";
+
+import SizeSelect from "@/features/productForm/SizeSelect";
+import DeliveryPost from "@/features/productForm/DeliveryPost";
+import DeliveryDate from "@/features/productForm/DeliveryDate";
+import GiftSelect from "@/features/productForm/GiftSelect";
 
 const ProductForm = ({
   id,

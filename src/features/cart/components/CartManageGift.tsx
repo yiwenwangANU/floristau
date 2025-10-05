@@ -8,7 +8,7 @@ import { GetGiftsResponse } from "@/libs/types/gifts";
 import ErrorPage from "@/app/error";
 import Button from "@/components/ui/Button";
 
-import NumberStepper from "@/features/cart/components/NumberStepper";
+import NumberStepper from "@/components/NumberStepper";
 import { useCartContext } from "@/contexts/CartContext";
 import useCartManageGift from "@/features/cart/hooks/useCartManageGift";
 

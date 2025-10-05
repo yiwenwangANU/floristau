@@ -3,11 +3,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/AccordionComponent";
-import * as Accordion from "@radix-ui/react-accordion";
-import { FlowerFormValues } from "@/libs/types/forms";
-import { GetGiftsResponse } from "@/libs/types/gifts";
-import GiftCard from "@/components/form/GiftCard";
 import { Control } from "react-hook-form";
+import * as Accordion from "@radix-ui/react-accordion";
+import { ProductFormValues } from "@/libs/types/forms";
+import { GetGiftsResponse } from "@/libs/types/gifts";
+import GiftCard from "@/features/productForm/GiftCard";
 
 const GiftSelect = ({
   wineData,
@@ -18,7 +18,7 @@ const GiftSelect = ({
   wineData: GetGiftsResponse;
   chocolateData: GetGiftsResponse;
   teddyData: GetGiftsResponse;
-  control: Control<FlowerFormValues>;
+  control: Control<ProductFormValues>;
 }) => {
   type GiftType = "wine" | "chocolate" | "teddy";
   const categories: {
