@@ -1,9 +1,9 @@
-import { flowersApi } from "@/libs/api/flowersApi";
 import { useQuery } from "@tanstack/react-query";
+import { flowersApi } from "@/libs/api/flowersApi";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 
-const PAZE_SIZE = 12;
+const PAGE_SIZE = 12;
 
 const useFetchFlowers = () => {
   const searchParams = useSearchParams();
@@ -18,7 +18,7 @@ const useFetchFlowers = () => {
       flowersApi.fetchFlower({
         FlowerTypeIds: searchParams.getAll("flowerType").map(Number),
         Page: Number(paramsObj.Page ?? 1),
-        PageSize: Number(paramsObj.PageSize ?? PAZE_SIZE),
+        PageSize: Number(paramsObj.PageSize ?? PAGE_SIZE),
         ...paramsObj,
       }),
   });

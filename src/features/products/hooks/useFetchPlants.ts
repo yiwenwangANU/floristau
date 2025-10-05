@@ -1,9 +1,9 @@
-import { plantsApi } from "@/libs/api/plantsApi";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
+import { plantsApi } from "@/libs/api/plantsApi";
 
-const PAZE_SIZE = 12;
+const PAGE_SIZE = 12;
 
 const useFetchPlants = () => {
   const searchParams = useSearchParams();
@@ -17,7 +17,7 @@ const useFetchPlants = () => {
     queryFn: () =>
       plantsApi.fetchPlant({
         Page: Number(paramsObj.Page ?? 1),
-        PageSize: Number(paramsObj.PageSize ?? PAZE_SIZE),
+        PageSize: Number(paramsObj.PageSize ?? PAGE_SIZE),
         ...paramsObj,
       }),
   });
