@@ -1,5 +1,5 @@
-import BannerButton from "@/components/features/banner/components/BannerButton";
 import { Marcellus } from "next/font/google";
+import BannerButton from "@/features/banner/BannerButton";
 
 const marcellus = Marcellus({ weight: ["400"], subsets: ["latin"] });
 const BannerCard = ({

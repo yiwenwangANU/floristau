@@ -1,7 +1,7 @@
 import { GiftQty } from "@/libs/types/gifts";
 import Button from "@/components/ui/Button";
-import { useCartContext } from "@/contexts/CartContext";
-import CartGiftCardItem from "./CartGiftCardItem";
+import { useCartContext } from "@/features/cart/contexts/CartContext";
+import CartGiftCardItem from "@/features/cart/components/CartGiftCardItem";
 
 const CartGiftCard = ({
   cartId,

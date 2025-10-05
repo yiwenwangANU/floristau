@@ -1,11 +1,11 @@
 "use client";
-import CartCardCheckout from "@/components/features/checkout/components/CartCardCheckout";
-import CartSubtotalCheckout from "@/components/features/checkout/components/CartSubtotalCheckout";
-import CheckoutButton from "@/components/features/checkout/components/CheckoutButton";
-import RecipientForm from "@/components/features/checkout/components/RecipientForm";
-import RecipientInfo from "@/components/features/checkout/components/RecipientInfo";
-import SenderForm from "@/components/features/checkout/components/SenderForm";
-import SenderInfo from "@/components/features/checkout/components/SenderInfo";
+import CartCardCheckout from "@/features/checkout/components/CartCardCheckout";
+import CartSubtotalCheckout from "@/features/checkout/components/CartSubtotalCheckout";
+import CheckoutButton from "@/features/checkout/components/CheckoutButton";
+import RecipientForm from "@/features/checkout/components/RecipientForm";
+import RecipientInfo from "@/features/checkout/components/RecipientInfo";
+import SenderForm from "@/features/checkout/components/SenderForm";
+import SenderInfo from "@/features/checkout/components/SenderInfo";
 import { useAppSelector } from "@/redux/hooks";
 import { LoadScript } from "@react-google-maps/api";
 import { redirect } from "next/navigation";

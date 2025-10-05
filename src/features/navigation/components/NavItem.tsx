@@ -1,6 +1,6 @@
 import { NavigationMenu } from "radix-ui";
 import { CaretDownIcon } from "@radix-ui/react-icons";
-import NavListItem from "@/components/features/navigation/components/NavListItem";
+import NavListItem from "@/features/navigation/components/NavListItem";
 import Link from "next/link";
 
 type itemsListProps = {

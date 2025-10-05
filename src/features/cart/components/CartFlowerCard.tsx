@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { removeItem } from "@/redux/slices/CartSlice";
 import { useAppDispatch } from "@/redux/hooks";
-import Image from "next/image";
 
 const CartFlowerCard = ({
   id,

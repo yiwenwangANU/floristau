@@ -1,15 +1,16 @@
 "use client";
-
 import Image from "next/image";
+import { useDispatch } from "react-redux";
 import * as Accordion from "@radix-ui/react-accordion";
-import NumberStepper from "@/components/form/NumberStepper";
+
 import { updateGiftQty } from "@/redux/slices/CartSlice";
 import { GetGiftsResponse } from "@/libs/types/gifts";
 import ErrorPage from "@/app/error";
-import { useCartContext } from "@/contexts/CartContext";
 import Button from "@/components/ui/Button";
-import useCartManageGift from "../hooks/useCartManageGift";
-import { useDispatch } from "react-redux";
+
+import NumberStepper from "@/features/cart/components/NumberStepper";
+import { useCartContext } from "@/features/cart/contexts/CartContext";
+import useCartManageGift from "@/features/cart/hooks/useCartManageGift";
 
 export default function CartManageGift({
   wineData,

@@ -1,6 +1,6 @@
-import FilterIndicator from "@/components/features/filter&sort/components/FilterIndicatorRow";
-import FilterRow from "@/components/features/filter&sort/components/FilterRow";
-import FlowerGrid from "@/components/features/products/FlowerGrid";
+import FilterIndicator from "@/features/filter/components/FilterIndicatorRow";
+import FilterRow from "@/features/filter/components/FilterRow";
+import FlowerGrid from "@/features/products/components/FlowerGrid";
 
 const Flowers = () => {
   return (

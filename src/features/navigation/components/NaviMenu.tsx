@@ -1,7 +1,7 @@
 import { NavigationMenu, Portal } from "radix-ui";
 
-import NavItem from "@/components/features/navigation/components/NavItem";
-import { NavItemData } from "@/components/features/navigation/NavItemData";
+import NavItem from "@/features/navigation/components/NavItem";
+import { NavItemData } from "@/features/navigation/NavItemData";
 
 const NaviMenu = () => {
   return (

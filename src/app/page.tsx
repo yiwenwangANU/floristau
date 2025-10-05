@@ -1,9 +1,9 @@
-import Banner from "@/components/features/banner/components/Banner";
-import Card from "@/components/features/products/ProductCard";
+import Card from "@/features/products/components/ProductCard";
 import ShopLocation from "@/components/ui/ShopLocation";
 import Button from "@/components/ui/Button";
 import { Raleway } from "next/font/google";
 import Link from "next/link";
+import Banner from "@/features/banner/Banner";
 const raleway = Raleway({
   subsets: ["latin"],
 });
@@ -25,7 +25,13 @@ export default function Home() {
           Our Best Selling Flowers
         </div>
         <div className="flex flex-row flex-wrap items-center gap-8 px-1 py-5 sm:px-8">
-          <Card id={1} title="Red Flowers" price="$19.99" image="/1.jpg" />
+          <Card
+            id={1}
+            type="flowers"
+            title="Red Flowers"
+            price="$19.99"
+            image="/1.jpg"
+          />
           <Card id={2} title="Blue Flowers" price="$29.99" image="/2.jpg" />
           <Card id={3} title="Yellow Flowers" price="$39.99" image="/3.jpg" />
           <Card id={4} title="White Flowers" price="$49.99" image="/4.jpg" />

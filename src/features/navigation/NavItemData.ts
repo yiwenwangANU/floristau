@@ -2,7 +2,7 @@ import {
   FILTER_OPTIONS_MULTI,
   FILTER_OPTIONS,
   FILTER_OPTIONS_PLANT,
-} from "@/components/features/filter&sort/FilterOptions";
+} from "@/features/filter/FilterOptions";
 
 const flowerTypeValues =
   FILTER_OPTIONS_MULTI.find((fo) => fo.option == "flowerType")?.filterValues ??

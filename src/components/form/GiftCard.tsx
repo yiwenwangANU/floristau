@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Control, Controller } from "react-hook-form";
-import NumberStepper from "@/components/form/NumberStepper";
+import NumberStepper from "@/features/cart/components/NumberStepper";
 import { ProductFormValues } from "@/libs/types/forms";
 
 const GiftCard = ({

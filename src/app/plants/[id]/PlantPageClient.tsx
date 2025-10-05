@@ -5,11 +5,11 @@ import Loading from "@/app/loading";
 import ErrorPage from "@/app/error";
 
 import useGetPlantById from "@/hooks/useGetPlantById";
-import useGetWine from "@/hooks/useGetWine";
-import useGetChocolate from "@/hooks/useGetChocolate";
-import useGetTeddy from "@/hooks/useGetTeddys";
+import useGetWine from "@/features/cart/hooks/useGetWine";
+import useGetChocolate from "@/features/cart/hooks/useGetChocolate";
+import useGetTeddy from "@/features/cart/hooks/useGetTeddys";
 
-import ProductDetail from "@/components/features/products/ProductDetail";
+import ProductDetail from "@/features/products/components/ProductDetail";
 import ProductForm from "@/components/form/ProductForm";
 
 export default function PlantPageClient({ id }: { id: string }) {

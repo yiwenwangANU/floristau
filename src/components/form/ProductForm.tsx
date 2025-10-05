@@ -12,7 +12,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import { store } from "@/redux/store";
 import { ProductFormValues } from "@/libs/types/forms";
 import { GetFlowerResponse } from "@/libs/types/flowers";
-import { useCartContext } from "@/contexts/CartContext";
+import { useCartContext } from "@/features/cart/contexts/CartContext";
 import { GetPlantResponse } from "@/libs/types/plants";
 
 const ProductForm = ({

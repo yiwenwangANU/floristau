@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Provider } from "react-redux";
 import { Theme } from "@radix-ui/themes";
 import { store } from "@/redux/store";
-import { CartProvider } from "@/contexts/CartContext";
+import { CartProvider } from "@/features/cart/contexts/CartContext";
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   const queryClient = new QueryClient();
 

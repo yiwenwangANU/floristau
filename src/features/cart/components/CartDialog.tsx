@@ -1,18 +1,20 @@
 "use client";
+import Link from "next/link";
 import { Dialog } from "radix-ui";
 import { Cross2Icon } from "@radix-ui/react-icons";
 
-import CartContent from "./CartContent";
-import { useCartContext } from "@/contexts/CartContext";
-import CartManageGift from "./CartManageGift";
 import ErrorPage from "@/app/error";
 import Loading from "@/app/loading";
-import useGetWine from "@/hooks/useGetWine";
-import useGetChocolate from "@/hooks/useGetChocolate";
-import useGetTeddy from "@/hooks/useGetTeddys";
 import Button from "@/components/ui/Button";
-import CartSubtotal from "./CartSubtotal";
-import Link from "next/link";
+
+import { useCartContext } from "@/features/cart/contexts/CartContext";
+import CartContent from "@/features/cart/components/CartContent";
+import CartManageGift from "@/features/cart/components/CartManageGift";
+import useGetWine from "@/features/cart/hooks/useGetWine";
+import useGetChocolate from "@/features/cart/hooks/useGetChocolate";
+import useGetTeddy from "@/features/cart/hooks/useGetTeddys";
+import CartSubtotal from "@/features/cart/components/CartSubtotal";
+
 const CartDialog = () => {
   const { cartOpen, cartGiftPage, handleOpenChange, handleCartClose } =
     useCartContext();

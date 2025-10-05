@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
-import CartCard from "./CartCard";
 import { Dialog } from "radix-ui";
+import { RootState } from "@/redux/store";
+import CartCard from "@/features/cart/components/CartCard";
 
 const CartContent = () => {
   const items = useSelector((state: RootState) => state.cart.cartState.items);

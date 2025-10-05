@@ -1,5 +1,6 @@
 import Image from "next/image";
-import BannerCard from "@/components/features/banner/components/BannerCard";
+import BannerCard from "@/features/banner/BannerCard";
+
 const Banner = ({
   imageUrl,
   headline,

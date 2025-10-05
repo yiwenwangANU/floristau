@@ -2,9 +2,9 @@ import "./globals.css";
 import { Providers } from "@/components/Providers";
 import Footer from "@/components/layouts/footer";
 import { ToastContainer } from "react-toastify";
-import CartDialog from "@/components/features/cart/components/CartDialog";
-import Navigation from "@/components/features/navigation/components/Navigation";
-import NavigationMenuDemo from "@/components/features/navigation/components/Demo";
+import CartDialog from "@/features/cart/components/CartDialog";
+import Navigation from "@/features/navigation/components/Navigation";
+import NavigationMenuDemo from "@/features/navigation/components/Demo";
 
 export const metadata = {
   title: "Next.js",
