@@ -1,4 +1,4 @@
-import { FILTER_OPTIONS_ALL } from "../FilterOptions";
+import { FILTER_OPTIONS_ALL } from "@/features/filter/FilterOptions";
 
 const useGetLabelByValue = () => {
   const getLabelByValue = (name: string, value: string): string | undefined => {

@@ -1,7 +1,6 @@
 "use client";
-
 import { useSearchParams } from "next/navigation";
-import FilterIndicator from "./FilterIndicator";
+import FilterIndicator from "@/features/filter/components/FilterIndicator";
 
 const FilterIndicatorRow = () => {
   const searchParams = useSearchParams();

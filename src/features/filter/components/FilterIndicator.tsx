@@ -1,7 +1,7 @@
 "use client";
 import { Cross2Icon } from "@radix-ui/react-icons";
-import useRemoveFilter from "../hooks/useRemoveFilter";
-import useGetLabelByValue from "../hooks/useGetLabelByValue";
+import useRemoveFilter from "@/features/filter/hooks/useRemoveFilter";
+import useGetLabelByValue from "@/features/filter/hooks/useGetLabelByValue";
 
 const FilterIndicator = ({ name, value }: { name: string; value: string }) => {
   const { removeFilter } = useRemoveFilter();

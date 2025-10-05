@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react";
 import { Popover } from "radix-ui";
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import useHandleCheckMulti from "../hooks/useHandleCheckMulti";
+import useHandleCheckMulti from "@/features/filter/hooks/useHandleCheckMulti";
 
 type FilterMultiProp = {
   name: string;

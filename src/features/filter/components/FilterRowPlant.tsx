@@ -1,5 +1,9 @@
-import { FILTER_OPTIONS_PLANT, SORTS_OPTIONS } from "../FilterOptions";
-import Filter from "./Filter";
+import {
+  FILTER_OPTIONS_PLANT,
+  SORTS_OPTIONS,
+} from "@/features/filter/FilterOptions";
+import Filter from "@/features/filter/components/Filter";
+
 const FilterRowPlant = () => {
   return (
     <div className="flex flex-row gap-5">

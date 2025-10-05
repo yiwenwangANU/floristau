@@ -2,8 +2,8 @@
 import { ChevronDown } from "lucide-react";
 import { Popover } from "radix-ui";
 import { useState } from "react";
-import useHandleCheck from "../hooks/useHandleCheck";
 import { useSearchParams } from "next/navigation";
+import useHandleCheck from "@/features/filter/hooks/useHandleCheck";
 
 type FilterProp = {
   name: string;

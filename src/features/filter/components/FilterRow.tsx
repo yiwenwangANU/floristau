@@ -2,9 +2,10 @@ import {
   FILTER_OPTIONS,
   FILTER_OPTIONS_MULTI,
   SORTS_OPTIONS,
-} from "../FilterOptions";
-import Filter from "./Filter";
-import FilterMulti from "./FilterMulti";
+} from "@/features/filter/FilterOptions";
+import Filter from "@/features/filter/components/Filter";
+import FilterMulti from "@/features/filter/components/FilterMulti";
+
 const FilterRow = () => {
   return (
     <div className="flex flex-row gap-5">
