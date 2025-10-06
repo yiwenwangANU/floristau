@@ -4,7 +4,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import { store } from "@/redux/store";
 
 import Button from "@/components/ui/Button";
-import { GetGiftsResponse, GiftQty } from "@/libs/types/gifts";
+import { GiftQty } from "@/libs/types/gifts";
 import { newItem } from "@/redux/slices/CartSlice";
 import { CartItem } from "@/libs/types/cart";
 import { ProductFormValues } from "@/libs/types/forms";
@@ -14,24 +14,19 @@ import SizeSelect from "@/features/products/productForm/SizeSelect";
 import DeliveryPost from "@/features/products/productForm/DeliveryPost";
 import DeliveryDate from "@/features/products/productForm/DeliveryDate";
 import GiftSelect from "@/features/products/productForm/GiftSelect";
-import useGetWine from "../../cart/hooks/useGetWine";
-import useGetChocolate from "../../cart/hooks/useGetChocolate";
-import useGetTeddy from "../../cart/hooks/useGetTeddys";
-import useGetFlowerById from "../flower/hooks/useGetFlowerById";
+import useGetWine from "@/hooks/useGetWine";
+import useGetChocolate from "@/hooks/useGetChocolate";
+import useGetTeddy from "@/hooks/useGetTeddys";
+import useGetFlowerById from "@/features/products/shared/hooks/useGetFlowerById";
+import ErrorPage from "@/app/error";
+import Loading from "@/app/loading";
+import { useEffect } from "react";
 
-const ProductForm = ({
-  id,
-  type,
-}: {
-  id: string;
-  type: "flower" | "plant";
-}) => {
-  if (type == "flower") {
-  }
+const FlowerForm = ({ id }: { id: string }) => {
   const {
-    data: productData,
-    isPending: productIsPending,
-    isError: productIsError,
+    data: flowerData,
+    isPending: flowerIsPending,
+    isError: flowerIsError,
   } = useGetFlowerById(Number(id));
   const {
     data: wineData,
@@ -48,29 +43,59 @@ const ProductForm = ({
     isPending: teddyIsPending,
     isError: teddyError,
   } = useGetTeddy();
+  const isLoading =
+    flowerIsPending || wineIsPending || chocolateIsPending || teddyIsPending;
+  const isError = flowerIsError || wineIsError || chocolateError || teddyError;
 
   const { handleCartOpen, handleCartClose, handleGiftClose } = useCartContext();
   const dispatch = useAppDispatch();
-  const giftDefaults: GiftQty = {
-    wine: wineData.map((w) => ({
-      name: w.name,
-      price: w.price,
-      qty: 0,
-      type: "wine",
-    })),
-    chocolate: chocolateData.map((c) => ({
-      name: c.name,
-      price: c.price,
-      qty: 0,
-      type: "chocolate",
-    })),
-    teddy: teddyData.map((t) => ({
-      name: t.name,
-      price: t.price,
-      qty: 0,
-      type: "teddy",
-    })),
-  };
+  const {
+    control,
+    handleSubmit,
+    formState: { isSubmitting },
+    reset,
+  } = useForm<ProductFormValues>({
+    defaultValues: {
+      size: "standard",
+      giftQty: { wine: [], chocolate: [], teddy: [] },
+      productId: Number(id),
+      postcode: "",
+    },
+    mode: "onTouched",
+    reValidateMode: "onChange",
+  });
+  useEffect(() => {
+    if (!wineData || !chocolateData || !teddyData) return;
+    const giftDefaults: GiftQty = {
+      wine: wineData.map((w) => ({
+        name: w.name,
+        price: w.price,
+        qty: 0,
+        type: "wine",
+      })),
+      chocolate: chocolateData.map((c) => ({
+        name: c.name,
+        price: c.price,
+        qty: 0,
+        type: "chocolate",
+      })),
+      teddy: teddyData.map((t) => ({
+        name: t.name,
+        price: t.price,
+        qty: 0,
+        type: "teddy",
+      })),
+    };
+    reset({
+      size: "standard",
+      giftQty: giftDefaults,
+      productId: Number(id),
+      postcode: "",
+    });
+  }, [reset, id, wineData, chocolateData, teddyData]);
+  if (isLoading) return <Loading />;
+  if (isError) return <ErrorPage />;
+
   const filterGiftQty = (giftQty: GiftQty) => {
     return {
       wine: giftQty.wine.filter((item) => item.qty > 0),
@@ -78,38 +103,25 @@ const ProductForm = ({
       teddy: giftQty.teddy.filter((item) => item.qty > 0),
     };
   };
-  const {
-    control,
-    handleSubmit,
-    formState: { isSubmitting },
-  } = useForm<ProductFormValues>({
-    defaultValues: {
-      size: "standard",
-      giftQty: giftDefaults,
-      productId: Number(id),
-      postcode: "",
-    },
-    mode: "onTouched",
-    reValidateMode: "onChange",
-  });
+
   const onSubmit = (data: ProductFormValues) => {
     const deliveryDateISO = data.deliveryDate
       ? data.deliveryDate.toISOString()
       : null;
     const cartItem: CartItem = {
       id: nanoid(),
-      productId: productData.id,
-      name: productData.name,
-      price: productData.price,
+      productId: flowerData.id,
+      name: flowerData.name,
+      price: flowerData.price,
       qty: 1,
-      imageUrl: productData.imageUrl,
+      imageUrl: flowerData.imageUrl,
       deliveryDateISO,
       size: data.size,
       giftQty: filterGiftQty(data.giftQty),
       postcode: data.postcode,
       message: data.message,
-      stripePriceId: productData.stripePriceId,
-      stripeProductId: productData.stripeProductId,
+      stripePriceId: flowerData.stripePriceId,
+      stripeProductId: flowerData.stripeProductId,
     };
     dispatch(newItem(cartItem));
     console.log("Store state: ", store.getState());
@@ -129,7 +141,7 @@ const ProductForm = ({
   };
   return (
     <form>
-      <SizeSelect control={control} price={productData.price} />
+      <SizeSelect control={control} price={flowerData.price} />
       <GiftSelect
         wineData={wineData}
         chocolateData={chocolateData}
@@ -162,4 +174,4 @@ const ProductForm = ({
     </form>
   );
 };
-export default ProductForm;
+export default FlowerForm;

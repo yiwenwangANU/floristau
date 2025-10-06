@@ -5,12 +5,12 @@ import Loading from "@/app/loading";
 import ErrorPage from "@/app/error";
 
 import useGetPlantById from "@/features/products/plant/hooks/useGetPlantById";
-import useGetWine from "@/features/cart/hooks/useGetWine";
-import useGetChocolate from "@/features/cart/hooks/useGetChocolate";
-import useGetTeddy from "@/features/cart/hooks/useGetTeddys";
+import useGetWine from "@/hooks/useGetWine";
+import useGetChocolate from "@/hooks/useGetChocolate";
+import useGetTeddy from "@/hooks/useGetTeddys";
 
 import ProductDetail from "@/features/products/flower/components/FlowerDetail";
-import ProductForm from "@/features/products/productForm/ProductForm";
+import ProductForm from "@/features/products/productForm/FlowerForm";
 
 export default function PlantPageClient({ id }: { id: string }) {
   const {

@@ -1,4 +1,4 @@
-import useGetFlowerById from "@/features/products/flower/hooks/useGetFlowerById";
+import useGetFlowerById from "@/features/products/shared/hooks/useGetFlowerById";
 import Image from "next/image";
 import ProductImageSpinner from "@/features/products/shared/components/ProductImageSpinner";
 

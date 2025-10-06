@@ -1,6 +1,6 @@
 import ErrorPage from "@/app/error";
 import Loading from "@/app/loading";
-import useGetFlowerById from "@/features/products/flower/hooks/useGetFlowerById";
+import useGetFlowerById from "@/features/products/shared/hooks/useGetFlowerById";
 import { Roboto } from "next/font/google";
 
 const roboto = Roboto({ weight: "400", subsets: ["latin"], style: "normal" });
