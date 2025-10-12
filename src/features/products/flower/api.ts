@@ -1,4 +1,4 @@
-import { GetFlowersResponse } from "@/libs/types/flowers";
+import { GetFlowerResponse, GetFlowersResponse } from "@/libs/types/flowers";
 
 export const fetchFlower = async (params: {
   Page?: number;
@@ -37,6 +37,26 @@ export const fetchFlower = async (params: {
     return data;
   } catch (error) {
     console.error("Failed to fetch flowers:", error);
+    throw error;
+  }
+};
+
+export const fetchFlowerById = async (
+  id: number,
+): Promise<GetFlowerResponse> => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Public/Flower/getFlowerById/${id}`,
+    );
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch flower: ${res.statusText}`);
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Failed to fetch flower:", error);
     throw error;
   }
 };

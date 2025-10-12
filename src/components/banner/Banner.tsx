@@ -1,5 +1,5 @@
 import Image from "next/image";
-import BannerCard from "@/features/banner/BannerCard";
+import BannerCard from "@/components/banner/BannerCard";
 
 const Banner = ({
   imageUrl,

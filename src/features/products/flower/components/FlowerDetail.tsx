@@ -1,13 +1,9 @@
-import ErrorPage from "@/app/error";
-import Loading from "@/app/loading";
-import useGetFlowerById from "@/features/products/shared/hooks/useGetFlowerById";
 import { Roboto } from "next/font/google";
+import { fetchFlowerById } from "../api";
 
 const roboto = Roboto({ weight: "400", subsets: ["latin"], style: "normal" });
-const FlowerDetail = ({ id }: { id: string }) => {
-  const { data, isPending, isError } = useGetFlowerById(Number(id));
-  if (isPending) return <Loading />;
-  if (isError || !data) return <ErrorPage />;
+const FlowerDetail = async ({ id }: { id: string }) => {
+  const data = await fetchFlowerById(Number(id));
   return (
     <>
       <div className="font-mono text-5xl tracking-wide">{data.name}</div>

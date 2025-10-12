@@ -2,7 +2,7 @@ import ShopLocation from "@/components/ui/ShopLocation";
 import Button from "@/components/ui/Button";
 import { Raleway } from "next/font/google";
 import Link from "next/link";
-import Banner from "@/features/banner/Banner";
+import Banner from "@/components/banner/Banner";
 import FlowerGrid from "@/features/products/flower/components/FlowerGrid";
 const raleway = Raleway({
   subsets: ["latin"],

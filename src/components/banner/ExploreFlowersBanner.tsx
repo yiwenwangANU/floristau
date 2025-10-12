@@ -1,4 +1,4 @@
-import Banner from "@/features/banner/Banner";
+import Banner from "@/components/banner/Banner";
 
 const ExploreFlowersBanner = () => {
   return (

@@ -9,7 +9,7 @@ import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import MultiSelect from "@/components/ui/MultiSelect";
 import Button from "@/components/ui/Button";
 import { NewFlower } from "@/libs/types/flowers";
-import useCreateFlower from "@/features/products/flower/hooks/useCreateFlower";
+import useCreateFlower from "@/legacy/reactQuery/useCreateFlower";
 
 const FLOWER_OPTIONS: Array<{ label: string; value: number }> = [
   { label: "Roses", value: 1 },
