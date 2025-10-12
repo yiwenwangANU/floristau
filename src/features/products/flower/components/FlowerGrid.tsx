@@ -1,15 +1,10 @@
-"use client";
-// import AddNewFlower from "@/components/ui/AddNewFlower";
 import ProductCard from "@/features/products/shared/components/ProductCard";
-import useFetchFlowers from "@/features/products/flower/hooks/useFetchFlowers";
+import { fetchFlower } from "@/features/products/flower/utils";
 
-const FlowerGrid = () => {
-  const { data, isLoading, error } = useFetchFlowers();
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>{error.message}</div>;
+const FlowerGrid = async () => {
+  const data = await fetchFlower({ PageSize: 8 });
   return (
     <div className="flex flex-row flex-wrap items-center gap-8">
-      {/* <AddNewFlower /> */}
       {data?.map((flower) => (
         <ProductCard
           key={flower.id}

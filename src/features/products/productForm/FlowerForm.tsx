@@ -1,3 +1,4 @@
+"use client";
 import { useForm } from "react-hook-form";
 import { useAppDispatch } from "@/redux/hooks";
 import { nanoid } from "@reduxjs/toolkit";

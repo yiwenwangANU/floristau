@@ -1,3 +1,4 @@
+"use client";
 import { flowersApi } from "@/libs/api/flowersApi";
 import { useQuery } from "@tanstack/react-query";
 
