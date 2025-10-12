@@ -1,5 +1,5 @@
 import ProductCard from "@/features/products/shared/components/ProductCard";
-import { fetchFlower } from "@/features/products/flower/utils";
+import { fetchFlower } from "@/features/products/flower/api";
 
 const FlowerGrid = async () => {
   const data = await fetchFlower({ PageSize: 8 });

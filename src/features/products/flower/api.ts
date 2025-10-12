@@ -26,7 +26,7 @@ export const fetchFlower = async (params: {
     });
 
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/Public/Flower/getFlowers?${query.toString()}`,
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Public/Flower/getFlowers?${query.toString()}`,
     );
 
     if (!res.ok) {
