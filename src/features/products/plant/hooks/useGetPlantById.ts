@@ -1,4 +1,4 @@
-import { plantsApi } from "@/libs/api/plantsApi";
+import { plantsApi } from "@/legacy/axios/api/plantsApi";
 import { useQuery } from "@tanstack/react-query";
 
 const useGetPlantById = (id: number) => {

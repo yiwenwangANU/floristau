@@ -1,6 +1,6 @@
 import { handleApiError } from "./api-error-handler";
 import axiosPublic from "./axiosPublic";
-import { GetGiftsResponse } from "../types/gifts";
+import { GetGiftsResponse } from "../../../libs/types/gifts";
 export const wineApi = {
   getWine: async (): Promise<GetGiftsResponse> => {
     try {

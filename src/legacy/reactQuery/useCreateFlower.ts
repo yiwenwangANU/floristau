@@ -1,4 +1,4 @@
-import { flowersApi } from "@/libs/api/flowersApi";
+import { flowersApi } from "@/legacy/axios/api/flowersApi";
 import { NewFlower } from "@/libs/types/flowers";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";

@@ -1,4 +1,4 @@
-import { chocolateApi } from "@/libs/api/chocolateApi";
+import { chocolateApi } from "@/legacy/axios/api/chocolateApi";
 import { useQuery } from "@tanstack/react-query";
 
 const useGetChocolate = () => {

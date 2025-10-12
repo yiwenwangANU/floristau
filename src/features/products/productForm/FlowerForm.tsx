@@ -5,7 +5,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import { store } from "@/redux/store";
 
 import Button from "@/components/ui/Button";
-import { GiftQty } from "@/libs/types/gifts";
+import { GetGiftsResponse, GiftQty } from "@/libs/types/gifts";
 import { newItem } from "@/redux/slices/CartSlice";
 import { CartItem } from "@/libs/types/cart";
 import { ProductFormValues } from "@/libs/types/forms";
@@ -15,39 +15,22 @@ import SizeSelect from "@/features/products/productForm/SizeSelect";
 import DeliveryPost from "@/features/products/productForm/DeliveryPost";
 import DeliveryDate from "@/features/products/productForm/DeliveryDate";
 import GiftSelect from "@/features/products/productForm/GiftSelect";
-import useGetWine from "@/hooks/useGetWine";
-import useGetChocolate from "@/hooks/useGetChocolate";
-import useGetTeddy from "@/hooks/useGetTeddys";
-import useGetFlowerById from "@/features/products/shared/hooks/useGetFlowerById";
-import ErrorPage from "@/app/error";
-import Loading from "@/app/loading";
 import { useEffect } from "react";
+import { GetFlowerResponse } from "@/libs/types/flowers";
 
-const FlowerForm = ({ id }: { id: string }) => {
-  const {
-    data: flowerData,
-    isPending: flowerIsPending,
-    isError: flowerIsError,
-  } = useGetFlowerById(Number(id));
-  const {
-    data: wineData,
-    isPending: wineIsPending,
-    isError: wineIsError,
-  } = useGetWine();
-  const {
-    data: chocolateData,
-    isPending: chocolateIsPending,
-    isError: chocolateError,
-  } = useGetChocolate();
-  const {
-    data: teddyData,
-    isPending: teddyIsPending,
-    isError: teddyError,
-  } = useGetTeddy();
-  const isLoading =
-    flowerIsPending || wineIsPending || chocolateIsPending || teddyIsPending;
-  const isError = flowerIsError || wineIsError || chocolateError || teddyError;
-
+const FlowerForm = ({
+  id,
+  flowerData,
+  wineData,
+  chocolateData,
+  teddyData,
+}: {
+  id: string;
+  flowerData: GetFlowerResponse;
+  wineData: GetGiftsResponse;
+  chocolateData: GetGiftsResponse;
+  teddyData: GetGiftsResponse;
+}) => {
   const { handleCartOpen, handleCartClose, handleGiftClose } = useCartContext();
   const dispatch = useAppDispatch();
   const {
@@ -94,8 +77,6 @@ const FlowerForm = ({ id }: { id: string }) => {
       postcode: "",
     });
   }, [reset, id, wineData, chocolateData, teddyData]);
-  if (isLoading) return <Loading />;
-  if (isError) return <ErrorPage />;
 
   const filterGiftQty = (giftQty: GiftQty) => {
     return {

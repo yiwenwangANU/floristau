@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { flowersApi } from "@/libs/api/flowersApi";
+import { flowersApi } from "@/legacy/axios/api/flowersApi";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 

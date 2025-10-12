@@ -5,9 +5,9 @@ import Loading from "@/app/loading";
 import ErrorPage from "@/app/error";
 
 import useGetPlantById from "@/features/products/plant/hooks/useGetPlantById";
-import useGetWine from "@/hooks/useGetWine";
-import useGetChocolate from "@/hooks/useGetChocolate";
-import useGetTeddy from "@/hooks/useGetTeddys";
+import useGetWine from "@/legacy/reactQuery/useGetWine";
+import useGetChocolate from "@/legacy/reactQuery/useGetChocolate";
+import useGetTeddy from "@/legacy/reactQuery/useGetTeddys";
 
 import ProductDetail from "@/features/products/flower/components/FlowerDetail";
 import ProductForm from "@/features/products/productForm/FlowerForm";

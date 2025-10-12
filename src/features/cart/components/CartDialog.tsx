@@ -10,9 +10,9 @@ import Button from "@/components/ui/Button";
 import { useCartContext } from "@/contexts/CartContext";
 import CartContent from "@/features/cart/components/CartContent";
 import CartManageGift from "@/features/cart/components/CartManageGift";
-import useGetWine from "@/hooks/useGetWine";
-import useGetChocolate from "@/hooks/useGetChocolate";
-import useGetTeddy from "@/hooks/useGetTeddys";
+import useGetWine from "@/legacy/reactQuery/useGetWine";
+import useGetChocolate from "@/legacy/reactQuery/useGetChocolate";
+import useGetTeddy from "@/legacy/reactQuery/useGetTeddys";
 import CartSubtotal from "@/features/cart/components/CartSubtotal";
 
 const CartDialog = () => {

@@ -1,4 +1,4 @@
-import { flowersApi } from "@/libs/api/flowersApi";
+import { flowersApi } from "@/legacy/axios/api/flowersApi";
 import { useQuery } from "@tanstack/react-query";
 
 const useGetFlowers = () => {

@@ -4,7 +4,7 @@ import {
   GetFlowerResponse,
   GetFlowersResponse,
   UploadImageResponse,
-} from "../types/flowers";
+} from "../../../libs/types/flowers";
 import { handleApiError } from "./api-error-handler";
 import axiosPublic from "./axiosPublic";
 

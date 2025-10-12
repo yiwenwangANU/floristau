@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
-import { plantsApi } from "@/libs/api/plantsApi";
+import { plantsApi } from "@/legacy/axios/api/plantsApi";
 
 const PAGE_SIZE = 12;
 

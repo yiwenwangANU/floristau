@@ -4,7 +4,7 @@ import {
   GetPlantResponse,
   GetPlantsResponse,
   UploadImageResponse,
-} from "../types/plants";
+} from "../../../libs/types/plants";
 import { handleApiError } from "./api-error-handler";
 import axiosPublic from "./axiosPublic";
 
@@ -55,9 +55,7 @@ export const plantsApi = {
     }
   },
 
-  createPlant: async (
-    plant: CreatePlantDto,
-  ): Promise<CreatePlantResponse> => {
+  createPlant: async (plant: CreatePlantDto): Promise<CreatePlantResponse> => {
     try {
       const response = await axiosPublic.post<CreatePlantResponse>(
         "/api/admin/Plant/createPlant",

@@ -1,4 +1,4 @@
-import { teddyApi } from "@/libs/api/teddyApi";
+import { teddyApi } from "@/legacy/axios/api/teddyApi";
 import { useQuery } from "@tanstack/react-query";
 
 const useGetTeddy = () => {

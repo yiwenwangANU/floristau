@@ -1,4 +1,4 @@
-import { StripePayRequest } from "../types/checkout";
+import { StripePayRequest } from "../../../libs/types/checkout";
 import { handleApiError } from "./api-error-handler";
 import axiosPublic from "./axiosPublic";
 

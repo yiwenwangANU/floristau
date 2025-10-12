@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
-import { checkoutApi } from "@/libs/api/checkoutApi";
+import { checkoutApi } from "@/legacy/axios/api/checkoutApi";
 import { StripePayRequest } from "@/libs/types/checkout";
 
 const useCheckout = () => {

@@ -1,4 +1,4 @@
-import { wineApi } from "@/libs/api/wineApi";
+import { wineApi } from "@/legacy/axios/api/wineApi";
 import { useQuery } from "@tanstack/react-query";
 
 const useGetWine = () => {
