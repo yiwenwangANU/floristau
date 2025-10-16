@@ -5,7 +5,7 @@ import { fetchFlowerById } from "@/features/products/flower/api";
 import { fetchChocolate, fetchTeddy, fetchWine } from "@/libs/api/gifts";
 
 export default async function Page({ params }: { params: { id: string } }) {
-  const { id } = await params;
+  const { id } = params;
   const flowerData = await fetchFlowerById(Number(id));
   const wineData = await fetchWine();
   const chocolateData = await fetchChocolate();

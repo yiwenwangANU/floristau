@@ -1,11 +1,8 @@
-"use client";
 import ProductCard from "@/features/products/shared/components/ProductCard";
-import useFetchPlants from "@/features/products/plant/hooks/useFetchPlants";
+import { fetchPlant } from "../api";
 
-const PlantGrid = () => {
-  const { data, isLoading, error } = useFetchPlants();
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>{error.message}</div>;
+const PlantGrid = async () => {
+  const data = await fetchPlant({ PageSize: 8 });
   return (
     <div className="flex flex-row flex-wrap items-center gap-8">
       {data?.map((plant) => (
