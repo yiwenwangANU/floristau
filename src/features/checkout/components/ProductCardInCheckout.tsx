@@ -2,7 +2,7 @@ import { GiftQty } from "@/libs/types/gifts";
 import CartFlowerCardCheckout from "@/features/checkout/components/CartFlowerCardCheckout";
 import CartGiftCardCheckout from "@/features/checkout/components/CartGiftCardCheckout";
 
-const CartCardCheckout = ({
+const ProductCardInCheckout = ({
   name,
   size,
   price,
@@ -28,4 +28,4 @@ const CartCardCheckout = ({
   );
 };
 
-export default CartCardCheckout;
+export default ProductCardInCheckout;

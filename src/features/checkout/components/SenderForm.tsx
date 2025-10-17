@@ -1,3 +1,4 @@
+"use client";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "@/redux/hooks";
 import { useForm, SubmitHandler } from "react-hook-form";
